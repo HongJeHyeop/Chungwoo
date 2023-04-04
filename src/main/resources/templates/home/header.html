@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+<!--    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">-->
+    <title>$Title$</title>
+    <link rel="stylesheet" th:href="@{css/home/header.css}" href="../../static/css/home/header.css">
+    <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
+    <script th:src="@{js/header.js}" src="../../static/js/header.js" defer></script>
+</head>
+<body>
+<header th:fragment="header">
+    <div id="header-container">
+        <div><img th:src="@{images/logo.png}" src="../../static/images/logo.png" alt="로고"></div>
+        <div id="header-list-container">
+            <div id="header-list">
+                <ul>
+                    <li>회사소개</li>
+                    <li>업무/사업</li>
+                    <li>asdf</li>
+                    <li>커뮤니티</li>
+                    <li>고객센터</li>
+                </ul>
+            </div>
+            <div id="header-list-details" >
+                <ul>
+                    <li>인사말</li>
+                    <li>연혁</li>
+                    <li>조직도</li>
+                    <li>조직도</li>
+                    <li>조직도</li>
+                    <li>조직도</li>
+                </ul>
+                <ul>
+                    <li>업무1</li>
+                    <li>업무2</li>
+                    <li>업무3</li>
+                    <li>업무3</li>
+                    <li>업무3</li>
+                </ul>
+                <ul>
+                    <li>aaaa</li>
+                    <li>aaaa</li>
+                    <li>aaaa</li>
+                </ul>
+                <ul>
+                    <li>공지사항</li>
+                    <li>자료실</li>
+                    <li>채용공고</li>
+                </ul>
+                <ul>
+                    <li>고객센터</li>
+                    <li>고객센터</li>
+                    <li>고객센터</li>
+                    <li>고객센터</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <a href="#">CONTACT</a>
+            <a href="#">ADMIN</a>
+            <a href="#">ENG</a>
+        </div>
+    </div>
+</header>
+</body>
+</html>

@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style-type: none;
+}
+
+/*** 헤더 ***/
+#header-container {
+    padding: 2em 3em 0 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;;
+}
+
+/*** 로고 이미지 ***/
+#header-container img:first-child {
+    width: 10em;
+}
+
+/*** 헤더 메뉴 ***/
+#header-list-container {
+    border: 1px solid black;
+    position: relative;
+    top: 1.5em;
+    width: 70em;
+}
+#header-list {
+    height: 3em;
+}
+#header-list li {
+    font-size: 1.4em;
+    float: left;
+    width: 20%;
+    box-sizing: border-box;
+    text-align: center;
+}
+#header-list li:hover {
+    font-size: 1.6em;
+    color: red;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+/* details */
+#header-list-details {
+    opacity: 0;
+    height: 0vw;
+    overflow: hidden;
+    background-color: rgba(100, 149, 237, 0.7);
+    transition: opacity ease-in-out 0.2s;
+}
+#header-list-details ul{
+    float: left;
+    width: 20%;
+}
+#header-list-details li {
+    margin: 0.3em 0;
+    font-size: 1em;
+    box-sizing: border-box;
+    text-align: center;
+}
+#header-list-details li:hover {
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all ease-in-out 0.1s;
+}
