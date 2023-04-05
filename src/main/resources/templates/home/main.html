@@ -6,16 +6,26 @@
 >
 <head>
     <meta charset="UTF-8">
-<!--    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">-->
+    <!--    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">-->
     <title>청우국제운송</title>
     <link rel="stylesheet" th:href="@{css/home/header.css}" href="../../static/css/home/header.css">
     <link rel="stylesheet" th:href="@{css/home/main.css}" href="../../static/css/home/main.css">
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
     <script th:src="@{js/header.js}" src="../../static/js/header.js" defer></script>
+    <script th:src="@{js/main.js}" src="../../static/js/main.js" defer></script>
 </head>
 <body>
-<header id="a"></header>
 <th:block th:replace="~{home/header:: header}"/>
-<a href="#">asdfasdf</a>
+<div id="main-img-container">
+    <div id="main-img-items">
+        <img class="main-img" src="../../images/main.jpg" alt="메인1">
+        <img class="main-img" src="../../images/main2.jpg" alt="메인2">
+        <img class="main-img" src="../../images/main3.jpg" alt="메인3">
+    </div>
+    <div id="arrows">
+        <i class="fa-solid fa-angle-left"></i>
+        <i class="fa-solid fa-angle-right"></i>
+    </div>
+</div>
 </body>
 </html>
