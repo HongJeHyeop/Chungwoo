@@ -16,11 +16,11 @@
 <header th:fragment="header">
     <div id="header-main">
         <div >
-        <img th:src="@{images/logo.png}" src="../../static/images/logo.png" alt="로고">
+        <img th:src="@{/images/logo.png}" src="../../static/images/logo.png" alt="로고" onclick="location.href='/ '">
         </div>
         <div id="header-list">
             <ul>
-                <li><a href="#">회사소개</a></li>
+                <li><a href="/introduce/main">회사소개</a></li>
                 <li><a href="#">업무/사업</a></li>
                 <li><a href="#">asdf</a></li>
                 <li><a href="#">커뮤니티</a></li>

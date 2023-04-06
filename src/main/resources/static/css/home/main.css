@@ -9,13 +9,16 @@ html, body {
     justify-content: center;
     align-items: center;
     background: rgba(54, 54, 54, 0.7);
+    overflow: hidden;
+
 }
 
 #main-img-items {
     position: absolute;
     display: inline-flex;
     left: 0;
-    /*transform: translateX(-100vw);*/
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
 }
 
 .main-img {

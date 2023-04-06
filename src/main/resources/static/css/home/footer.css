@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+}
+#foot-list {
+    background-color: #999999;
+}
+#foot-list ul {
+    display: flex;
+}
+#foot-list li::after {
+    content: 'l';
+    margin: 1em;
+}
