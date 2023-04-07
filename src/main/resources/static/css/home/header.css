@@ -11,8 +11,8 @@ ul {
 
 /*** 헤더 ***/
 #header-main {
+    position: relative;
     padding: 1em 10em 0 10em;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,13 +46,15 @@ ul {
 
 /* details */
 #header-list-details {
-    opacity: 0;
-    height: 0vw;
+    position: absolute;
+    left: 0; right: 0;
     padding: 0 27.8em 0 24.5em;
     display: flex;
     overflow: hidden;
-    background-color: rgba(198, 199, 201, 0.7);
+    background-color: rgba(255, 255, 255, 0.9);
     transition: opacity ease-in-out 0.2s;
+    height: 0vw;
+    opacity: 0;
 }
 #header-list-details ul{
     width: 100%;
@@ -63,7 +65,7 @@ ul {
     text-align: center;
 }
 #header-list-details a {
-    color: white;
+    color: #595959;
 }
 #header-list-details li:hover {
     font-size: 1.1rem;

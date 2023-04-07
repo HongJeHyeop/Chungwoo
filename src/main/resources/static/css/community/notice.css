@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+article {
+    position: relative;
+    top: 13em;
+    left: 50%;
+    width: 50vw;
+    height: 50vh;
+    transform: translateX(-50%);
+    background-color: #4646b6;
+}
+#notice-list {
+    background-color: orange;
+    width: 50vw;
+    height: 50vh;
+
+    display: flex;
+}

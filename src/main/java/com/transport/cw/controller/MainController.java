@@ -18,9 +18,14 @@ public class MainController {
         return "home/main";
     }
 
-    @GetMapping("/introduce/main")
+    @GetMapping("/introduce/greeting")
     public void intro() {
         log.info("====== 회사 소개 페이지 접속! =======");
+
+    }
+
+    @GetMapping("/community/notice")
+    public void notice() {
 
     }
 

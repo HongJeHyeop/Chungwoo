@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+<!--    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">-->
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
+    <link rel="stylesheet" th:href="@{/css/community/notice.css}" href="../../static/css/community/notice.css">
+    <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
+    <script th:src="@{/js/header.js}" src="../../static/js/header.js" defer></script>
+</head>
+<body>
+<th:block th:replace="~{home/header:: header}"/>
+
+<article>
+    <h1>공지사항</h1>
+    <input type="text" placeholder="검색어를 입력하세요">
+    <div id="notice-list">
+        <ul>
+            <li>adsf</li>
+            <li>adsf</li>
+            <li>adsf</li>
+            <li>adsf</li>
+            <li>adsf</li>
+            <li>adsf</li>
+            <li>adsf</li>
+            <li>adsf</li>
+        </ul>
+    <ul>
+        <li>공지사항1</li>
+        <li>공지사항1</li>
+        <li>공지사항1</li>
+        <li>공지사항1</li>
+        <li>공지사항1</li>
+        <li>공지사항1</li>
+        <li>공지사항1</li>
+        <li>공지사항1</li>
+        <li>공지사항1</li>
+        <li>공지사항1</li>
+        <li>공지사항1</li>
+    </ul>
+    </div>
+</article>
+</body>
+</html>
