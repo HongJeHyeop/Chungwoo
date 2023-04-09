@@ -55,6 +55,7 @@ ul {
     transition: opacity ease-in-out 0.2s;
     height: 0vw;
     opacity: 0;
+    z-index: 999;
 }
 #header-list-details ul{
     width: 100%;
