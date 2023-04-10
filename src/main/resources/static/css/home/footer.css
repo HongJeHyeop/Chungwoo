@@ -1,17 +1,38 @@
-* {
+html, body {
     margin: 0;
     padding: 0;
     text-decoration: none;
     list-style-type: none;
-    color: black;
+    color: #383838;
+}
+footer {
+    position: relative;
+    width: 100%;
+    height: 10em;
+    background-color: rgba(117, 150, 183, 0.6);
 }
 #foot-list {
-    background-color: #999999;
+
 }
 #foot-list ul {
     display: flex;
+    margin-left: 15em;
+    font-size: 1.2rem;
 }
-#foot-list li::after {
+#foot-list li {
+    cursor: pointer;
+}
+#foot-list li:first-child::after {
     content: 'l';
-    margin: 1em;
+    margin: 0.5em;
+}
+#info {
+    text-align: center;
+}
+#info h2 {
+    margin: 0.5em 0;
+    font-size: 1.6rem;
+}
+#info span {
+    font-size: 1.2rem;
 }

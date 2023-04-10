@@ -1,9 +1,19 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&display=swap');
+
+
+html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
     list-style-type: none;
     text-decoration: none;
     color: black;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+#body-wrapper {
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 13em;
 }
 /*** 제목 ***/
 #title {
@@ -16,6 +26,7 @@
 }
 #title h1 {
     color: #fff;
+    font-size: 2rem;
     text-shadow: 1px 5px 5px black;
 }
 
@@ -23,8 +34,8 @@
 #intro-list {
     width: 10em;
     box-sizing: border-box;
-    position: sticky;
-    top: 70em;
+    position: absolute;
+    top: 25em;
     margin-left: 10em;
 }
 #intro-list ul li {
@@ -42,10 +53,11 @@
 #greeting {
     position: absolute;
     left: 50%;
-    top : 40%;
+    top : 15em;
     transform: translateX(-50%);
     text-align: right;
     font-size: 1.4rem;
+    line-height: 2.2rem;
 }
 #greeting h1 {
     text-align: center;
@@ -55,11 +67,11 @@
 
 /*** 테이블 ***/
 #company-info {
-    position: relative;
+    position: absolute;
     left: 35%;
     margin-top: 3em;
     border-spacing: 0;
-    margin-bottom: 30em;
+    /*margin-bottom: 30em;*/
 }
 #company-info td:first-child {
     border-right: 1px solid #999;

@@ -10,33 +10,37 @@
     <title>청우국제운송</title>
     <link rel="stylesheet" th:href="@{css/home/header.css}" href="../../static/css/home/header.css">
     <link rel="stylesheet" th:href="@{css/home/main.css}" href="../../static/css/home/main.css">
+    <link rel="stylesheet" th:href="@{css/home/footer.css}" href="../../static/css/home/footer.css">
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
     <script th:src="@{js/header.js}" src="../../static/js/header.js" defer></script>
     <script th:src="@{js/main.js}" src="../../static/js/main.js" defer></script>
 </head>
 <body>
 <th:block th:replace="~{home/header:: header}"/>
-<div id="main-img-container">
-    <div id="main-img-items">
-        <img class="main-img" src="../../images/main.jpg" alt="메인1">
-        <img class="main-img" src="../../images/main2.jpg" alt="메인2">
-        <img class="main-img" src="../../images/main3.jpg" alt="메인3">
+<div id="body-wrapper">
+    <div id="main-img-container">
+        <div id="main-img-items">
+            <img class="main-img" src="../../images/main.jpg" alt="메인1">
+            <img class="main-img" src="../../images/main2.jpg" alt="메인2">
+            <img class="main-img" src="../../images/main3.jpg" alt="메인3">
+        </div>
+        <div id="img-num">
+            <button onclick="img_changing(1, this)">1</button>
+            <button onclick="img_changing(2, this)">2</button>
+            <button onclick="img_changing(3, this)">3</button>
+        </div>
     </div>
-    <div id="img-num">
-        <button onclick="img_changing(1, this)">1</button>
-        <button onclick="img_changing(2, this)">2</button>
-        <button onclick="img_changing(3, this)">3</button>
-    </div>
+    <section>
+        <div id="notice-shortly">
+            <ul>
+                <li>공지사항1</li>
+                <li>공지사항2</li>
+                <li>공지사항3</li>
+                <li>공지사항4</li>
+            </ul>
+        </div>
+    </section>
 </div>
-<section>
-    <div id="notice-shortly">
-        <ul>
-            <li>공지사항1</li>
-            <li>공지사항2</li>
-            <li>공지사항3</li>
-            <li>공지사항4</li>
-        </ul>
-    </div>
-</section>
+<th:block th:replace="~{home/footer::footer}"/>
 </body>
 </html>

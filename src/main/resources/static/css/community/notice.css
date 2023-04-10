@@ -1,20 +1,69 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&display=swap');
+
+html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
+    font-family: 'Nanum Gothic', sans-serif;
 }
-article {
+#body-wrapper {
     position: relative;
-    top: 13em;
-    left: 50%;
-    width: 50vw;
-    height: 50vh;
-    transform: translateX(-50%);
-    background-color: #4646b6;
+    min-height: 100%;
 }
-#notice-list {
-    background-color: orange;
-    width: 50vw;
-    height: 50vh;
+
+/*** 제목 ***/
+#title {
+    height: 12em;
+    background: url("../../images/main.jpg") 100% no-repeat rgba(0,0,0,0.8%);
 
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
+#title h1 {
+    color: #fff;
+    font-size: 2rem;
+    text-shadow: 1px 5px 5px black;
+}
+
+/*** 공지사항 검색 ***/
+#search-input {
+    background-color: red;
+    text-align: right;
+    margin: 1em 1em;
+}
+#search-input select {
+    width: 5em;
+    height: 3em;
+}
+#search-input input:nth-child(2){
+    width: 10em;
+    height: 3em;
+}
+
+/*** 공지사항 목록 ***/
+#notice-list {
+    position: absolute;
+    top: 25em;
+    left: 50%;
+    width: 60vw;
+    transform: translateX(-50%);
+}
+.tbl-title {
+    width: 3em;
+    height: 2.5em;
+    text-align: center;
+}
+.tbl-content {
+    width: 45em;
+    padding-left: 1em;
+}
+.tbl-upload {
+    width: 10em;
+    text-align: center;
+}
+.tbl-count {
+    width: 5em;
+    text-align: center;
+}
+
