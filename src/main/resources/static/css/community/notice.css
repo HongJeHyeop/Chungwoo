@@ -28,17 +28,21 @@ html, body {
 
 /*** 공지사항 검색 ***/
 #search-input {
-    background-color: red;
+    /*background-color: red;*/
     text-align: right;
     margin: 1em 1em;
 }
 #search-input select {
     width: 5em;
-    height: 3em;
+    height: 2.5em;
 }
 #search-input input:nth-child(2){
-    width: 10em;
-    height: 3em;
+    width: 20em;
+    height: 2.2em;
+}
+#search-input input:last-child {
+    width: 4em;
+    height: 2.5em;
 }
 
 /*** 공지사항 목록 ***/
@@ -47,23 +51,31 @@ html, body {
     top: 25em;
     left: 50%;
     width: 60vw;
+    box-sizing: border-box;
     transform: translateX(-50%);
 }
 .tbl-title {
-    width: 3em;
+    width: 3vw;
     height: 2.5em;
     text-align: center;
+    border-bottom: 2px solid #c0bfbf;
 }
 .tbl-content {
-    width: 45em;
+    width: 45vw;
     padding-left: 1em;
+    border-bottom: 2px solid #c0bfbf;
 }
 .tbl-upload {
-    width: 10em;
+    width: 7vw;
     text-align: center;
+    border-bottom: 2px solid #c0bfbf;
+
+
 }
 .tbl-count {
-    width: 5em;
+    width: 5vw;
     text-align: center;
+    border-bottom: 2px solid #c0bfbf;
+
 }
 

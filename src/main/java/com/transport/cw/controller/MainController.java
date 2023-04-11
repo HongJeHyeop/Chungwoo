@@ -18,6 +18,11 @@ public class MainController {
         return "home/main";
     }
 
+    @GetMapping("/user/login")
+    public void login() {
+
+    }
+
     @GetMapping("/introduce/greeting")
     public void intro() {
         log.info("====== 회사 소개 페이지 접속! =======");
@@ -27,6 +32,11 @@ public class MainController {
     @GetMapping("/community/notice")
     public void notice() {
 
+    }
+
+    @GetMapping("/community/detail")
+    public void detail() {
+        log.info("상세페이지 접속");
     }
 
 }

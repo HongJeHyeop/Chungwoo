@@ -13,7 +13,7 @@ html, body {
 #body-wrapper {
     position: relative;
     min-height: 100%;
-    padding-bottom: 13em;
+    /*padding-bottom: 13em;*/
 }
 /*** 제목 ***/
 #title {
@@ -50,28 +50,29 @@ html, body {
 }
 
 /*** 내용 ***/
-#greeting {
-    position: absolute;
-    left: 50%;
-    top : 15em;
-    transform: translateX(-50%);
+#greeting h1 {
+    margin-top: 1.5em;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 1.5em;
+}
+#greeting span {
+    display: block;
     text-align: right;
     font-size: 1.4rem;
     line-height: 2.2rem;
-}
-#greeting h1 {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 1em;
+    margin-right: 20%;
 }
 
 /*** 테이블 ***/
+#info-tbl {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20%;
+}
 #company-info {
-    position: absolute;
-    left: 35%;
-    margin-top: 3em;
+    margin: 3em 0;
     border-spacing: 0;
-    /*margin-bottom: 30em;*/
 }
 #company-info td:first-child {
     border-right: 1px solid #999;
