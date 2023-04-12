@@ -1,6 +1,9 @@
 package com.transport.cw.controller;
 
 import lombok.extern.log4j.Log4j2;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,14 +21,11 @@ public class MainController {
         return "home/main";
     }
 
-    @GetMapping("/user/login")
-    public void login() {
-
-    }
-
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("/introduce/greeting")
-    public void intro() {
+    public void intro(@AuthenticationPrincipal UserDetails userDetails) {
         log.info("====== 회사 소개 페이지 접속! =======");
+        log.info("로그인한 유저 >>>>" + userDetails.getUsername());
 
     }
 
