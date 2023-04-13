@@ -1,20 +1,27 @@
-const headerList = document.getElementById('header-list');
-const headerListDetails = document.getElementById('header-list-details');
+const headerListTitle = document.getElementsByClassName('header-list-title');
+const headerDetailList = document.getElementsByClassName('header-detail-list');
 
-/*** 헤더 상세메뉴 표시 이벤트 ***/
-headerList.addEventListener('mouseover', () => {
-    headerListDetails.style.opacity = '100%';
-    headerListDetails.style.height = '13em';
-})
-headerList.addEventListener('mouseout', () => {
-    headerListDetails.style.opacity = '0';
-    headerListDetails.style.height = '0';
-})
-headerListDetails.addEventListener('mouseover', () => {
-    headerListDetails.style.opacity = '100%';
-    headerListDetails.style.height = '13em';
-})
-headerListDetails.addEventListener('mouseout', () => {
-    headerListDetails.style.opacity = '0';
-    headerListDetails.style.height = '0';
-})
+function show_header_list(e) {
+    e.querySelector('ul').style.display = "block";
+}
+function hide_header_list(e) {
+    e.querySelector('ul').style.display = "none";
+}
+/*** header list show ***/
+for (let list of headerListTitle) {
+    list.addEventListener('mouseover', () => {
+        show_header_list(list);
+    });
+    list.addEventListener('mouseout', () => {
+        hide_header_list(list);
+    });
+}
+for (let list of headerDetailList) {
+    list.addEventListener('mouseover', () => {
+        console.log(list)
+        list.style.display = "block";
+    })
+    list.addEventListener('mouseout', (e) => {
+        list.style.display = "none";
+    })
+}
