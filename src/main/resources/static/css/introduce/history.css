@@ -1,0 +1,17 @@
+
+
+#history {
+    /*border: 1px solid black;*/
+    margin: 2rem 0 2rem 0;
+}
+#history table {
+    border-spacing: 0;
+}
+#history td {
+    padding: 2rem 1rem;
+    border-bottom: 1px solid rgba(153, 153, 153, 0.3);
+    font-size: 1.3rem;
+    color: #5b5b5b;
+    font-weight: bold;
+    letter-spacing: 1px;
+}

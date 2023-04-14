@@ -16,11 +16,16 @@ public class MainController {
         return "home/main";
     }
 
+    /*** 회사소개페이지 ***/
     @GetMapping("/introduce/greeting")
-    public void intro() {
+    public void greeting() {
         log.info("====== 회사 소개 페이지 접속! =======");
     }
 
+    @GetMapping("/introduce/history")
+    public void history() {log.info("====== 연혁 ======");}
+
+    /*** 커뮤니티 페이지 ***/
     @GetMapping("/community/notice")
     public void notice() {
 
