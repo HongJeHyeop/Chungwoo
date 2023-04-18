@@ -11,6 +11,7 @@
     <link rel="stylesheet" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
     <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
     <link rel="stylesheet" th:href="@{/css/community/notice.css}" href="../../static/css/community/notice.css">
+    <link rel="stylesheet" th:href="@{/css/community/community.css}" href="../../static/css/community/community.css">
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
     <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
     <script th:src="@{/js/community/notice.js}" src="../../static/js/community/notice.js.js" defer></script>
@@ -18,10 +19,10 @@
 <body>
 <th:block th:replace="~{home/header:: header}"/>
 <div id="body-wrapper">
-    <article>
-        <div id="title">
-            <h1>공지사항</h1>
-        </div>
+    <div id="title">
+        <h1>공지사항</h1>
+    </div>
+    <section>
         <div id="notice-list">
             <div id="search-input">
                 <select>
@@ -41,7 +42,7 @@
                 <tbody>
                 <tr>
                     <td class="tbl-title">1</td>
-                    <td class="tbl-content" onclick="location.href = 'detail'">제목입니다</td>
+                    <td class="tbl-content"><a href="/community/detail">제목입니다</a></td>
                     <td class="tbl-upload">2023-04-10</td>
                     <td class="tbl-count">23</td>
                 </tr>
@@ -60,7 +61,7 @@
                 </tbody>
             </table>
         </div>
-    </article>
+    </section>
 </div>
 <th:block th:replace="~{home/footer::footer}"/>
 </body>

@@ -1,11 +1,63 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+
+#detail-container {
+    margin: 8rem 0;
+
+    /*border: 1px solid blue;*/
 }
-#body-wrapper {
-    min-height: 100%;
+#detail-container table {
+    width: 70rem;
+    border-spacing: 0;
 }
-h1{
-    margin: 2em;
+
+/* 테이블 헤더 */
+#detail-container th {
+    padding: 1rem;
+    width: 15%;
+    font-size: 0.9rem;
+    font-weight: normal;
+
+    border-top: 2px solid #999999;
+    border-bottom: 2px solid #999999;
+
+}
+#detail-container th:first-child {
+    width: 70%;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+/* 테이블 바디 */
+#detail-container tbody td {
+    padding: 2rem 1rem;
+    line-height: 1.5rem;
+}
+
+/* 테이블 풋 */
+#detail-container tfoot tr:first-child td {
+
+    border-top: 2px solid #999;
+}
+#detail-container tfoot td {
+    padding: 1rem;
+    font-size: 0.9rem;
+
+    border-bottom: 1px dotted #999;
+}
+
+/* 이동 버튼 */
+#move-btn {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+}
+#move-btn input {
+    margin: 2rem;
+    width: 4rem;
+    height: 2rem;
+    font-size: 0.8rem;
+    /*font-weight: bold;*/
+    background-color: #314E70;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
