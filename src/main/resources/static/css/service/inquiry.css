@@ -1,0 +1,58 @@
+.small-font {
+    font-size: 0.7rem;
+}
+
+input[type=text] {
+    height: 1.3rem;
+}
+.info:first-child {
+    margin-top: 10rem;
+    /*border: 1px solid red;*/
+}
+.info:nth-child(2) {
+    margin: 2rem 0;
+}
+.info table {
+    border-spacing: 0;
+}
+.info tr td:first-child {
+    width: 13rem;
+    background-color: #acc5f1;
+}
+.info tr td:last-child {
+    width: 50rem;
+
+    display: flex;
+}
+.info td {
+    padding: 1rem;
+    height: 1.5rem;
+
+    border: 1px solid black;
+}
+.info:first-child tr:last-child td {
+    height: 3rem;
+
+}
+.info td div {
+    margin-right: 1rem;
+}
+
+/*** 버튼 ***/
+#btn-box {
+    margin: 5rem 0;
+
+    display: flex;
+    justify-content: center;
+}
+#btn-box input {
+    width: 6rem;
+    height: 3rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: white;
+
+    background-color: #bd3030;
+    border: none;
+    border-radius: 5px;
+}

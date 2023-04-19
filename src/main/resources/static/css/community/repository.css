@@ -1,0 +1,55 @@
+
+
+/*** 공지사항 검색 ***/
+#search-input {
+    /*background-color: red;*/
+    text-align: right;
+    margin: 1em 1em;
+}
+#search-input select {
+    width: 5em;
+    height: 2.5em;
+}
+#search-input input:nth-child(2){
+    width: 20em;
+    height: 2.2em;
+}
+#search-input input:last-child {
+    width: 4em;
+    height: 2.5em;
+    background-color: #B3E3FF;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*** 공지사항 목록 ***/
+#repository-container {
+    margin: 10rem 0;
+    width: 60vw;
+    box-sizing: border-box;
+}
+.tbl-title {
+    width: 3vw;
+    height: 2.5em;
+    text-align: center;
+    border-bottom: 2px solid #c0bfbf;
+}
+.tbl-content {
+    width: 45vw;
+    padding-left: 1em;
+    border-bottom: 2px solid #c0bfbf;
+}
+.tbl-upload {
+    width: 7vw;
+    text-align: center;
+    border-bottom: 2px solid #c0bfbf;
+}
+.tbl-count {
+    width: 5vw;
+    text-align: center;
+    border-bottom: 2px solid #c0bfbf;
+
+}
+

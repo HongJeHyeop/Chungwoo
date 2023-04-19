@@ -9,7 +9,7 @@
     border-spacing: 0;
 }
 
-/* 테이블 헤더 */
+/* 테이블 헤더(제목) */
 #detail-container th {
     padding: 1rem;
     width: 15%;
@@ -26,13 +26,13 @@
     text-align: left;
 }
 
-/* 테이블 바디 */
+/* 테이블 바디(내용) */
 #detail-container tbody td {
     padding: 2rem 1rem;
     line-height: 1.5rem;
 }
 
-/* 테이블 풋 */
+/* 테이블 풋(첨부파일) */
 #detail-container tfoot tr:first-child td {
 
     border-top: 2px solid #999;

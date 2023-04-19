@@ -26,6 +26,7 @@ public class MainController {
     public void history() {log.info("====== 연혁 ======");}
 
     /*** 커뮤니티 페이지 ***/
+    // 공지사항
     @GetMapping("/community/notice")
     public void notice() {
 
@@ -36,4 +37,22 @@ public class MainController {
         log.info("상세페이지 접속");
     }
 
+    // 자료실
+    @GetMapping("/community/repository")
+    public void dataroom() {
+        log.info("자료실 접속");
+    }
+
+
+    /*** 고객센터 ***/
+    // 온라인 문의
+    @GetMapping("/service/inquiry")
+    public void inquiry() {
+        log.info("온라인 문의 접속");
+    }
+
+    @GetMapping("/service/mailsend")
+    public void mailsend() {
+        log.info("메일보내기 접속");
+    }
 }
