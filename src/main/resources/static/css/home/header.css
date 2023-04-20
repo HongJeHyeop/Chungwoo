@@ -13,12 +13,13 @@
 header {
     position: relative;
     padding: 2rem 15rem 0 15rem;
+
+    display: flex;
+    justify-content: space-between;
 }
 
 /*** 로고 이미지 ***/
-#header-logo {
-    position: absolute;
-}
+
 #header-logo img {
     width: 6rem;
     cursor: pointer;
@@ -28,12 +29,12 @@ header {
 /**** 헤더 메뉴 ****/
 #header-list > ul {
     display: flex;
-    justify-content: flex-end;
+    width: 50rem;
 }
 #header-list > ul > li {
     padding: 0.5rem 0.5rem;
     margin-top: 1.5rem;
-    width: 10rem;
+    width: 20%;
     text-align: center;
     font-weight: bold;
     font-size: 1.3rem;
@@ -70,52 +71,3 @@ header {
     color: #314E70;
 }
 
-
-
-/*#header-list {*/
-/*    height: 4em;*/
-/*}*/
-/*#header-list ul {*/
-/*    display: flex;*/
-/*}*/
-/*#header-list li {*/
-/*    margin: 1em 3em;*/
-/*    font-size: 1.4rem;*/
-/*    box-sizing: border-box;*/
-/*    text-align: center;*/
-/*}*/
-/*#header-list li a:hover {*/
-/*    font-weight: bold;*/
-/*    color: #4646b6;*/
-/*    transition: all 0.1s ease-in-out;*/
-/*}*/
-
-/*!* details *!*/
-/*#header-list-details {*/
-/*    position: absolute;*/
-/*    left: 0; right: 0;*/
-/*    padding: 0 27.8em 0 24.5em;*/
-/*    display: flex;*/
-/*    overflow: hidden;*/
-/*    background-color: rgba(255, 255, 255, 0.9);*/
-/*    transition: opacity ease-in-out 0.2s;*/
-/*    height: 0vw;*/
-/*    opacity: 0;*/
-/*    z-index: 999;*/
-/*}*/
-/*#header-list-details ul{*/
-/*    width: 100%;*/
-/*}*/
-/*#header-list-details li{*/
-/*    margin: 0.3em 0;*/
-/*    font-size: 1rem;*/
-/*    text-align: center;*/
-/*}*/
-/*#header-list-details a {*/
-/*    color: #595959;*/
-/*}*/
-/*#header-list-details li:hover {*/
-/*    font-size: 1.1rem;*/
-/*    cursor: pointer;*/
-/*    transition: all ease-in-out 0.1s;*/
-/*}*/
