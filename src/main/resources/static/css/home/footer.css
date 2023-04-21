@@ -7,16 +7,20 @@ html, body {
 }
 footer {
     position: relative;
-    width: 100%;
-    height: 10em;
+    height: 10rem;
     background-color: rgba(117, 150, 183, 0.6);
+}
+#foot-container {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 #foot-list {
 
 }
 #foot-list ul {
     display: flex;
-    margin-left: 15em;
     font-size: 1.2rem;
 }
 #foot-list li {

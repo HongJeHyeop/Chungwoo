@@ -1,16 +1,16 @@
 
-#detail-container {
-    margin: 8rem 0;
+#container {
+    padding: 8rem 2rem;
 
     /*border: 1px solid blue;*/
 }
-#detail-container table {
+#container table {
     width: 70rem;
     border-spacing: 0;
 }
 
 /* 테이블 헤더(제목) */
-#detail-container th {
+#container th {
     padding: 1rem;
     width: 15%;
     font-size: 0.9rem;
@@ -20,24 +20,24 @@
     border-bottom: 2px solid #999999;
 
 }
-#detail-container th:first-child {
+#container th:first-child {
     width: 70%;
     font-size: 1.1rem;
     text-align: left;
 }
 
 /* 테이블 바디(내용) */
-#detail-container tbody td {
+#container tbody td {
     padding: 2rem 1rem;
     line-height: 1.5rem;
 }
 
 /* 테이블 풋(첨부파일) */
-#detail-container tfoot tr:first-child td {
+#container tfoot tr:first-child td {
 
     border-top: 2px solid #999;
 }
-#detail-container tfoot td {
+#container tfoot td {
     padding: 1rem;
     font-size: 0.9rem;
 
@@ -51,13 +51,12 @@
     justify-content: center;
 }
 #move-btn input {
-    margin: 2rem;
     width: 4rem;
     height: 2rem;
+    margin: 2rem;
     font-size: 0.8rem;
-    /*font-weight: bold;*/
-    background-color: #314E70;
     color: white;
-    border: none;
+    background-color: #314E70;
     cursor: pointer;
+    border: none;
 }

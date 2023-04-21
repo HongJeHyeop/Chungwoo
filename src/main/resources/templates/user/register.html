@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <!--    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">-->
+    <title>회원가입</title>
+    <link rel="stylesheet" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
+    <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
+    <link rel="stylesheet" th:href="@{/css/user/register.css}" href="../../static/css/user/register.css">
+    <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
+    <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
+</head>
+<body>
+<th:block th:replace="~{home/header:: header}"/>
+<div id="body-wrapper">
+    <div id="register-container">
+        <h1>회원가입</h1>
+        <form action="">
+            <table id="register-box">
+                <tr>
+                    <td>*아이디</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>*비밀번호</td>
+                    <td><input type="password"></td>
+                </tr>
+                <tr>
+                    <td>*비밀번호 재확인</td>
+                    <td><input type="password"></td>
+                </tr>
+                <tr>
+                    <td>*이름</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>*연락처</td>
+                    <td id="phone">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td>*이메일</td>
+                    <td><input type="email"></td>
+                </tr>
+                <tr>
+                    <td>*지점</td>
+                    <td>
+                        <select name="" id="">
+                            <option selected>대구본점</option>
+                            <option>부산</option>
+                            <option>지점2</option>
+                            <option>지점3</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>*직책</td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+            <div id="btn-box">
+                <input type="submit" value="완 료">
+                <input type="button" value="돌아가기" onclick="location.href = '/user/login'">
+            </div>
+        </form>
+    </div>
+</div>
+<th:block th:replace="~{home/footer::footer}"/>
+</body>
+</html>

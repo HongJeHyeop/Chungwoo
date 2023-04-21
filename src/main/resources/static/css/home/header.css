@@ -12,14 +12,15 @@
 /*** 헤더 ***/
 header {
     position: relative;
-    padding: 2rem 15rem 0 15rem;
+    padding-top: 2rem;
+    margin: 0 auto;
+    width: 1200px;
 
     display: flex;
     justify-content: space-between;
 }
 
 /*** 로고 이미지 ***/
-
 #header-logo img {
     width: 6rem;
     cursor: pointer;

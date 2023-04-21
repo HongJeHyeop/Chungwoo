@@ -32,16 +32,34 @@ html, body {
     text-shadow: 2px 2px 3px black;
 }
 
+/*** 내용 ***/
+article {
+    position: relative;
+    margin: 0 auto;
+    width: 1200px;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /*border: 1px solid red;*/
+}
+article h1 {
+    margin: 2rem 0;
+    font-size: 2.2rem;
+    color: #2E76DB;
+    text-shadow: 1px 1px 1px #999;
+}
+#container {
+    width: 100%;
+    display: flex;
+}
 
 /*** 사이드바 ***/
 #intro-list {
-    position: absolute;
-    top: 25em;
-    width: 10em;
-    margin-left: 15em;
+    width: 10rem;
+    padding: 0 1rem;
     box-sizing: border-box;
-    z-index: 999;
 }
 #intro-list ul li {
     box-sizing: border-box;
@@ -52,23 +70,4 @@ html, body {
 }
 #intro-list ul li:last-child {
     border-bottom: 1px solid #b3b3b4;
-}
-
-/*** 내용 ***/
-article {
-    position: relative;
-    width: 100%;
-    height: auto;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    border: 1px solid red;
-}
-article h1 {
-    margin: 2rem 0;
-    font-size: 2.2rem;
-    color: #2E76DB;
-    text-shadow: 1px 1px 1px #999;
 }

@@ -24,4 +24,9 @@ public class UserController {
 
     }
 
+    @GetMapping("/user/register")
+    public void register() {
+        log.info("회원가입 페이지");
+    }
+
 }

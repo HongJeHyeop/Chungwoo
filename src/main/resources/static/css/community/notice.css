@@ -1,22 +1,24 @@
-
+#container {
+    padding: 10rem 0;
+}
 
 /*** 공지사항 검색 ***/
 #search-input {
     /*background-color: red;*/
     text-align: right;
-    margin: 1em 1em;
+    margin: 1rem 7rem;
 }
 #search-input select {
-    width: 5em;
-    height: 2.5em;
+    width: 5rem;
+    height: 2.5rem;
 }
 #search-input input:nth-child(2){
-    width: 20em;
-    height: 2.2em;
+    width: 20rem;
+    height: 2.2rem;
 }
 #search-input input:last-child {
-    width: 4em;
-    height: 2.5em;
+    width: 4rem;
+    height: 2.5rem;
     background-color: #B3E3FF;
     font-weight: bold;
     border: none;
@@ -25,29 +27,28 @@
 }
 
 /*** 공지사항 목록 ***/
-#notice-list {
-    margin: 10rem 0;
-    width: 60vw;
-    box-sizing: border-box;
+#notice-box {
+    display: flex;
+    justify-content: center;
 }
 .tbl-title {
-    width: 3vw;
+    width: 3rem;
     height: 2.5em;
     text-align: center;
     border-bottom: 2px solid #c0bfbf;
 }
 .tbl-content {
-    width: 45vw;
+    width: 45rem;
     padding-left: 1em;
     border-bottom: 2px solid #c0bfbf;
 }
 .tbl-upload {
-    width: 7vw;
+    width: 7rem;
     text-align: center;
     border-bottom: 2px solid #c0bfbf;
 }
 .tbl-count {
-    width: 5vw;
+    width: 5rem;
     text-align: center;
     border-bottom: 2px solid #c0bfbf;
 

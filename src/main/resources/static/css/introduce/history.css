@@ -1,10 +1,13 @@
 
 
 #history {
+    width: 100%;
+    margin: 2rem 0;
+
     /*border: 1px solid black;*/
-    margin: 2rem 0 2rem 0;
 }
 #history table {
+    margin-left: 10rem;
     border-spacing: 0;
 }
 #history td {

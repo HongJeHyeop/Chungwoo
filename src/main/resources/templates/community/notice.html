@@ -23,7 +23,7 @@
         <h1>공지사항</h1>
     </div>
     <section>
-        <div id="notice-list">
+        <div id="container">
             <div id="search-input">
                 <select>
                     <option>제목</option>
@@ -32,34 +32,36 @@
                 <input type="text" placeholder="검색어를 입력하세요">
                 <input type="submit" value="검색">
             </div>
-            <table>
-                <thead>
-                <th class="tbl-title">순번</th>
-                <th class="tbl-content">제목</th>
-                <th class="tbl-upload">등록일</th>
-                <th class="tbl-count">조회수</th>
-                </thead>
-                <tbody>
-                <tr>
-                    <td class="tbl-title">1</td>
-                    <td class="tbl-content"><a href="/community/detail">제목입니다</a></td>
-                    <td class="tbl-upload">2023-04-10</td>
-                    <td class="tbl-count">23</td>
-                </tr>
-                <tr>
-                    <td class="tbl-title">1</td>
-                    <td class="tbl-content">제목입니다</td>
-                    <td class="tbl-upload">2023-04-10</td>
-                    <td class="tbl-count">23</td>
-                </tr>
-                <tr>
-                    <td class="tbl-title">1</td>
-                    <td class="tbl-content">제목입니다</td>
-                    <td class="tbl-upload">2023-04-10</td>
-                    <td class="tbl-count">23</td>
-                </tr>
-                </tbody>
-            </table>
+            <div id="notice-box">
+                <table>
+                    <thead>
+                    <th class="tbl-title">순번</th>
+                    <th class="tbl-content">제목</th>
+                    <th class="tbl-upload">등록일</th>
+                    <th class="tbl-count">조회수</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tbl-title">1</td>
+                        <td class="tbl-content"><a href="/community/detail">제목입니다</a></td>
+                        <td class="tbl-upload">2023-04-10</td>
+                        <td class="tbl-count">23</td>
+                    </tr>
+                    <tr>
+                        <td class="tbl-title">1</td>
+                        <td class="tbl-content">제목입니다</td>
+                        <td class="tbl-upload">2023-04-10</td>
+                        <td class="tbl-count">23</td>
+                    </tr>
+                    <tr>
+                        <td class="tbl-title">1</td>
+                        <td class="tbl-content">제목입니다</td>
+                        <td class="tbl-upload">2023-04-10</td>
+                        <td class="tbl-count">23</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 </div>
