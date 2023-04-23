@@ -12,6 +12,7 @@
     <link rel="stylesheet" th:href="@{css/home/header.css}" href="../../static/css/home/header.css">
     <link rel="stylesheet" th:href="@{css/home/main.css}" href="../../static/css/home/main.css">
     <link rel="stylesheet" th:href="@{css/home/footer.css}" href="../../static/css/home/footer.css">
+<!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
     <script th:src="@{js/home/header.js}" src="../../static/js/home/header.js" defer></script>
     <script th:src="@{js/home/main.js}" src="../../static/js/home/main.js" defer></script>
@@ -21,7 +22,7 @@
 <div id="body-wrapper">
     <div id="main-img-container">
         <div id="main-img-items">
-            <img class="main-img" src="../../images/main.jpg" alt="메인1">
+            <img class="main-img active" src="../../images/main.jpg" alt="메인1">
             <img class="main-img" src="../../images/main2.jpg" alt="메인2">
             <img class="main-img" src="../../images/main3.jpg" alt="메인3">
         </div>
@@ -29,9 +30,9 @@
         <!--            <h1>CHUNGWOO</h1>-->
         <!--        </div>-->
         <div id="img-num">
-            <button onclick="img_changing(1, this)"></button>
-            <button onclick="img_changing(2, this)"></button>
-            <button onclick="img_changing(3, this)"></button>
+            <button class="select-btn" data-index="0"></button>
+            <button class="select-btn" data-index="1"></button>
+            <button class="select-btn" data-index="2"></button>
         </div>
     </div>
     <section>

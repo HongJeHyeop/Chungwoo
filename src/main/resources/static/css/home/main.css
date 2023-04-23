@@ -40,9 +40,10 @@ html, body {
     opacity: 0;
     transition: all 0.5s ease-in-out;
 }
-.main-img:first-child {
-    opacity: 100%;
+.main-img.active {
+    opacity: 1;
 }
+
 /*** 이미지 중앙 글씨 ***/
 /*#main-title {*/
 /*    margin-bottom: 15rem;*/
@@ -76,13 +77,9 @@ html, body {
     font-weight: bold;
     border: none;
     border-radius: 45%;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.3);
     pointer-events: all;
 }
-#img-num button:first-child {
-    background-color: rgba(255, 255, 255, 0.9);
-}
-
 /*** 섹션 ***/
 section{
     width: 1200px;
