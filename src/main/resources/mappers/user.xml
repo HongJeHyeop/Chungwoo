@@ -2,8 +2,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.transport.cw.mapper.UserMapper">
+<mapper namespace="com.transport.cw.mappers.UserMapper">
+    <!-- 회원가입 insert -->
+    <insert id="register_user" parameterType="com.transport.cw.domain.vos.UserVO">
+        INSERT INTO `user_tbl` VALUES(#{id}, #{pw}, #{name}, DEFAULT)
+    </insert>
+
+    <!-- 로그인시 유저 조회 -->
     <select id="get_user" resultType="com.transport.cw.domain.vos.UserVO">
-        SELECT * FROM `user` WHERE `id` = #{id}
+        SELECT * FROM `user_tbl` WHERE `id` = #{id}
     </select>
 </mapper>

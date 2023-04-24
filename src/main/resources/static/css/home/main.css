@@ -38,7 +38,7 @@ html, body {
     width: 100%;
     height: 40em;
     opacity: 0;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-out;
 }
 .main-img.active {
     opacity: 1;

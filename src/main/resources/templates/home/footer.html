@@ -18,6 +18,7 @@
             <ul>
                 <li>개인정보취급방침</li>
                 <li><a href="/user/login">login</a></li>
+                <li sec:authorize="authenticated"><a href="/user/logout">logout</a></li>
             </ul>
         </div>
         <div id="info">
