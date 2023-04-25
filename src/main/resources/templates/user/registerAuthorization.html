@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
+    <title>회원가입 관리</title>
+    <link rel="stylesheet" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
+    <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
+    <link rel="stylesheet" th:href="@{/css/user/userManagement.css}" href="../../static/css/user/userManagement.css">
+    <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
+    <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
+    <script th:src="@{/js/user/registerAuthorization.js}" src="../../static/js/user/registerAuthorization.js" defer></script>
+</head>
+<body>
+<th:block th:replace="~{home/header:: header}"/>
+<div id="body-wrapper">
+    <h1>회원가입 신청현황</h1>
+    <section id="user-list-container">
+<!--        <table>-->
+<!--            <tr>-->
+<!--                <td>지점명</td>-->
+<!--                <td>이름</td>-->
+<!--                <td>아이디</td>-->
+<!--                <td>연락처</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td></td>-->
+<!--                <td></td>-->
+<!--                <td></td>-->
+<!--                <td></td>-->
+<!--            </tr>-->
+<!--        </table>-->
+    </section>
+</div>
+<th:block th:replace="~{home/footer::footer}"/>
+</body>
+</html>
