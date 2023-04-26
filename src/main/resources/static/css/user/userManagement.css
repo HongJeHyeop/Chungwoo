@@ -15,7 +15,7 @@ html, body {
 
 }
 
-#management-container {
+#user-list-container {
     width: 1200px;
     margin: 0 auto;
     padding: 8rem 0;
@@ -24,4 +24,23 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+#user-table {
+    border-spacing: 0;
+    border: 1px solid #999999;
+}
+#user-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #999999;
+    /*border-right: 1px dotted #999999;*/
+    text-align: center;
+    width: 10rem;
+}
+#user-table td:nth-child(3) {
+    border-right: 1px solid #999999;
+}
+
+input[type=button] {
+    width: 5rem;
+    height: 1.5rem;
 }

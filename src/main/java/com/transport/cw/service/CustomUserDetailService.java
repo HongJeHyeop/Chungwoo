@@ -31,6 +31,7 @@ public class CustomUserDetailService implements UserDetailsService {
         }
         log.info("Userserivice" + "실행중");
         Collection<SimpleGrantedAuthority> collection = Collections.singleton(new SimpleGrantedAuthority("ROLE_" + userVO.getRole().name()));
-        return new UserDTO(userVO.getId(), userVO.getPw(), userVO.getName(), collection);
+        return new UserDTO(userVO.getId(), userVO.getPw(), userVO.getName(), userVO.getPhone(), userVO.getEmail(),
+                userVO.getBranch(), userVO.getPosition(), collection);
     }
 }

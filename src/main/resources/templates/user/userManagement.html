@@ -13,27 +13,21 @@
     <link rel="stylesheet" th:href="@{/css/user/userManagement.css}" href="../../static/css/user/userManagement.css">
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
     <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
-    <script th:src="@{/js/user/registerAuthorization.js}" src="../../static/js/user/registerAuthorization.js" defer></script>
+    <script th:src="@{/js/user/userManagement.js}" src="../../static/js/user/userManagement.js" defer></script>
 </head>
 <body>
 <th:block th:replace="~{home/header:: header}"/>
 <div id="body-wrapper">
-    <h1>회원가입 신청현황</h1>
     <section id="user-list-container">
-<!--        <table>-->
-<!--            <tr>-->
-<!--                <td>지점명</td>-->
-<!--                <td>이름</td>-->
-<!--                <td>아이디</td>-->
-<!--                <td>연락처</td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td></td>-->
-<!--                <td></td>-->
-<!--                <td></td>-->
-<!--                <td></td>-->
-<!--            </tr>-->
-<!--        </table>-->
+    <h1>회원가입 신청현황</h1>
+        <table id="user-table">
+            <tr id="user-list">
+                <td>지점명</td>
+                <td>이름</td>
+                <td>아이디</td>
+                <td colspan="2">가입요청</td>
+            </tr>
+        </table>
     </section>
 </div>
 <th:block th:replace="~{home/footer::footer}"/>

@@ -5,16 +5,21 @@
 <mapper namespace="com.transport.cw.mappers.UserMapper">
     <!-- 회원가입 요청 -->
     <insert id="register_user" parameterType="com.transport.cw.domain.vos.UserVO">
-        INSERT INTO `register_authorization_tbl` VALUES(#{id}, #{pw}, #{name}, DEFAULT)
+        INSERT INTO `user_tbl` VALUES(#{id}, #{pw}, #{name}, #{phone}, #{email}, #{branch}, #{position}, DEFAULT, DEFAULT)
     </insert>
 
     <!-- 회원가입 대기 목록 -->
     <select id="register_request" resultType="com.transport.cw.domain.vos.UserVO">
-        SELECT * FROM `register_authorization_tbl`
+        SELECT * FROM `user_tbl` WHERE `authorization` = 0
     </select>
 
     <!-- 로그인시 유저 조회 -->
     <select id="get_user" resultType="com.transport.cw.domain.vos.UserVO">
-        SELECT * FROM `user_tbl` WHERE `id` = #{id}
+        SELECT * FROM `user_tbl` WHERE `id` = #{id} AND `authorization` = 1
     </select>
+
+    <!-- 회원가입 승인-->
+    <update id="" parameterType="com.transport.cw.domain.vos.UserVO">
+        UPDATE `user_tbl` SET `authorization` = 1 WHERE `id` = #{id}
+    </update>
 </mapper>

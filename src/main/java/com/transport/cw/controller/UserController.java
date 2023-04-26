@@ -60,10 +60,17 @@ public class UserController {
         userService.register_user(userVO);
         return "redirect:/";
     }
+    @GetMapping("/userManagement")
+    public void user_management() {
+        log.info("유저관리페이지");
+    }
+
+
+
     // 회원가입 관리
     @ResponseBody
-    @GetMapping("/registerAuthorization")
-    public List<UserVO> register_Authorization(@AuthenticationPrincipal UserDetails userDetails) {
+    @GetMapping("/aaa")
+    public List<UserVO> user_management(@AuthenticationPrincipal UserDetails userDetails) {
         log.info("회원가입 관리");
         log.info(userDetails.getAuthorities());
         log.info(userService.register_request());

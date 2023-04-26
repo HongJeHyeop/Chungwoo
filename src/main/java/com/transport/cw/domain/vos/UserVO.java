@@ -18,6 +18,15 @@ public class UserVO {
     private String pw;
     @NotBlank
     private String name;
+    @NotBlank
+    private String phone;
+    @NotBlank
+    private String email;
+    @NotBlank
+    private String branch;
+    @NotBlank
+    private String position;
 
     private UserRole role;
+    private int authorization;
 }

@@ -17,12 +17,6 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public UserVO get_user(String id) {
-
-        log.info(">>> 서비스 접근");
-        return userMapper.get_user(id);
-    };
-
     // 회원가입 요청
     public void register_user(UserVO userVO){
         userVO.setPw(passwordEncoder.encode(userVO.getPw()));
