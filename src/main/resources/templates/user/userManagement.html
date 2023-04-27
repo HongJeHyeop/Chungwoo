@@ -18,15 +18,27 @@
 <body>
 <th:block th:replace="~{home/header:: header}"/>
 <div id="body-wrapper">
+    <div id="title">
+        <h1>회원가입 신청 현황</h1>
+    </div>
     <section id="user-list-container">
-    <h1>회원가입 신청현황</h1>
+        <h2>회원가입 신청 현황</h2>
         <table id="user-table">
-            <tr id="user-list">
+            <thead>
+            <tr>
                 <td>지점명</td>
+                <td>직책</td>
                 <td>이름</td>
-                <td>아이디</td>
-                <td colspan="2">가입요청</td>
+                <td>연락처</td>
+                <td>이메일</td>
+                <td>사용아이디</td>
+                <td>승인</td>
+                <td>거절</td>
             </tr>
+            </thead>
+            <tbody id="user-list">
+
+            </tbody>
         </table>
     </section>
 </div>

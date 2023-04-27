@@ -19,7 +19,12 @@
     </select>
 
     <!-- 회원가입 승인-->
-    <update id="" parameterType="com.transport.cw.domain.vos.UserVO">
+    <update id="register_approval" parameterType="com.transport.cw.domain.vos.UserVO">
         UPDATE `user_tbl` SET `authorization` = 1 WHERE `id` = #{id}
     </update>
+
+    <!-- 회원가입 거절 (유저테이블에서 회원가입 요청한 유저 삭제)-->
+    <delete id="register_refusal" parameterType="com.transport.cw.domain.vos.UserVO">
+        DELETE FROM `user_tbl` WHERE `id` = #{id}
+    </delete>
 </mapper>

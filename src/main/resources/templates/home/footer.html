@@ -16,9 +16,9 @@
     <div id="foot-container">
         <div id="foot-list">
             <ul>
-                <li>개인정보취급방침</li>
-                <li><a href="/user/login">login</a></li>
-                <li sec:authorize="authenticated"><a href="/user/logout">logout</a></li>
+                <li><a href="#">개인정보취급방침</a></li>
+                <li><a href="/user/login">로그인</a></li>
+                <li sec:authorize="authenticated"><a href="/user/logout">로그아웃</a></li>
                 <li sec:authorize="hasRole('ADMIN')"><a href="/user/userManagement">회원가입 관리</a></li>
             </ul>
         </div>

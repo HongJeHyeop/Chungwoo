@@ -10,10 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -58,7 +55,7 @@ public class UserController {
             return "/user/register";
         }
         userService.register_user(userVO);
-        return "redirect:/";
+        return "redirect:/user/login";
     }
     @GetMapping("/userManagement")
     public void user_management() {
@@ -67,14 +64,32 @@ public class UserController {
 
 
 
-    // 회원가입 관리
+    // 회원가입요청 리스트
     @ResponseBody
-    @GetMapping("/aaa")
+    @GetMapping("/list")
     public List<UserVO> user_management(@AuthenticationPrincipal UserDetails userDetails) {
         log.info("회원가입 관리");
-        log.info(userDetails.getAuthorities());
-        log.info(userService.register_request());
         return userService.register_request();
+    }
+
+    // 회원가입 승인
+    @ResponseBody
+    @PutMapping("/approval")
+    public boolean approval_register(
+            @RequestBody UserVO userVO
+    ) {
+        log.info("승인할 user >>>>>>" + userVO);
+        return userService.register_approval(userVO);
+    }
+
+    // 회원가입 거절 (회원가입 요청 리스트에서 삭제)
+    @ResponseBody
+    @DeleteMapping("/refusal")
+    public boolean register_refusal(
+            @RequestBody UserVO userVO
+    ){
+        log.info("거절할 user >>>>>>>" + userVO);
+        return userService.register_refusal(userVO);
     }
 
 }

@@ -26,9 +26,16 @@ footer {
 #foot-list li {
     cursor: pointer;
 }
-#foot-list li:first-child::after {
+#foot-list li a:hover {
+    color: #d1ecff;
+    font-weight: bold;
+}
+#foot-list li::after {
     content: 'l';
     margin: 0.5em;
+}
+#foot-list li:last-child::after {
+    content: '';
 }
 #info {
     text-align: center;

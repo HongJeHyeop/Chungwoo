@@ -28,4 +28,14 @@ public class UserService {
     public List<UserVO> register_request() {
         return userMapper.register_request();
     };
+
+    // 회원가입 승인
+    public boolean register_approval(UserVO userVO) {
+        return userMapper.register_approval(userVO);
+    }
+
+    // 회원가입 거절
+    public boolean register_refusal(UserVO userVO){
+        return userMapper.register_refusal(userVO);
+    };
 }
