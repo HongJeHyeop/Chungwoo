@@ -1,0 +1,52 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#container h2 {
+    margin: 3rem 0;
+    font-size: 2rem;
+    text-shadow: 1px 1px 1px #999999;
+    color: #4646b6;
+
+}
+span {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #4646b6;
+}
+/* 제목 */
+#input-title {
+    margin: 1.5rem 0;
+}
+#input-title input {
+    width: 60rem;
+    height: 2rem;
+    margin: 0 1rem;
+}
+
+/* 내용 */
+#input-contents textarea {
+    width: 60rem;
+    height: 30rem;
+    padding: 1rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    border-radius: 5px;
+    resize: none;
+}
+
+/* 버튼 */
+#btn {
+    margin: 2rem 0;
+    text-align: center;
+}
+#btn input {
+    margin: 0 1rem;
+    width: 5rem;
+    height: 2rem;
+    color: white;
+    background-color: #4646b6;
+    border: none;
+}

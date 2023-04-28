@@ -24,6 +24,11 @@ public class UserService {
         userMapper.register_user(userVO);
     };
 
+    // 전체 회원 조회
+    public List<UserVO> get_all_user() {
+        return userMapper.get_all_user();
+    }
+
     // 회원가입 대기 목록 조회
     public List<UserVO> register_request() {
         return userMapper.register_request();

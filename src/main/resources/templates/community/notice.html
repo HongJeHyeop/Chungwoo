@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <!--    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">-->
-    <title>Title</title>
+    <title>공지사항</title>
     <link rel="stylesheet" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
     <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
     <link rel="stylesheet" th:href="@{/css/community/notice.css}" href="../../static/css/community/notice.css">
@@ -24,13 +24,16 @@
     </div>
     <section>
         <div id="container">
+            <div id="write-btn">
+                <input type="button" value="글쓰기" onclick="location.href='/community/noticeWrite'">
+            </div>
             <div id="search-input">
                 <select>
                     <option>제목</option>
                     <option>내용</option>
                 </select>
                 <input type="text" placeholder="검색어를 입력하세요">
-                <input type="submit" value="검색">
+                <input type="submit" value="검 색">
             </div>
             <div id="notice-box">
                 <table>

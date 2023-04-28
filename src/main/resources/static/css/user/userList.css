@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: black;
+    text-decoration: none;
+}
+
+html, body {
+    height: 100%;
+}
+
+#body-wrapper {
+    position: relative;
+    min-height: 100%;
+
+}
+
+#user-list-container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* 타이틀 */
+#title {
+    background: linear-gradient(rgba(252, 225, 255, 0.5) 0, rgba(255, 255, 255, 0.5) 0), url("../../images/main.jpg") 100% no-repeat;
+    background-size: cover;
+    height: 12em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#title h1 {
+    color: #fff;
+    font-size: 2rem;
+    text-shadow: 2px 2px 3px black;
+}
+#user-list-container h2 {
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    color: #4646b6;
+    text-shadow: 1px 1px 2px #999999;
+}
+/* 유저 리스트 테이블 */
+#user-table {
+    margin: 1rem;
+    border-spacing: 0;
+    border: 1px solid #d9d9d9;
+}
+#user-table thead td {
+    font-size: 1.2rem;
+    color: white;
+    background-color: #69A6F0;
+}
+#user-table tbody td {
+    font-size: 0.9rem;
+}
+#user-table td {
+    padding: 1rem;
+    border-right: 1px dotted #d9d9d9;
+    border-bottom: 1px dotted #d9d9d9;
+    text-align: center;
+}
+#user-table td:last-child {
+    border-right: none;
+}
+#user-table tr:last-child td {
+    border-bottom: none;
+}
+/* 테이블 열별 넓이 */
+#user-table td:first-child {
+    width: 10%;
+}
+#user-table td:nth-child(2) {
+    width: 10%;
+}
+#user-table td:nth-child(3) {
+    width: 10%;
+}
+#user-table td:nth-child(4) {
+    width: 20%;
+}
+#user-table td:nth-child(5) {
+    width: 20%;
+}
+
+#page ul {
+    display: flex;
+}
+#page ul li {
+    margin: 1rem;
+}
+
+input[type=button] {
+    margin-right: 1rem;
+    width: 8rem;
+    height: 1.8rem;
+    color: white;
+    background-color: #4646b6;
+    border: none;
+    cursor: pointer;
+    align-self: flex-end;
+}

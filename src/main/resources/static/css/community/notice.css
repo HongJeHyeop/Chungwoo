@@ -2,6 +2,22 @@
     padding: 10rem 0;
 }
 
+/* 글쓰기 버튼 */
+#write-btn {
+    margin-right: 7rem;
+    display: flex;
+    justify-content: flex-end;
+}
+#write-btn input {
+    width: 5rem;
+    height: 1.5rem;
+    color: white;
+    background-color: #4646b6;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 /*** 공지사항 검색 ***/
 #search-input {
     /*background-color: red;*/

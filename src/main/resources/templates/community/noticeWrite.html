@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
+    <title>공지사항 작성</title>
+    <link rel="stylesheet" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
+    <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
+    <link rel="stylesheet" th:href="@{/css/community/write.css}" href="../../static/css/community/write.css">
+    <link rel="stylesheet" th:href="@{/css/community/community.css}" href="../../static/css/community/community.css">
+    <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
+    <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<th:block th:replace="~{home/header:: header}"/>
+<div id="body-wrapper">
+    <div id="title">
+        <h1>게시글 작성</h1>
+    </div>
+    <section>
+        <div id="container">
+            <h2>게시글 작성</h2>
+            <form action="">
+                <table>
+                    <tr id="input-title">
+                        <td>제목</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr id="input-contents">
+                        <td>내용</td>
+                        <td><textarea name="" placeholder="내용을 입력하세요"></textarea></td>
+                    </tr>
+                    <tr id="file">
+                        <td>첨부파일</td>
+                        <td><input type="file"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                </table>
+                <div id="btn">
+                    <input type="submit" value="작성하기">
+                    <input type="button" value="취소하기">
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+<th:block th:replace="~{home/footer::footer}"/>
+</body>
+</html>

@@ -57,11 +57,21 @@ public class UserController {
         userService.register_user(userVO);
         return "redirect:/user/login";
     }
+
+    @GetMapping("/userList")
+    public void user_list() {}
+
     @GetMapping("/userManagement")
     public void user_management() {
         log.info("유저관리페이지");
     }
 
+    // 전체 회원 리스트
+    @ResponseBody
+    @GetMapping("/allList")
+    public List<UserVO> get_all_user() {
+        return userService.get_all_user();
+    }
 
 
     // 회원가입요청 리스트

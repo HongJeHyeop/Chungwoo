@@ -11,6 +11,9 @@ public interface UserMapper {
     // 유저 조회
     UserVO get_user(String id);
 
+    // 전체 회원 조회
+    List<UserVO> get_all_user();
+
     // 회원가입 대기 목록
     List<UserVO> register_request();
 

@@ -19,7 +19,7 @@
                 <li><a href="#">개인정보취급방침</a></li>
                 <li><a href="/user/login">로그인</a></li>
                 <li sec:authorize="authenticated"><a href="/user/logout">로그아웃</a></li>
-                <li sec:authorize="hasRole('ADMIN')"><a href="/user/userManagement">회원가입 관리</a></li>
+                <li sec:authorize="hasRole('ADMIN')"><a href="/user/userList">회원관리</a></li>
             </ul>
         </div>
         <div id="info">

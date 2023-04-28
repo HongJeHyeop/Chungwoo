@@ -8,6 +8,11 @@
         INSERT INTO `user_tbl` VALUES(#{id}, #{pw}, #{name}, #{phone}, #{email}, #{branch}, #{position}, DEFAULT, DEFAULT)
     </insert>
 
+    <!-- 전체 회원 조회-->
+    <select id="get_all_user" resultType="com.transport.cw.domain.vos.UserVO">
+        SELECT * FROM `user_tbl` WHERE `authorization` = 1 AND `role` = 'MEMBER'
+    </select>
+
     <!-- 회원가입 대기 목록 -->
     <select id="register_request" resultType="com.transport.cw.domain.vos.UserVO">
         SELECT * FROM `user_tbl` WHERE `authorization` = 0

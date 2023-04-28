@@ -3,24 +3,12 @@ const userList = document.getElementById('user-list');
 
 // 데이터베이스에서 회원가입 요청한 유저 목록 받아오기
 get_all_register_request();
-
 function get_all_register_request() {
     fetch('/user/list')
         .then(response => response.json())
         .then(value => {
             // 생성
             create_register_user_list(value);
-            // 승인/거절 버튼 이벤트 추가
-            const approvalBtns = document.querySelectorAll('.approval');
-            const refusalBtns = document.querySelectorAll('.refusal');
-            // 승인
-            approvalBtns.forEach(btn => {
-                btn.addEventListener('click', register_approval);
-            })
-            // 거절
-            refusalBtns.forEach(btn => {
-                btn.addEventListener('click', register_refusal);
-            })
         })
         .catch(reason => {
             console.log("유저리스트 생성 오류")
@@ -40,18 +28,16 @@ function create_register_user_list(users) {
                 <td>${user.phone}</td>
                 <td>${user.email}</td>
                 <td>${user.id}</td>
-                <td><input type="button" value="승인" class="approval" userId="${user.id}"></td>
-                <td><input type="button" value="거절" class="refusal" userId="${user.id}"></td>
+                <td><input type="button" value="승인" class="approval" onclick="register_approval('${user.id}')"></td>
+                <td><input type="button" value="거절" class="refusal" onclick="register_refusal('${user.id}')"></td>
             </tr>`)
-
     }
 }
 
 
 // 회원가입 요청 승인 처리
-function register_approval(e) {
-    const registerId = e.target.getAttribute('userId');
-    console.log("승인할 유저 아이디 >>> ", registerId);
+function register_approval(userId) {
+    console.log("승인할 유저 아이디 >>> ", userId);
     fetch('/user/approval', {
         method: 'PUT',
         headers: {
@@ -59,7 +45,7 @@ function register_approval(e) {
             'X-CSRF-TOKEN': csrfToken
         },
         body: JSON.stringify({
-            id: registerId
+            id: userId
         })
     })
         .then(value => value.text())
@@ -73,9 +59,8 @@ function register_approval(e) {
 }
 
 // 회원가입 요청 거절 처리
-function register_refusal(e) {
-    const registerId = e.target.getAttribute('userId');
-    console.log("거절할 유저 아이디 >>> ", registerId);
+function register_refusal(userId) {
+    console.log("거절할 유저 아이디 >>> ", userId);
     fetch('/user/refusal', {
         method : 'DELETE',
         headers : {
@@ -83,7 +68,7 @@ function register_refusal(e) {
             'X-CSRF-TOKEN': csrfToken
         },
         body: JSON.stringify({
-            id: registerId
+            id: userId
         })
     })
         .then(value => value.text())

@@ -29,14 +29,14 @@ public class MainController {
     /*** 커뮤니티 페이지 ***/
     // 공지사항
     @GetMapping("/community/notice")
-    public void notice() {
+    public void notice() {}
 
-    }
-
+    // 공지사항 게시글 상세페이지
     @GetMapping("/community/detail")
-    public void detail() {
-        log.info("상세페이지 접속");
-    }
+    public void detail() {log.info("상세페이지 접속");}
+
+    @GetMapping("/community/noticeWrite")
+    public void notice_write() {}
 
     // 자료실
     @GetMapping("/community/repository")

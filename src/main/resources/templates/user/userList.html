@@ -7,22 +7,23 @@
 <head>
     <meta charset="UTF-8">
     <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
-    <title>회원가입 관리</title>
+    <title>회원현황</title>
     <link rel="stylesheet" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
     <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
-    <link rel="stylesheet" th:href="@{/css/user/userManagement.css}" href="../../static/css/user/userManagement.css">
+    <link rel="stylesheet" th:href="@{/css/user/userList.css}" href="../../static/css/user/userList.css">
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
     <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
-    <script th:src="@{/js/user/userManagement.js}" src="../../static/js/user/userManagement.js" defer></script>
+    <script th:src="@{/js/user/userList.js}" src="../../static/js/user/userList.js" defer></script>
 </head>
 <body>
 <th:block th:replace="~{home/header:: header}"/>
 <div id="body-wrapper">
     <div id="title">
-        <h1>신규가입 신청 현황</h1>
+        <h1>회원현황</h1>
     </div>
     <section id="user-list-container">
-        <h2>신규가입 신청 현황</h2>
+        <h2>회원현황</h2>
+        <input type="button" value="신규가입신청현황" onclick="location.href='/user/userManagement'">
         <table id="user-table">
             <thead>
             <tr>
@@ -31,15 +32,19 @@
                 <td>이름</td>
                 <td>연락처</td>
                 <td>이메일</td>
-                <td>사용아이디</td>
-                <td>승인</td>
-                <td>거절</td>
             </tr>
             </thead>
             <tbody id="user-list">
 
             </tbody>
         </table>
+        <div id="page">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div>
     </section>
 </div>
 <th:block th:replace="~{home/footer::footer}"/>
