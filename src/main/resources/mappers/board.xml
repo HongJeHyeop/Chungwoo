@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.transport.cw.mappers.BoardMapper">
+    <insert id="insert_board" parameterType="com.transport.cw.domain.vos.BoardVO">
+        INSERT INTO `test` VALUES(DEFAULT, #{contents})
+    </insert>
+
+    <select id="get_board" resultType="com.transport.cw.domain.vos.BoardVO">
+        SELECT * FROM `test` WHERE `no` = #{no}
+    </select>
+</mapper>

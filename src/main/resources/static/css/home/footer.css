@@ -1,9 +1,11 @@
 html, body {
     margin: 0;
     padding: 0;
+    color: #383838;
+}
+li, a {
     text-decoration: none;
     list-style-type: none;
-    color: #383838;
 }
 footer {
     position: relative;

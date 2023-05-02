@@ -1,15 +1,21 @@
 package com.transport.cw.controller;
 
+import com.transport.cw.domain.vos.BoardVO;
+import com.transport.cw.service.BoardService;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @Log4j2
 @Controller
 @RequestMapping("/")
 public class MainController {
+
+    @Autowired
+    private BoardService boardService;
 
     @GetMapping
     public String home() {
@@ -33,15 +39,39 @@ public class MainController {
 
     // 공지사항 게시글 상세페이지
     @GetMapping("/community/detail")
-    public void detail() {log.info("상세페이지 접속");}
+    public void detail() {
+
+    }
+
+    @ResponseBody
+    @GetMapping("/community/aa")
+    public BoardVO detail_test() {
+        log.info("상세페이지 접속");
+        log.info(boardService.get_board(14).getContents());
+        return boardService.get_board(14);
+    }
 
     @GetMapping("/community/noticeWrite")
-    public void notice_write() {}
+    public void notice_write(BoardVO boardVO) {
+
+
+    }
+
+    @ResponseBody
+    @GetMapping("/community/insert")
+    public void notice_write_test(@RequestBody BoardVO boardVO) {
+        log.info("글쓰기!>>>>");
+        log.info(boardVO.getContents());
+        boardService.insert_board(boardVO);
+
+    }
+
 
     // 자료실
     @GetMapping("/community/repository")
     @PreAuthorize("isAuthenticated()")
     public void repository() {
+
         log.info("자료실 접속");
     }
 

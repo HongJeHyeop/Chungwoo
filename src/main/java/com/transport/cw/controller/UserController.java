@@ -20,7 +20,7 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @GetMapping("/login")
     public void login() {

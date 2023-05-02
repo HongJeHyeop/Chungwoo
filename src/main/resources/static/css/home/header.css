@@ -3,10 +3,12 @@
 * {
     margin: 0;
     padding: 0;
-    list-style-type: none;
-    text-decoration: none;
     color: black;
     font-family: 'Nanum Gothic', sans-serif;
+}
+li, a {
+    list-style-type: none;
+    text-decoration: none;
 }
 
 /*** 헤더 ***/
