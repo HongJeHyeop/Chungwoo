@@ -14,7 +14,7 @@
     <link rel="stylesheet" th:href="@{/css/community/community.css}" href="../../static/css/community/community.css">
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
     <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
-    <script th:src="@{/js/community/noticeWrite.js}" src="../../static/js/community/notice.js.js" defer></script>
+    <script th:src="@{/js/community/notice.js}" src="../../static/js/community/notice.js" defer></script>
 </head>
 <body>
 <th:block th:replace="~{home/header:: header}"/>
@@ -41,26 +41,22 @@
                     <th class="tbl-title">순번</th>
                     <th class="tbl-content">제목</th>
                     <th class="tbl-upload">등록일</th>
-                    <th class="tbl-count">조회수</th>
                     </thead>
-                    <tbody>
+                    <tbody id="notice-list">
                     <tr>
                         <td class="tbl-title">1</td>
                         <td class="tbl-content"><a href="/community/detail">제목입니다</a></td>
                         <td class="tbl-upload">2023-04-10</td>
-                        <td class="tbl-count">23</td>
                     </tr>
                     <tr>
                         <td class="tbl-title">1</td>
                         <td class="tbl-content">제목입니다</td>
                         <td class="tbl-upload">2023-04-10</td>
-                        <td class="tbl-count">23</td>
                     </tr>
                     <tr>
                         <td class="tbl-title">1</td>
                         <td class="tbl-content">제목입니다</td>
                         <td class="tbl-upload">2023-04-10</td>
-                        <td class="tbl-count">23</td>
                     </tr>
                     </tbody>
                 </table>

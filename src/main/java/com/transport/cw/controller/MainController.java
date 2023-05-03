@@ -5,9 +5,13 @@ import com.transport.cw.service.BoardService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Log4j2
 @Controller
@@ -38,33 +42,47 @@ public class MainController {
     public void notice() {}
 
     // 공지사항 게시글 상세페이지
-    @GetMapping("/community/detail")
-    public void detail() {
-
+    @GetMapping("/community/detail/{no}")
+    public String detail(
+            @PathVariable int no,
+            Model model
+    ) {
+        model.addAttribute("boardVO", boardService.get_notice(no));
+        return "/community/detail";
     }
 
     @ResponseBody
-    @GetMapping("/community/aa")
-    public BoardVO detail_test() {
+    @GetMapping("/community/notice/list")
+    public List<BoardVO> get_all_notice() {
         log.info("상세페이지 접속");
-        log.info(boardService.get_board(14).getContents());
-        return boardService.get_board(14);
+        log.info(boardService.get_all_notice());
+        return boardService.get_all_notice();
     }
 
     @GetMapping("/community/noticeWrite")
-    public void notice_write(BoardVO boardVO) {
+    public void notice_write() {
 
 
     }
 
-    @ResponseBody
-    @GetMapping("/community/insert")
-    public void notice_write_test(@RequestBody BoardVO boardVO) {
-        log.info("글쓰기!>>>>");
-        log.info(boardVO.getContents());
-        boardService.insert_board(boardVO);
-
+    @PostMapping("/community/insert")
+    public String insert_board(
+            BoardVO boardVO,
+            @AuthenticationPrincipal UserDetails userDetails
+            ) {
+        log.info(boardVO);
+        boardService.insert_board(boardVO, userDetails.getUsername());
+        return "redirect:/community/notice";
     }
+
+//    @ResponseBody
+//    @GetMapping("/community/insert")
+//    public void notice_write_test(@RequestBody BoardVO boardVO) {
+//        log.info("글쓰기!>>>>");
+//        log.info(boardVO);
+//        boardService.insert_board(boardVO);
+//
+//    }
 
 
     // 자료실

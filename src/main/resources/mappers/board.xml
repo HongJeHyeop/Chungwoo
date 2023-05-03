@@ -4,10 +4,15 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.transport.cw.mappers.BoardMapper">
     <insert id="insert_board" parameterType="com.transport.cw.domain.vos.BoardVO">
-        INSERT INTO `test` VALUES(DEFAULT, #{contents})
+        INSERT INTO `board_tbl`
+        VALUES(DEFAULT, #{boardType}, #{id}, #{title}, #{contents}, #{fileAddr}, DEFAULT)
     </insert>
 
-    <select id="get_board" resultType="com.transport.cw.domain.vos.BoardVO">
-        SELECT * FROM `test` WHERE `no` = #{no}
+    <select id="get_all_notice" resultType="com.transport.cw.domain.vos.BoardVO">
+        SELECT * FROM `board_tbl` WHERE `boardType`='공지사항'
+    </select>
+
+    <select id="get_notice" resultType="com.transport.cw.domain.vos.BoardVO">
+        SELECT * FROM `board_tbl` WHERE `boardType`='공지사항' AND `no` = #{no}
     </select>
 </mapper>

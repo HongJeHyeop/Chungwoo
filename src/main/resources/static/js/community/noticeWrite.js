@@ -3,7 +3,9 @@ const contents = document.getElementById('quill_html');
 
 //btn
 const writeBtn = document.getElementById('btn').firstElementChild;
-console.log(writeBtn)
+const cancelBtn = writeBtn.nextElementSibling;
+
+// quill 툴바옵션
 const toolbarOptions = [
     ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
 
@@ -36,24 +38,35 @@ quill.on('text-change', function() {
 });
 
 // 작성하기 버튼 클릭시 서버전송
-function insert_contents() {
-    console.log("클릭")
-    fetch('/community/insert',{
-        method:'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': csrfToken
-        },
-        body: JSON.stringify({
-            contents: quill.root.innerHTML
-        })
-    })
-        .then(value => value.text())
-        .then(value => {
-            console.log("승인여부 >>>" + value);
-        })
-        .catch(reason => {
-            console.log("승인오류");
-        })
+// function insert_contents() {
+//     console.log("클릭")
+//     fetch('/community/insert',{
+//         method:'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'X-CSRF-TOKEN': csrfToken
+//         },
+//         body: JSON.stringify({
+//             contents: quill.root.innerHTML
+//         })
+//     })
+//         .then(value => value.text())
+//         .then(value => {
+//             console.log("승인여부 >>>" + value);
+//         })
+//         .catch(reason => {
+//             console.log("승인오류");
+//         })
+// }
+writeBtn.addEventListener('click', notice_write_check)
+cancelBtn.addEventListener('click', () => {
+    location.href = '/community/notice';
+})
+
+function notice_write_check() {
+    const check = confirm('정말 작성하시겠습니까?');
+    if (check){
+        const form = document.forms.item(0);
+        form.submit();
+    }
 }
-writeBtn.addEventListener('click', insert_contents)

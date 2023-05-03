@@ -1,8 +1,10 @@
 const board = document.getElementById('board');
+const boardNo = document.getElementById('board-no');
+console.log(boardNo.value)
 
 get_board_detail();
 function get_board_detail() {
-    fetch('/community/aa')
+    fetch(`/community/${boardNo}`)
         .then(response => response.json())
         .then(value => {
             // 생성

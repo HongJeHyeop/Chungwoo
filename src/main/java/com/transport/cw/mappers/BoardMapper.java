@@ -3,9 +3,13 @@ package com.transport.cw.mappers;
 import com.transport.cw.domain.vos.BoardVO;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface BoardMapper {
-    BoardVO get_board(int no);
+    List<BoardVO> get_all_notice();
+
+    BoardVO get_notice(int no);
 
     void insert_board(BoardVO boardVO);
 }
