@@ -22,6 +22,7 @@ const toolbarOptions = [
     [{ 'font': [] }],
     [{ 'align': [] }],
 
+    ['image'],
     ['clean']                                         // remove formatting button
 ];
 

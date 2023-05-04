@@ -4,7 +4,7 @@ console.log(boardNo.value)
 
 get_board_detail();
 function get_board_detail() {
-    fetch(`/community/${boardNo}`)
+    fetch(`/community/aa/${boardNo}`)
         .then(response => response.json())
         .then(value => {
             // 생성
@@ -16,7 +16,27 @@ function get_board_detail() {
         })
 }
 
-function create_board(b) {
+function create_board(boardVO) {
     // console.log(users, userList)
-    board.insertAdjacentHTML("beforeend", `${b.contents}`);
+    board.innerHTML = '';
+    board.insertAdjacentHTML("beforeend",
+        `<thead>
+                <th>${boardVO.title}</th>
+                <th>${boardVO.writeDate}</th>
+                </thead>
+                <tbody>
+                <td colspan="3">
+                    ${boardVO.contents}
+                </td>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="2"><i class="fa-solid fa-download"></i> 첨부파일1</td>
+                    <td>2022-03-21</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><i class="fa-solid fa-download"></i> 첨부파일1</td>
+                    <td>2022-03-21</td>
+                </tr>
+                </tfoot>`);
 }

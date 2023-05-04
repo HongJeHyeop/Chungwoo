@@ -44,7 +44,7 @@ html, body {
     border-bottom: 2px solid #999;
 }
 #register-box tr td:first-child {
-    text-align: center;
+    text-align: right;
 }
 #register-box tr td:last-child {
     width: 30rem;

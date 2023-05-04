@@ -42,13 +42,25 @@ public class MainController {
     public void notice() {}
 
     // 공지사항 게시글 상세페이지
+    @GetMapping("/community/detail")
+    public void detail_page() {
+
+    }
     @GetMapping("/community/detail/{no}")
     public String detail(
             @PathVariable int no,
             Model model
     ) {
         model.addAttribute("boardVO", boardService.get_notice(no));
-        return "/community/detail";
+        return "redirect:/community/detail";
+    }
+    @ResponseBody
+    @GetMapping("/community/aa/{no}")
+    public BoardVO rest_detail(
+            @PathVariable int no
+    ) {
+        log.info(">>>>>>>>>>>>", boardService.get_notice(no));
+        return boardService.get_notice(no);
     }
 
     @ResponseBody
@@ -87,7 +99,7 @@ public class MainController {
 
     // 자료실
     @GetMapping("/community/repository")
-    @PreAuthorize("isAuthenticated()")
+//    @PreAuthorize("isAuthenticated()")
     public void repository() {
 
         log.info("자료실 접속");
