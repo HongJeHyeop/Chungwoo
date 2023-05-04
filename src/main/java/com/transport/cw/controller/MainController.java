@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Log4j2
@@ -47,34 +48,37 @@ public class MainController {
 
     }
     @GetMapping("/community/detail/{no}")
-    public String detail(
-            @PathVariable int no,
-            Model model
-    ) {
-        model.addAttribute("boardVO", boardService.get_notice(no));
-        return "redirect:/community/detail";
+    public String detail(@PathVariable int no, Model model) {
+        model.addAttribute("no", no);
+        return "/community/detail";
     }
     @ResponseBody
-    @GetMapping("/community/aa/{no}")
-    public BoardVO rest_detail(
-            @PathVariable int no
-    ) {
-        log.info(">>>>>>>>>>>>", boardService.get_notice(no));
+    @GetMapping("/community/restDetail/{boardNo}")
+    public BoardVO rest_detail(@PathVariable String boardNo) {
+        int no = Integer.parseInt(boardNo);
+        log.info(no);
+        log.info(">>>>>>>>>>>>" + boardService.get_notice(no));
         return boardService.get_notice(no);
     }
 
     @ResponseBody
     @GetMapping("/community/notice/list")
     public List<BoardVO> get_all_notice() {
-        log.info("상세페이지 접속");
-        log.info(boardService.get_all_notice());
+        log.info("공지사항 목록 접속");
         return boardService.get_all_notice();
     }
 
     @GetMapping("/community/noticeWrite")
-    public void notice_write() {
-
-
+    public void notice_write() {}
+    @GetMapping("/community/noticeWrite/{no}")
+    public String update_notice_write(@PathVariable String no, Model model) {
+        model.addAttribute("no", no);
+        return "/community/noticeWrite";
+    }
+    @ResponseBody
+    @GetMapping("/community/notice/update/write/{no}")
+    public BoardVO update_notice_write(@PathVariable String no){
+        return boardService.get_notice(Integer.parseInt(no));
     }
 
     @PostMapping("/community/insert")
@@ -87,9 +91,14 @@ public class MainController {
         return "redirect:/community/notice";
     }
 
+    @PostMapping("/community/notice/update")
+    public void update_notice() {
+
+    }
+
 //    @ResponseBody
-//    @GetMapping("/community/insert")
-//    public void notice_write_test(@RequestBody BoardVO boardVO) {
+//    @GetMapping("/community/notice/update/write")
+//    public void notice_update() {
 //        log.info("글쓰기!>>>>");
 //        log.info(boardVO);
 //        boardService.insert_board(boardVO);

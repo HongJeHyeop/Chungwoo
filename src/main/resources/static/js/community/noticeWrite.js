@@ -1,9 +1,8 @@
 const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute("content");
 const contents = document.getElementById('quill_html');
+const form = document.getElementById('insert-form');
+const updateNo = document.getElementById('update-no');
 
-//btn
-const writeBtn = document.getElementById('btn').firstElementChild;
-const cancelBtn = writeBtn.nextElementSibling;
 
 // quill 툴바옵션
 const toolbarOptions = [
@@ -59,15 +58,58 @@ quill.on('text-change', function() {
 //             console.log("승인오류");
 //         })
 // }
-writeBtn.addEventListener('click', notice_write_check)
-cancelBtn.addEventListener('click', () => {
-    location.href = '/community/notice';
-})
 
 function notice_write_check() {
     const check = confirm('정말 작성하시겠습니까?');
     if (check){
         const form = document.forms.item(0);
         form.submit();
+    }
+}
+
+function update_write(item) {
+    form.innerHTML = '';
+    form.insertAdjacentHTML('beforeend',
+        `<form action="/community/notice/update" method="POST">
+                <div id="board-type">
+                    <select name="boardType">
+                        <option>공지사항</option>
+                        <option>자료실</option>
+                    </select>
+                </div>
+                <div id="board-header">
+                    <input type="text" name="title" placeholder="제목을 입력하세요" value="${item.title}"></br>
+                    <input type="file">
+                </div>
+                <div id="editor">
+                    ${item.contents}
+                </div>
+                <input type="hidden" id="quill_html" name="contents">
+                <input type="hidden" th:name="\${_csrf.parameterName}" th:value="\${_csrf.token}">
+                <div id="btn">
+                    <input type="button" value="작성하기" onclick="notice_write_check()">
+                    <input type="button" value="취소하기" onclick="location.href = '/community/notice'">
+                </div>
+                </form>`)
+    const quill = new Quill('#editor', {
+        modules: {
+            toolbar: toolbarOptions
+        },
+        theme: 'snow'
+    });
+}
+// 수정하기로 왔을때
+notice_update()
+function notice_update() {
+    if (updateNo != null) {
+        console.log("수정하기")
+    fetch(`/community/notice/update/write/${updateNo.value}`)
+        .then(value => value.json())
+        .then(value => {
+            update_write(value)
+        })
+        .catch(reason => {
+            console.log(reason)
+        })
     }
 }

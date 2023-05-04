@@ -15,4 +15,8 @@
     <select id="get_notice" resultType="com.transport.cw.domain.vos.BoardVO">
         SELECT * FROM `board_tbl` WHERE `boardType`='공지사항' AND `no` = #{no}
     </select>
+
+    <update id="update_notice" parameterType="com.transport.cw.domain.vos.BoardVO">
+        UPDATE `board
+    </update>
 </mapper>

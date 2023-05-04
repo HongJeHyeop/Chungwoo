@@ -6,7 +6,7 @@
 >
 <head>
     <meta charset="UTF-8">
-    <!--    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">-->
+        <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
     <title>공지사항</title>
     <link rel="stylesheet" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
     <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
@@ -23,34 +23,10 @@
         <h1>공지사항</h1>
     </div>
     <section>
-        <input type="hidden" id="board-no" th:value="${boardVO.no}">
+        <input type="hidden" id="board-no" th:value="${no}">
         <div id="container">
-            <table id="board">
-<!--                <thead>-->
-<!--                <th>[[${boardVO.title}]]</th>-->
-<!--                <th>[[${boardVO.writeDate}]]</th>-->
-<!--                </thead>-->
-<!--                <tbody>-->
-<!--                <td colspan="3">-->
-<!--                    [[${boardVO.contents}]]-->
-<!--                </td>-->
-<!--                </tbody>-->
-<!--                <tfoot>-->
-<!--                <tr>-->
-<!--                    <td colspan="2"><i class="fa-solid fa-download"></i> 첨부파일1</td>-->
-<!--                    <td>2022-03-21</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td colspan="2"><i class="fa-solid fa-download"></i> 첨부파일1</td>-->
-<!--                    <td>2022-03-21</td>-->
-<!--                </tr>-->
-<!--                </tfoot>-->
-            </table>
-            <div id="move-btn">
-                <input type="button" value="이전글">
-                <input type="button" value="목록" onclick="location.href='/community/notice'">
-                <input type="button" value="다음글">
-            </div>
+
+
         </div>
     </section>
 </div>

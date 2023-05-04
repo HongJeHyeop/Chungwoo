@@ -24,7 +24,7 @@
     </div>
     <section>
         <div id="container">
-            <div id="write-btn">
+            <div id="write-btn" sec:authorize="isAuthenticated()">
                 <input type="button" value="글쓰기" onclick="location.href='/community/noticeWrite'">
             </div>
             <div id="search-input">
