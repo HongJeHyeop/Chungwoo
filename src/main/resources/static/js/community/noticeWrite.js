@@ -1,6 +1,6 @@
 const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute("content");
 const contents = document.getElementById('quill_html');
-const form = document.getElementById('insert-form');
+const formBox = document.getElementById('insert-form');
 const updateNo = document.getElementById('update-no');
 
 
@@ -68,8 +68,8 @@ function notice_write_check() {
 }
 
 function update_write(item) {
-    form.innerHTML = '';
-    form.insertAdjacentHTML('beforeend',
+    formBox.innerHTML = '';
+    formBox.insertAdjacentHTML('beforeend',
         `<form action="/community/notice/update" method="POST">
                 <div id="board-type">
                     <select name="boardType">

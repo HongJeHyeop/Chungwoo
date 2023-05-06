@@ -29,6 +29,7 @@ function create_board(boardVO) {
     container.insertAdjacentHTML("beforeend",
         `<div id="update-btn">
                 <input type="button" value="수정하기" onclick="location.href = '/community/noticeWrite/${boardVO.no}'">
+                <input type="button" value="삭제하기" onclick="location.href = '/community/noticeWrite/${boardVO.no}'">
             </div>
             <table>
                 <thead>

@@ -16,10 +16,7 @@ public class BoardService {
     @Autowired
     private BoardMapper boardMapper;
 
-    public void insert_board(
-            BoardVO boardVO,
-            String id
-            ){
+    public void insert_board(BoardVO boardVO, String id){
         boardVO.setId(id);
         boardVO.setFileAddr("C:/asdfasdf");
         log.info(boardVO);
@@ -30,7 +27,10 @@ public class BoardService {
         return boardMapper.get_all_notice();
     };
 
-    public BoardVO get_notice(int no) {
-        return boardMapper.get_notice(no);
-    };
+    public BoardVO get_notice(int no) {return boardMapper.get_notice(no);};
+
+    public boolean update_notice(BoardVO boardVO) {
+        boardVO.setFileAddr("C:/update/file");
+        return boardMapper.update_notice(boardVO);
+    }
 }

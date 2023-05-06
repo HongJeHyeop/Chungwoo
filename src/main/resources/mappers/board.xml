@@ -17,6 +17,10 @@
     </select>
 
     <update id="update_notice" parameterType="com.transport.cw.domain.vos.BoardVO">
-        UPDATE `board
+        UPDATE `board_tbl` SET `boardType` = #{boardType}
+            AND  `title` = #{title}
+            AND `contents` = #{contents}
+            AND `fileAddr` = #{fileAddr}
+            AND `writeDate` = DEFAULT
     </update>
 </mapper>

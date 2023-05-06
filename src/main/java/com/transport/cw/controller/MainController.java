@@ -92,8 +92,9 @@ public class MainController {
     }
 
     @PostMapping("/community/notice/update")
-    public void update_notice() {
-
+    public boolean update_notice(BoardVO boardVO) {
+        log.info(boardVO);
+        return boardService.update_notice(boardVO);
     }
 
 //    @ResponseBody
