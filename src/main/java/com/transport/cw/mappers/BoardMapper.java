@@ -14,4 +14,6 @@ public interface BoardMapper {
     void insert_board(BoardVO boardVO);
 
     boolean update_notice(BoardVO boardVO);
+
+    boolean delete_notice(BoardVO boardVO);
 }

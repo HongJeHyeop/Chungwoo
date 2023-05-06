@@ -92,10 +92,20 @@ public class MainController {
     }
 
     @PostMapping("/community/notice/update")
-    public boolean update_notice(BoardVO boardVO) {
+    public String update_notice(BoardVO boardVO) {
         log.info(boardVO);
-        return boardService.update_notice(boardVO);
+        boolean result = boardService.update_notice(boardVO);
+        log.info("수정결과 >> " + result);
+        return "redirect:/community/notice";
     }
+
+    @ResponseBody
+    @DeleteMapping("/community/notice/delete")
+    public boolean delete_notice(@RequestBody BoardVO boardVO) {
+        log.info(boardVO.getNo());
+        return boardService.delete_notice(boardVO);
+    }
+
 
 //    @ResponseBody
 //    @GetMapping("/community/notice/update/write")

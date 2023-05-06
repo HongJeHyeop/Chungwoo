@@ -1,3 +1,4 @@
+const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute("content");
 const container = document.getElementById('container');
 const boardNo = document.getElementById('board-no').value;
 
@@ -29,7 +30,7 @@ function create_board(boardVO) {
     container.insertAdjacentHTML("beforeend",
         `<div id="update-btn">
                 <input type="button" value="수정하기" onclick="location.href = '/community/noticeWrite/${boardVO.no}'">
-                <input type="button" value="삭제하기" onclick="location.href = '/community/noticeWrite/${boardVO.no}'">
+                <input type="button" value="삭제하기" onclick="delete_notice(${boardVO.no})">
             </div>
             <table>
                 <thead>
@@ -58,3 +59,26 @@ function create_board(boardVO) {
                 <input type="button" value="다음글" onclick="get_board_detail('${nextPage}')">
             </div>`);
 }
+
+// 게시글 삭제
+
+function delete_notice(noticeNo){
+    console.log(noticeNo)
+    fetch('/community/notice/delete', {
+        method:'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken
+        },
+        body: JSON.stringify({
+            no: noticeNo
+        })
+    }).then(value => value.text())
+        .then(value => {
+            console.log("삭제여부 >> " + value)
+            location.href = '/community/notice'
+        })
+        .catch(reason => {
+            console.log(reason)
+        })
+ }

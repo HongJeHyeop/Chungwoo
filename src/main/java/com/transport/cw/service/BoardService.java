@@ -33,4 +33,8 @@ public class BoardService {
         boardVO.setFileAddr("C:/update/file");
         return boardMapper.update_notice(boardVO);
     }
+
+    public boolean delete_notice(BoardVO boardVO) {
+        return boardMapper.delete_notice(boardVO);
+    }
 }

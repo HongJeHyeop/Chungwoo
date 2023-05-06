@@ -3,7 +3,7 @@ const contents = document.getElementById('quill_html');
 const formBox = document.getElementById('insert-form');
 const updateNo = document.getElementById('update-no');
 
-
+console.log(csrfToken)
 // quill 툴바옵션
 const toolbarOptions = [
     ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
@@ -84,18 +84,23 @@ function update_write(item) {
                 <div id="editor">
                     ${item.contents}
                 </div>
-                <input type="hidden" id="quill_html" name="contents">
-                <input type="hidden" th:name="\${_csrf.parameterName}" th:value="\${_csrf.token}">
+                <input type="hidden" id="quill_html" name="contents" value="${item.contents}">
+                <input type="hidden" name="_csrf" value="${csrfToken}"/>
+                <input type="hidden" name="no" value="${updateNo.value}">
                 <div id="btn">
                     <input type="button" value="작성하기" onclick="notice_write_check()">
                     <input type="button" value="취소하기" onclick="location.href = '/community/notice'">
                 </div>
                 </form>`)
+    const contents = document.getElementById('quill_html');
     const quill = new Quill('#editor', {
         modules: {
             toolbar: toolbarOptions
         },
         theme: 'snow'
+    });
+    quill.on('text-change', function() {
+        contents.value = quill.root.innerHTML;
     });
 }
 // 수정하기로 왔을때

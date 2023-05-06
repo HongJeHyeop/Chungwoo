@@ -17,10 +17,15 @@
     </select>
 
     <update id="update_notice" parameterType="com.transport.cw.domain.vos.BoardVO">
-        UPDATE `board_tbl` SET `boardType` = #{boardType}
-            AND  `title` = #{title}
-            AND `contents` = #{contents}
-            AND `fileAddr` = #{fileAddr}
-            AND `writeDate` = DEFAULT
+        UPDATE `board_tbl` SET `boardType` = #{boardType},
+        `title` = #{title},
+        `contents` = #{contents},
+        `fileAddr` = #{fileAddr},
+        `writeDate` = DEFAULT
+        WHERE `no` = #{no}
     </update>
+
+    <delete id="delete_notice" parameterType="com.transport.cw.domain.vos.BoardVO">
+        DELETE FROM `board_tbl` WHERE `no` = #{no}
+    </delete>
 </mapper>
