@@ -25,7 +25,13 @@
     <section>
         <input type="hidden" id="board-no" th:value="${no}">
         <div id="container">
+            <div id="update-btn" sec:authorize="isAuthenticated()">
+                <input type="button" value="수정하기" onclick="location.href = `/community/noticeWrite/${no}`">
+                <input type="button" value="삭제하기" onclick="delete_notice(`${no}`)">
+            </div>
+            <div id="notice-detail">
 
+            </div>
 
         </div>
     </section>

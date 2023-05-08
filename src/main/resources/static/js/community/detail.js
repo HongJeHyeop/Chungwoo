@@ -1,5 +1,5 @@
 const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute("content");
-const container = document.getElementById('container');
+const detailItem = document.getElementById('notice-detail');
 const boardNo = document.getElementById('board-no').value;
 
 get_board_detail(boardNo);
@@ -23,15 +23,12 @@ function get_board_detail(pageNo) {
 // 상세 게시글 생성 메서드
 function create_board(boardVO) {
     // console.log(users, userList)
-    container.innerHTML = '';
+    detailItem.innerHTML = '';
     let nextPage = boardVO.no + 1;
     let prevPage = boardVO.no - 1;
     console.log(nextPage, prevPage)
-    container.insertAdjacentHTML("beforeend",
-        `<div id="update-btn">
-                <input type="button" value="수정하기" onclick="location.href = '/community/noticeWrite/${boardVO.no}'">
-                <input type="button" value="삭제하기" onclick="delete_notice(${boardVO.no})">
-            </div>
+    detailItem.insertAdjacentHTML("beforeend",
+        `
             <table>
                 <thead>
                 <th>${boardVO.title}</th>
