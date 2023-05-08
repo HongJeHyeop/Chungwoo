@@ -28,4 +28,16 @@
     <delete id="delete_notice" parameterType="com.transport.cw.domain.vos.BoardVO">
         DELETE FROM `board_tbl` WHERE `no` = #{no}
     </delete>
+
+    <!-- 페이징 -->
+    <select id="find_all" parameterType="com.transport.cw.domain.dtos.PagingDTO"
+            resultType="com.transport.cw.domain.vos.BoardVO">
+        SELECT * FROM `board_tbl` WHERE `boardType`='공지사항'
+        ORDER BY `no` DESC
+        LIMIT #{pagination.limitStart}, #{recordSize}
+    </select>
+    <select id="count" resultType="int">
+        SELECT COUNT(*) FROM `board_tbl` WHERE `boardType`='공지사항'
+    </select>
+
 </mapper>

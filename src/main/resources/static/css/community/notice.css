@@ -70,3 +70,12 @@
 
 }
 
+#page-num > ul {
+    display: flex;
+    justify-content: center;
+}
+#page-num > ul li {
+    margin-right: 1rem;
+}
+
+

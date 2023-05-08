@@ -1,6 +1,8 @@
 package com.transport.cw.controller;
 
+import com.transport.cw.domain.dtos.PagingDTO;
 import com.transport.cw.domain.vos.BoardVO;
+import com.transport.cw.paging.PagingResponse;
 import com.transport.cw.service.BoardService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,9 +65,18 @@ public class MainController {
 
     @ResponseBody
     @GetMapping("/community/notice/list")
-    public List<BoardVO> get_all_notice() {
+    public PagingResponse get_all_notice(
+            @RequestParam(defaultValue = "1") int nowPage,
+            @RequestParam(defaultValue = "10") int recordSize,
+            @RequestParam(defaultValue = "10") int pageSize,
+            @RequestParam(defaultValue = "") String searchKeyword,
+            @RequestParam(defaultValue = "공지사항") String searchType
+    ) {
+
+
         log.info("공지사항 목록 접속");
-        return boardService.get_all_notice();
+        log.info("controller>>>>" + boardService.find_all(new PagingDTO(nowPage, recordSize, pageSize, searchKeyword, searchType)));
+        return boardService.find_all(new PagingDTO(nowPage, recordSize, pageSize, searchKeyword, searchType));
     }
 
     @GetMapping("/community/noticeWrite")

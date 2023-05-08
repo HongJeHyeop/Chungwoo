@@ -1,5 +1,6 @@
 package com.transport.cw.mappers;
 
+import com.transport.cw.domain.dtos.PagingDTO;
 import com.transport.cw.domain.vos.BoardVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -16,4 +17,10 @@ public interface BoardMapper {
     boolean update_notice(BoardVO boardVO);
 
     boolean delete_notice(BoardVO boardVO);
+
+    /*** 페이징 ***/
+    List<BoardVO> find_all(PagingDTO pagingDTO);
+
+    // 전체 게시글 개수
+    int count();
 }
