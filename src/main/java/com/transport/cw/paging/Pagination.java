@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 
 @Data
 public class Pagination {
+    // 현재 페이지
+    private int nowPage;
     // 전체 테이터 수
     private int totalRecordCount;
     // 전체 페이지 수
@@ -24,6 +26,7 @@ public class Pagination {
     public Pagination(int totalRecordCount, PagingDTO pagingDTO) {
         if (totalRecordCount > 0) {
             this.totalRecordCount = totalRecordCount;
+            this.nowPage = pagingDTO.getNowPage();
             carc_page(pagingDTO);
         }
     }

@@ -14,6 +14,9 @@
     <link rel="stylesheet" th:href="@{/css/service/inquiry.css}" href="../../static/css/service/inquiry.css">
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
     <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script th:src="@{/js/service/html2canvas.min.js}" src="../../static/js/service/html2canvas.min.js" defer></script>
+    <script th:src="@{/js/service/inquiry.js}" src="../../static/js/service/inquiry.js" defer></script>
 </head>
 <body>
 <th:block th:replace="~{home/header:: header}"/>
@@ -22,7 +25,7 @@
         <h1>온라인 문의</h1>
     </div>
     <section>
-        <form action="/service/mailsend">
+        <form action="/service/mailsend" id="a">
             <div class="info">
                 <h2>회사정보</h2>
                 <table>
