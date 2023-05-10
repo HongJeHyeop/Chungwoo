@@ -22,5 +22,5 @@ public interface BoardMapper {
     List<BoardVO> find_all(PagingDTO pagingDTO);
 
     // 전체 게시글 개수
-    int count();
+    int count(PagingDTO pagingDTO);
 }

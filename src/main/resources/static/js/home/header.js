@@ -18,7 +18,6 @@ for (let list of headerListTitle) {
 }
 for (let list of headerDetailList) {
     list.addEventListener('mouseover', () => {
-        console.log(list)
         list.style.display = "block";
     })
     list.addEventListener('mouseout', (e) => {

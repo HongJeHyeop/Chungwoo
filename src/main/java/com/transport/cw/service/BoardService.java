@@ -23,11 +23,11 @@ public class BoardService {
     public void insert_board(BoardVO boardVO, String id) {
         boardVO.setId(id);
         boardVO.setFileAddr("C:/asdfasdf");
-        for (int i = 0; i <= 400; i++) {
-            boardVO.setTitle("test" + i);
+//        for (int i = 0; i <= 400; i++) {
+//            boardVO.setTitle("test" + i);
+//        }
             log.info(boardVO);
             boardMapper.insert_board(boardVO);
-        }
     }
 
     ;
@@ -56,7 +56,7 @@ public class BoardService {
     /*** 페이징 ***/
     public PagingResponse find_all(PagingDTO pagingDTO) {
 
-        int count = boardMapper.count();
+        int count = boardMapper.count(pagingDTO);
         log.info(count);
         if (count < 1) {
             return new PagingResponse(Collections.emptyList(), null);

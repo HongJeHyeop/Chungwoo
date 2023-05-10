@@ -1,5 +1,7 @@
 const noticeList = document.getElementById('notice-list');
 const pageNum = document.getElementById('page-num').firstElementChild;
+const keyword = document.getElementById('search-input').querySelectorAll('input').item(0);
+const searchBtn = keyword.nextElementSibling;
 
 
 find_all_notice()
@@ -70,3 +72,7 @@ function click_page_num(nowPage) {
         }
     }
 }
+
+searchBtn.addEventListener('click', () => {
+    find_all_notice('1', '', '', keyword.value)
+})
