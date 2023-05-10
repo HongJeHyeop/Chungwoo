@@ -4,8 +4,9 @@ const doc = new jsPDF({
     unit: "mm", // 단위 : "pt" (points), "mm", "cm", "m", "in" or "px" 등)
     format: "a4", // 포맷 (페이지 크기).
 });
-html2canvas(document.body).then(canvas => {
-    document.body.appendChild(canvas)
+const a = document.getElementById('a');
+const btn = document.getElementById('btn-box').firstElementChild;
+html2canvas(a).then(canvas => {
     let imgData = canvas.toDataURL('image/png');
 
     let imgWidth = 190; // 이미지 가로 길이(mm) / A4 기준 210mm
@@ -15,8 +16,9 @@ html2canvas(document.body).then(canvas => {
     let margin = 10; // 출력 페이지 여백설정
     let position = 0;
     doc.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
-    heightLeft -= pageHeight;
-doc.save('img')
+    btn.addEventListener('click', () => {
+        doc.save('test')
+    })
 });
 
 
