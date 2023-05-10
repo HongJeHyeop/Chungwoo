@@ -32,16 +32,20 @@
     <!-- 페이징 -->
     <select id="find_all" parameterType="com.transport.cw.domain.dtos.PagingDTO"
             resultType="com.transport.cw.domain.vos.BoardVO">
+        <![CDATA[
         SELECT * FROM `board_tbl` WHERE `boardType`='공지사항' AND
         `title` LIKE CONCAT ('%', #{keyword}, '%') OR
-        `contents` LIKE CONCAT ('%', #{keyword}, '%')
+        REGEXP_REPLACE(`contents`,'<[^>]*>','') LIKE CONCAT ('%', #{keyword}, '%')
         ORDER BY `no` DESC
         LIMIT #{pagination.limitStart}, #{recordSize}
+        ]]>
     </select>
     <select id="count" parameterType="com.transport.cw.domain.dtos.PagingDTO" resultType="int">
+        <![CDATA[
         SELECT COUNT(*) FROM `board_tbl` WHERE `boardType`='공지사항' AND
         `title` LIKE CONCAT ('%', #{keyword}, '%') OR
-        `contents` LIKE CONCAT ('%', #{keyword}, '%')
+        REGEXP_REPLACE(`contents`,'<[^>]*>','') LIKE CONCAT ('%', #{keyword}, '%')
+        ]]>
     </select>
 
 </mapper>
