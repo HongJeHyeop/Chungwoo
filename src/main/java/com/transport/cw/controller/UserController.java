@@ -58,6 +58,12 @@ public class UserController {
         return "redirect:/user/login";
     }
 
+    @ResponseBody
+    @GetMapping("/register/duplicate")
+    public boolean duplicate_check(@RequestParam String id) {
+        return userService.duplicate_check(id);
+    }
+
     @GetMapping("/userList")
     public void user_list() {}
 

@@ -17,6 +17,9 @@ public interface UserMapper {
     // 회원가입 대기 목록
     List<UserVO> register_request();
 
+    // 아이디 중복확인
+    int duplicate_check(String id);
+
     // 관리자에게 회원가입 요청
     void register_user(UserVO userVO);
 

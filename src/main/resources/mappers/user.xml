@@ -13,6 +13,10 @@
         SELECT * FROM `user_tbl` WHERE `authorization` = 1 AND `role` = 'MEMBER'
     </select>
 
+    <select id="duplicate_check" resultType="int">
+        SELECT count(*) FROM `user_tbl` where `id` = #{id};
+    </select>
+
     <!-- 회원가입 대기 목록 -->
     <select id="register_request" resultType="com.transport.cw.domain.vos.UserVO">
         SELECT * FROM `user_tbl` WHERE `authorization` = 0

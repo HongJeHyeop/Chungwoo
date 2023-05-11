@@ -24,6 +24,16 @@ public class UserService {
         userMapper.register_user(userVO);
     };
 
+    // 아이디 중복확인
+    public boolean duplicate_check(String id) {
+        int count = userMapper.duplicate_check(id);
+        if (count > 0) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
     // 전체 회원 조회
     public List<UserVO> get_all_user() {
         return userMapper.get_all_user();
