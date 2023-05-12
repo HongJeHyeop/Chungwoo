@@ -82,3 +82,9 @@ html, body {
     cursor: pointer;
 }
 
+/* 비밀번호 생성규칙 */
+#pw-disc {
+    font-size: 0.7rem;
+    color: #999999;
+    margin-left: 0.5rem;
+}
