@@ -22,6 +22,7 @@ public class BoardVO {
     private String title;
     private String contents;
     private String fileAddr;
+    private String fileName;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
     private LocalDateTime writeDate;

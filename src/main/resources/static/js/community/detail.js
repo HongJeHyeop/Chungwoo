@@ -41,7 +41,7 @@ function create_board(boardVO) {
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td colspan="2"><i class="fa-solid fa-download"></i> 첨부파일1</td>
+                    <td colspan="2"><a href="/board/down/${boardVO.no}"><i class="fa-solid fa-download"></i> ${boardVO.fileName}</a></td>
                     <td>2022-03-21</td>
                 </tr>
                 <tr>

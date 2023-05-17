@@ -4,6 +4,7 @@ import com.transport.cw.domain.dtos.PagingDTO;
 import com.transport.cw.domain.vos.BoardVO;
 import com.transport.cw.paging.PagingResponse;
 import com.transport.cw.service.BoardService;
+import com.transport.cw.service.FileService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -12,8 +13,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 @Log4j2
@@ -23,6 +26,8 @@ public class MainController {
 
     @Autowired
     private BoardService boardService;
+    @Autowired
+    private FileService fileService;
 
     @GetMapping
     public String home() {
@@ -92,11 +97,25 @@ public class MainController {
         return boardService.get_notice(Integer.parseInt(no));
     }
 
+    @ResponseBody
+    @PostMapping("/community/noticeWrite/image")
+    public void quill_image() {
+
+    }
+
     @PostMapping("/community/insert")
     public String insert_board(
             BoardVO boardVO,
-            @AuthenticationPrincipal UserDetails userDetails
+            @AuthenticationPrincipal UserDetails userDetails,
+            MultipartFile file
             ) {
+        try {
+            boardVO.setFileAddr(fileService.upload_file(file).get(0).toString());
+            boardVO.setFileName(fileService.upload_file(file).get(1).toString());
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         log.info(boardVO);
         boardService.insert_board(boardVO, userDetails.getUsername());
         return "redirect:/community/notice";

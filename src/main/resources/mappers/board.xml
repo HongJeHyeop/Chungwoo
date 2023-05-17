@@ -5,7 +5,7 @@
 <mapper namespace="com.transport.cw.mappers.BoardMapper">
     <insert id="insert_board" parameterType="com.transport.cw.domain.vos.BoardVO">
         INSERT INTO `board_tbl`
-        VALUES(DEFAULT, #{boardType}, #{id}, #{title}, #{contents}, #{fileAddr}, DEFAULT)
+        VALUES(DEFAULT, #{boardType}, #{id}, #{title}, #{contents}, #{fileAddr}, #{fileName}, DEFAULT)
     </insert>
 
     <select id="get_all_notice" resultType="com.transport.cw.domain.vos.BoardVO">
@@ -21,6 +21,7 @@
         `title` = #{title},
         `contents` = #{contents},
         `fileAddr` = #{fileAddr},
+        `fileName` = #{fileName},
         `writeDate` = DEFAULT
         WHERE `no` = #{no}
     </update>

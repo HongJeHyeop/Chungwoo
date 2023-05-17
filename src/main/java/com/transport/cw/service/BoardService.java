@@ -22,11 +22,9 @@ public class BoardService {
 
     public void insert_board(BoardVO boardVO, String id) {
         boardVO.setId(id);
-        boardVO.setFileAddr("C:/asdfasdf");
 //        for (int i = 0; i <= 400; i++) {
 //            boardVO.setTitle("test" + i);
 //        }
-            log.info(boardVO);
             boardMapper.insert_board(boardVO);
     }
 
