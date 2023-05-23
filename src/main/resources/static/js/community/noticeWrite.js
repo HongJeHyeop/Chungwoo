@@ -3,10 +3,10 @@ const contents = document.getElementById('quill_html');
 const formBox = document.getElementById('insert-form');
 const updateNo = document.getElementById('update-no');
 
-console.log(csrfToken)
-quilljsediterInit()
+quill_editor_init()
+
 // quill 툴바옵션
-function quilljsediterInit() {
+function quill_editor_init() {
     const toolbarOptions = [
         ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
 
@@ -30,7 +30,7 @@ function quilljsediterInit() {
 // quill 생성
     const quill = new Quill('#editor', {
         modules: {
-            toolbar: toolbarOptions
+            toolbar: toolbarOptions,
         },
         theme  : 'snow'
     });
@@ -40,45 +40,51 @@ function quilljsediterInit() {
     });
 
     quill.getModule('toolbar').addHandler('image', function () {
-        selectLocalImage();
-    });
-}
+        const input = document.createElement('input');
+        input.setAttribute('type', 'file');
+        input.setAttribute('accept', 'image/*');
+        input.click();
 
-function selectLocalImage() {
-    const fileInput = document.createElement('input');
-    fileInput.setAttribute('type', 'file');
-    console.log("input.type " + fileInput.type);
+        input.onchange = async () => {
+            console.log("image onchange");
+            const file = input.files[0];
+            const formData = new FormData();
+            formData.append('image', file);
 
-    fileInput.click();
+            try {
+                // 이미지 업로드
+                const response = await fetch('/board/quillImage', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken
+                    },
+                    body: formData,
+                });
 
-    fileInput.addEventListener("change", function () {  // change 이벤트로 input 값이 바뀌면 실행
-        const formData = new FormData();
-        const file = fileInput.files[0];
-        formData.append('uploadFile', file);
-
-        $.ajax({
-            type       : 'post',
-            enctype    : 'multipart/form-data',
-            url        : '/community/noticeWrite/image',
-            data       : formData,
-            processData: false,
-            contentType: false,
-            dataType   : 'json',
-            success    : function (data) {
-                const range = quill.getSelection(); // 사용자가 선택한 에디터 범위
-                // uploadPath에 역슬래시(\) 때문에 경로가 제대로 인식되지 않는 것을 슬래시(/)로 변환
-                data.uploadPath = data.uploadPath.replace(/\\/g, '/');
-
-                quill.insertEmbed(range.index, 'image', "/board/display?fileName=" + data.uploadPath + "/" + data.uuid + "_" + data.fileName);
-
-            },
-            error      : function (err) {
-                console.log(err);
+                if (response.ok) {
+                    const value = await response.text();
+                    console.log("전송 성공");
+                    console.log(value)
+                    const imageUrl = value;
+                    // 이미지를 Quill.js 편집기에 삽입
+                    const range = quill.getSelection();
+                    quill.insertEmbed(range.index, 'image', imageUrl);
+                    const imgElements = document.querySelectorAll('.ql-editor img');
+                    imgElements.forEach((img) => {
+                        img.setAttribute('src', img.getAttribute('src'));
+                    });
+                } else {
+                    console.error('Image upload failed.');
+                }
+            } catch (error) {
+                console.error('Error during image upload:', error);
             }
-        });
-
+        };
     });
+
+
 }
+
 
 
 // 작성하기 버튼 클릭시 서버전송
@@ -136,7 +142,7 @@ function update_write(item) {
                     <input type="button" value="취소하기" onclick="location.href = '/community/notice'">
                 </div>
                 </form>`)
-    quilljsediterInit()
+    quill_editor_init()
 }
 
 // 수정하기로 왔을때

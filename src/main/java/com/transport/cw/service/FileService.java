@@ -4,9 +4,11 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -75,4 +77,23 @@ public class FileService {
         return ALLOWED_EXTENSIONS.contains(extension.toLowerCase());
     }
 
+
+    /*** quill 이미지 처리 ***/
+    public ResponseEntity<String> quill_image_upload(MultipartFile image) throws IOException{
+        if(image.isEmpty()){
+            log.info("quill 업로드할 파일이 존재하지않습니다.");
+        }
+        String fileName = UUID.randomUUID().toString().substring(0,8) + "_" + image.getOriginalFilename();
+        Path filePath = Path.of(uploadDirectory + "quillImages\\", fileName);
+        if(!Files.exists(filePath)){
+                Files.createDirectories(filePath);
+        }
+        log.info("만들어진 파일 경로 >>>" + filePath);
+        Files.copy(image.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+
+        // 저장된 이미지의 URL 반환
+        String imageUrl = "../../static/uploadImages/quillImages/" + fileName;
+        log.info(imageUrl);
+        return ResponseEntity.ok(imageUrl);
+    }
 }

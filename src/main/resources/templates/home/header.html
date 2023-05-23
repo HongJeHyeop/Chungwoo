@@ -6,7 +6,7 @@
 >
 <head>
     <meta charset="UTF-8">
-    <!--    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">-->
+    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
     <title>$Title$</title>
     <link rel="stylesheet" th:href="@{css/home/header.css}" href="../../static/css/home/header.css">
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
@@ -14,61 +14,61 @@
 </head>
 <body>
 <header th:fragment="header">
-        <div id="header-logo">
+    <div id="header-logo">
         <img th:src="@{/images/logo.png}" src="../../static/images/logo.png" alt="로고" onclick="location.href='/ '">
-        </div>
-        <div id="header-list">
-            <ul>
-                <li class="header-list-title">
-                    <a href="/introduce/greeting">회사소개</a>
-                    <ul class="header-detail-list">
-                        <li><a href="/introduce/greeting">인사말</a></li>
-                        <li><a href="/introduce/history">연혁</a></li>
-                        <li><a href="">조직도</a></li>
-                        <li><a href="">조직도</a></li>
-                        <li><a href="">조직도</a></li>
-                        <li><a href="">조직도</a></li>
-                    </ul>
-                </li>
-                <li class="header-list-title">
-                    <a href="#">업무/사업</a>
-                    <ul class="header-detail-list">
-                        <li><a href="">업무1</a></li>
-                        <li><a href="">업무2</a></li>
-                        <li><a href="">업무3</a></li>
-                        <li><a href="">업무3</a></li>
-                        <li><a href="">업무3</a></li>
-                        <li><a href="">업무3</a></li>
-                    </ul>
-                </li>
-                <li class="header-list-title">
-                    <a href="#">메뉴3</a>
-                    <ul class="header-detail-list">
-                        <li><a href="">상세메뉴1</a></li>
-                        <li><a href="">상세메뉴2</a></li>
-                        <li><a href="">상세메뉴3</a></li>
-                        <li><a href="">상세메뉴4</a></li>
-                        <li><a href="">상세메뉴5</a></li>
-                        <li><a href=""></br> </a></li>
-                    </ul>
-                </li>
-                <li class="header-list-title">
-                    <a href="/community/notice">커뮤니티</a>
-                    <ul class="header-detail-list">
-                        <li><a href="/community/notice">공지사항</a></li>
-                        <li><a href="/community/repository">자료실</a></li>
-                        <li><a href="">채용공고</a></li>
-                    </ul>
-                </li>
-                <li class="header-list-title">
-                    <a href="#">고객센터</a>
-                    <ul class="header-detail-list">
-                        <li><a href="/service/inquiry">온라인문의</a></li>
-                        <li><a href="">FAQ</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+    </div>
+    <div id="header-list">
+        <ul>
+            <li class="header-list-title">
+                <a href="/introduce/greeting">회사소개</a>
+                <ul class="header-detail-list">
+                    <li><a href="/introduce/greeting">인사말</a></li>
+                    <li><a href="/introduce/history">연혁</a></li>
+                    <li><a href="">조직도</a></li>
+                    <li><a href="">조직도</a></li>
+                    <li><a href="">조직도</a></li>
+                    <li><a href="">조직도</a></li>
+                </ul>
+            </li>
+            <li class="header-list-title">
+                <a href="#">업무/사업</a>
+                <ul class="header-detail-list">
+                    <li><a href="">업무1</a></li>
+                    <li><a href="">업무2</a></li>
+                    <li><a href="">업무3</a></li>
+                    <li><a href="">업무3</a></li>
+                    <li><a href="">업무3</a></li>
+                    <li><a href="">업무3</a></li>
+                </ul>
+            </li>
+            <li class="header-list-title">
+                <a href="#">메뉴3</a>
+                <ul class="header-detail-list">
+                    <li><a href="">상세메뉴1</a></li>
+                    <li><a href="">상세메뉴2</a></li>
+                    <li><a href="">상세메뉴3</a></li>
+                    <li><a href="">상세메뉴4</a></li>
+                    <li><a href="">상세메뉴5</a></li>
+                    <li><a href=""></br> </a></li>
+                </ul>
+            </li>
+            <li class="header-list-title">
+                <a href="/community/notice">커뮤니티</a>
+                <ul class="header-detail-list">
+                    <li><a href="/community/notice">공지사항</a></li>
+                    <li><a href="/community/repository">자료실</a></li>
+                    <li><a href="">채용공고</a></li>
+                </ul>
+            </li>
+            <li class="header-list-title">
+                <a href="#">고객센터</a>
+                <ul class="header-detail-list">
+                    <li><a href="/service/inquiry">온라인문의</a></li>
+                    <li><a href="">FAQ</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 </header>
 </body>
 </html>
