@@ -69,10 +69,6 @@ function quill_editor_init() {
                     // 이미지를 Quill.js 편집기에 삽입
                     const range = quill.getSelection();
                     quill.insertEmbed(range.index, 'image', imageUrl);
-                    const imgElements = document.querySelectorAll('.ql-editor img');
-                    imgElements.forEach((img) => {
-                        img.setAttribute('src', img.getAttribute('src'));
-                    });
                 } else {
                     console.error('Image upload failed.');
                 }
@@ -81,8 +77,6 @@ function quill_editor_init() {
             }
         };
     });
-
-
 }
 
 
@@ -120,7 +114,7 @@ function notice_write_check() {
 function update_write(item) {
     formBox.innerHTML = '';
     formBox.insertAdjacentHTML('beforeend',
-        `<form action="/community/notice/update" method="POST">
+        `<form action="/community/notice/update" method="POST" enctype="multipart/form-data">
                 <div id="board-type">
                     <select name="boardType">
                         <option>공지사항</option>
@@ -129,12 +123,12 @@ function update_write(item) {
                 </div>
                 <div id="board-header">
                     <input type="text" name="title" placeholder="제목을 입력하세요" value="${item.title}"></br>
-                    <input type="file">
+                    <input type="file" name="file">
                 </div>
                 <div id="editor">
                     ${item.contents}
                 </div>
-                <input type="hidden" id="quill_html" name="contents" value="${item.contents}">
+                <input type="hidden" id="quill_html" name="contents" value="'${item.contents}'">
                 <input type="hidden" name="_csrf" value="${csrfToken}"/>
                 <input type="hidden" name="no" value="${updateNo.value}">
                 <div id="btn">

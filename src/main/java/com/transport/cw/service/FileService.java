@@ -92,7 +92,7 @@ public class FileService {
         Files.copy(image.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
         // 저장된 이미지의 URL 반환
-        String imageUrl = "../../static/uploadImages/quillImages/" + fileName;
+        String imageUrl = "/uploadImages/quillImages/" + fileName;
         log.info(imageUrl);
         return ResponseEntity.ok(imageUrl);
     }
