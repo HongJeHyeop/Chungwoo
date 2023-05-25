@@ -1,5 +1,4 @@
 const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute("content");
-const contents = document.getElementById('quill_html');
 const formBox = document.getElementById('insert-form');
 const updateNo = document.getElementById('update-no');
 
@@ -7,6 +6,7 @@ quill_editor_init()
 
 // quill 툴바옵션
 function quill_editor_init() {
+    const contents = document.getElementById('quill_html');
     const toolbarOptions = [
         ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
 
@@ -35,6 +35,7 @@ function quill_editor_init() {
         theme  : 'snow'
     });
 // 서버로 보내기 위해 input태그로 카피
+    contents.value = quill.root.innerHTML;
     quill.on('text-change', function () {
         contents.value = quill.root.innerHTML;
     });
@@ -128,7 +129,7 @@ function update_write(item) {
                 <div id="editor">
                     ${item.contents}
                 </div>
-                <input type="hidden" id="quill_html" name="contents" value="'${item.contents}'">
+                <input type="hidden" id="quill_html" name="contents" value="">
                 <input type="hidden" name="_csrf" value="${csrfToken}"/>
                 <input type="hidden" name="no" value="${updateNo.value}">
                 <div id="btn">

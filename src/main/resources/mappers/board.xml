@@ -16,6 +16,18 @@
         SELECT * FROM `board_tbl` WHERE `boardType`='공지사항' AND `no` = #{no}
     </select>
 
+    <!-- 다음 게시물 -->
+    <select id="next_notice" resultType="com.transport.cw.domain.vos.BoardVO" parameterType="int">
+        SELECT * FROM `board_tbl` WHERE `no` = (SELECT MIN(no) FROM `board_tbl` WHERE `no` > #{no})
+    </select>
+
+    <!-- 이전 게시물 -->
+    <select id="prev_notice" resultType="com.transport.cw.domain.vos.BoardVO" parameterType="int">
+        <![CDATA[
+        SELECT * FROM `board_tbl` WHERE `no` = (SELECT MAX(no) FROM `board_tbl` WHERE `no` < #{no})
+        ]]>
+    </select>
+
     <update id="update_notice" parameterType="com.transport.cw.domain.vos.BoardVO">
         UPDATE `board_tbl` SET `boardType` = #{boardType},
         `title` = #{title},

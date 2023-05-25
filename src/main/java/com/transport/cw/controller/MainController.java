@@ -42,29 +42,40 @@ public class MainController {
     }
 
     @GetMapping("/introduce/history")
-    public void history() {log.info("====== 연혁 ======");}
+    public void history() {
+        log.info("====== 연혁 ======");
+    }
 
     /*** 커뮤니티 페이지 ***/
     // 공지사항
     @GetMapping("/community/notice")
-    public void notice() {}
+    public void notice() {
+    }
 
     // 공지사항 게시글 상세페이지
     @GetMapping("/community/detail")
     public void detail_page() {
 
     }
+
     @GetMapping("/community/detail/{no}")
     public String detail(@PathVariable int no, Model model) {
         model.addAttribute("no", no);
         return "/community/detail";
     }
+
     @ResponseBody
     @GetMapping("/community/restDetail/{boardNo}")
-    public BoardVO rest_detail(@PathVariable String boardNo) {
+    public BoardVO rest_detail(@PathVariable String boardNo, @RequestParam String arrow) {
         int no = Integer.parseInt(boardNo);
-        log.info(no);
-        log.info(">>>>>>>>>>>>" + boardService.get_notice(no));
+        log.info(arrow);
+        if (arrow.equals("next")) {
+            log.info(arrow);
+            return boardService.next_notice(no);
+        } else if (arrow.equals("prev")) {
+            log.info(arrow);
+            return boardService.prev_notice(no);
+        }
         return boardService.get_notice(no);
     }
 
@@ -85,15 +96,18 @@ public class MainController {
     }
 
     @GetMapping("/community/noticeWrite")
-    public void notice_write() {}
+    public void notice_write() {
+    }
+
     @GetMapping("/community/noticeWrite/{no}")
     public String update_notice_write(@PathVariable String no, Model model) {
         model.addAttribute("no", no);
         return "/community/noticeWrite";
     }
+
     @ResponseBody
     @GetMapping("/community/notice/update/write/{no}")
-    public BoardVO update_notice_write(@PathVariable String no){
+    public BoardVO update_notice_write(@PathVariable String no) {
         return boardService.get_notice(Integer.parseInt(no));
     }
 
@@ -108,7 +122,7 @@ public class MainController {
             BoardVO boardVO,
             @AuthenticationPrincipal UserDetails userDetails,
             MultipartFile file
-            ) {
+    ) {
         try {
             boardVO.setFileAddr(fileService.upload_file(file).get(0).toString());
             boardVO.setFileName(fileService.upload_file(file).get(1).toString());
@@ -122,9 +136,19 @@ public class MainController {
     }
 
     @PostMapping("/community/notice/update")
-    public String update_notice(BoardVO boardVO) {
+    public String update_notice(BoardVO boardVO, MultipartFile file) {
         log.info(boardVO);
+        try {
+            if (!file.isEmpty()) {
+                boardVO.setFileAddr(fileService.upload_file(file).get(0).toString());
+                boardVO.setFileName(fileService.upload_file(file).get(1).toString());
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         boolean result = boardService.update_notice(boardVO);
+
         log.info("수정결과 >> " + result);
         return "redirect:/community/notice";
     }

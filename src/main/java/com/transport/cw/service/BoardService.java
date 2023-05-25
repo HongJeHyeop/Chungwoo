@@ -25,7 +25,7 @@ public class BoardService {
 //        for (int i = 0; i <= 400; i++) {
 //            boardVO.setTitle("test" + i);
 //        }
-            boardMapper.insert_board(boardVO);
+        boardMapper.insert_board(boardVO);
     }
 
     ;
@@ -40,10 +40,16 @@ public class BoardService {
         return boardMapper.get_notice(no);
     }
 
-    ;
+    public BoardVO next_notice(int no) {
+        return boardMapper.next_notice(no);
+    }
+
+    public BoardVO prev_notice(int no) {
+        return boardMapper.prev_notice(no);
+    }
 
     public boolean update_notice(BoardVO boardVO) {
-        boardVO.setFileAddr("C:/update/file");
+//        boardVO.setFileAddr("C:/update/file");
         return boardMapper.update_notice(boardVO);
     }
 

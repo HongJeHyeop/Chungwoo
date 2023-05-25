@@ -23,4 +23,10 @@ public interface BoardMapper {
 
     // 전체 게시글 개수
     int count(PagingDTO pagingDTO);
+
+    // 다음 게시물
+    BoardVO next_notice(int no);
+
+    // 이전 게시물
+    BoardVO prev_notice(int no);
 }

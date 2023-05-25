@@ -5,9 +5,10 @@ const boardNo = document.getElementById('board-no').value;
 get_board_detail(boardNo);
 
 // 게시글 번호에 따른 GET요청
-function get_board_detail(pageNo) {
+function get_board_detail(pageNo, arrow) {
     no = pageNo.toString()
-    fetch(`/community/restDetail/${no}`)
+    console.log(arrow)
+    fetch(`/community/restDetail/${no}?arrow=${arrow}`)
         .then(response => response.json())
         .then(value => {
             // 생성
@@ -22,11 +23,7 @@ function get_board_detail(pageNo) {
 
 // 상세 게시글 생성 메서드
 function create_board(boardVO) {
-    // console.log(users, userList)
     detailItem.innerHTML = '';
-    let nextPage = boardVO.no + 1;
-    let prevPage = boardVO.no - 1;
-    console.log(nextPage, prevPage)
     detailItem.insertAdjacentHTML("beforeend",
         `
             <table>
@@ -40,34 +37,38 @@ function create_board(boardVO) {
                 </td>
                 </tbody>
                 <tfoot>
-                <tr>
-                    <td colspan="2"><a href="/board/down/${boardVO.no}"><i class="fa-solid fa-download"></i> ${boardVO.fileName}</a></td>
-                    <td>2022-03-21</td>
-                </tr>
-                <tr>
-                    <td colspan="2"><i class="fa-solid fa-download"></i> 첨부파일1</td>
-                    <td>2022-03-21</td>
+                <tr id="upload-files">
+                <td colspan="2"></td>
+                <td></td>
                 </tr>
                 </tfoot>
             </table>
             <div id="move-btn">
-                <input type="button" value="이전글" onclick="get_board_detail('${prevPage}')">
+                <input type="button" value="이전글" onclick="get_board_detail('${boardVO.no}', 'prev')">
                 <input type="button" value="목록" onclick="location.href='/community/notice'">
-                <input type="button" value="다음글" onclick="get_board_detail('${nextPage}')">
+                <input type="button" value="다음글" onclick="get_board_detail('${boardVO.no}', 'next')">
             </div>`);
+    const uploadFiles = document.getElementById('upload-files');
+    if (boardVO.fileName !== null && boardVO.fileName !== undefined && boardVO.fileName !== '') {
+        const orgFileName = boardVO.fileName.substring(boardVO.fileName.indexOf('_', boardVO.fileName.indexOf('_') + 1) + 1)
+        uploadFiles.innerHTML = '';
+        uploadFiles.insertAdjacentHTML('beforeend',
+            `<td colspan="2"><a href="/board/down/${boardVO.no}"><i class="fa-solid fa-download"></i> ${orgFileName}</a></td>
+                  <td>2022-03-21</td>`)
+    }
 }
 
 // 게시글 삭제
 
-function delete_notice(noticeNo){
+function delete_notice(noticeNo) {
     console.log(noticeNo)
     fetch('/community/notice/delete', {
-        method:'DELETE',
+        method : 'DELETE',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': csrfToken
         },
-        body: JSON.stringify({
+        body   : JSON.stringify({
             no: noticeNo
         })
     }).then(value => value.text())
@@ -78,4 +79,4 @@ function delete_notice(noticeNo){
         .catch(reason => {
             console.log(reason)
         })
- }
+}

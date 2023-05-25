@@ -64,6 +64,10 @@
 
     border-bottom: 1px dotted #999;
 }
+#container tfoot td:last-child{
+    padding: 1rem 0.5rem;
+    font-size: 0.8rem;
+}
 
 /* 이동 버튼 */
 #move-btn {
