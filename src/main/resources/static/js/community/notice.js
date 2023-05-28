@@ -46,9 +46,11 @@ console.log(pageNum)
 
 function create_page_num(pagination){
     pageNum.innerHTML = '';
+    const nextBtnNum = (Math.trunc(pagination.nowPage / 10) + 1) * 10 + 1;
+    const prevBtnNum = (Math.trunc(pagination.nowPage / 10) - 1) * 10 + 1;
     if (pagination.existPrevPage) {
     pageNum.insertAdjacentHTML('beforeend',`
-        <li onclick="find_all_notice(${pagination.nowPage} - 1)"><</li>              
+        <li onclick="find_all_notice(${prevBtnNum})"><</li>              
     `)
     }
     for (let i = pagination.startPage; i <= pagination.endPage; i++){
@@ -56,9 +58,10 @@ function create_page_num(pagination){
         <li class="page-no" onclick="find_all_notice(${i})">${i}</li>
         `)
     }
+
     if (pagination.existNextPage) {
         pageNum.insertAdjacentHTML('beforeend',`
-        <li onclick="find_all_notice(${pagination.nowPage} + 1)">></li>            
+        <li onclick="find_all_notice(${nextBtnNum})">></li>            
     `)
     }
 
