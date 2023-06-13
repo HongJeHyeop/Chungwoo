@@ -30,8 +30,8 @@ public class BoardService {
 
     ;
 
-    public List<BoardVO> get_all_notice() {
-        return boardMapper.get_all_notice();
+    public List<BoardVO> simple_main_notice() {
+        return boardMapper.simple_main_notice();
     }
 
     ;

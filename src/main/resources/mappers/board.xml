@@ -8,8 +8,8 @@
         VALUES(DEFAULT, #{boardType}, #{id}, #{title}, #{contents}, #{fileAddr}, #{fileName}, DEFAULT)
     </insert>
 
-    <select id="get_all_notice" resultType="com.transport.cw.domain.vos.BoardVO">
-        SELECT * FROM `board_tbl` WHERE `boardType`='공지사항'
+    <select id="simple_main_notice" resultType="com.transport.cw.domain.vos.BoardVO">
+        SELECT * FROM `board_tbl` WHERE `boardType`='공지사항' ORDER BY `no` DESC LIMIT 3
     </select>
 
     <select id="get_notice" resultType="com.transport.cw.domain.vos.BoardVO">

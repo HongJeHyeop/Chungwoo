@@ -79,3 +79,11 @@ function click_page_num(nowPage) {
 searchBtn.addEventListener('click', () => {
     find_all_notice('1', '', '', keyword.value)
 })
+
+// 엔터키로 검색버튼 클릭 이벤트
+keyword.addEventListener('keyup', (e) => {
+    if(e.code === 'Enter'){
+        searchBtn.click();
+    }
+
+})

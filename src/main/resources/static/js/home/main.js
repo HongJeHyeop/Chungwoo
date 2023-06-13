@@ -1,5 +1,6 @@
 const images = document.querySelectorAll('.main-img');
 const selectBtns = document.querySelectorAll('.select-btn');
+const simpleMainNotice = document.getElementById('simple-main-notice');
 
 // 현재 이미지 번호
 let currentImageIndex = 0;
@@ -51,3 +52,38 @@ function select_image(e) {
     currentImageIndex = i;
 }
 
+// 공지사항 간략히 보기
+fetch('/mainNotice')
+    .then(value => value.json())
+    .then(value => {
+        create_simple_main_notice(value)
+        console.log('받은 데이터', value)
+    })
+    .catch(reason => {
+        console.log('심플 공지사항 생성 오류! :' + reason)
+    })
+
+// 공지사항 생성 함수
+function create_simple_main_notice(value) {
+    simpleMainNotice.innerHTML = '';
+    value.forEach((boardVO) => {
+        simpleMainNotice.insertAdjacentHTML('beforeend',
+            `<tr>
+                <td><a href="/community/detail/${boardVO.no}">${boardVO.title}</a></td>
+                <td>${boardVO.writeDate}</td>
+            </tr>`)
+    })
+}
+
+
+// 네이버 지도 API
+const mapOptions = {
+    center: new naver.maps.LatLng(35.8443562, 128.6225852),
+    zoom: 15
+}
+const map = new naver.maps.Map('map', mapOptions);
+
+const marker = new naver.maps.Marker({
+    position: new naver.maps.LatLng(35.8443562, 128.6225852),
+    map: map
+});

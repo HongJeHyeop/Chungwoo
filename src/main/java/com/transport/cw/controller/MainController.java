@@ -35,6 +35,13 @@ public class MainController {
         return "home/main";
     }
 
+   // 메인페이지 공지사항 간략히보기
+   @ResponseBody
+   @GetMapping("mainNotice")
+   public List<BoardVO> simple_main_notice() {
+        return boardService.simple_main_notice();
+   }
+
     /*** 회사소개페이지 ***/
     @GetMapping("/introduce/greeting")
     public void greeting() {
@@ -123,16 +130,20 @@ public class MainController {
             @AuthenticationPrincipal UserDetails userDetails,
             MultipartFile file
     ) {
-        try {
-            boardVO.setFileAddr(fileService.upload_file(file).get(0).toString());
-            boardVO.setFileName(fileService.upload_file(file).get(1).toString());
+        if (file.isEmpty()) {
+            boardService.insert_board(boardVO, userDetails.getUsername());
+        } else {
+            try {
+                boardVO.setFileAddr(fileService.upload_file(file).get(0).toString());
+                boardVO.setFileName(fileService.upload_file(file).get(1).toString());
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            log.info(boardVO);
+            boardService.insert_board(boardVO, userDetails.getUsername());
         }
-        log.info(boardVO);
-        boardService.insert_board(boardVO, userDetails.getUsername());
-        return "redirect:/community/notice";
+            return "redirect:/community/notice";
     }
 
     @PostMapping("/community/notice/update")

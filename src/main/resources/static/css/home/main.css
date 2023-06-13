@@ -102,24 +102,24 @@ section{
 }
 /* 배경이미지 */
 .business-box:first-child {
-    background: linear-gradient(rgba(64, 179, 255, 0.8) 0, rgba(64, 179, 255, 0.8) 0),
-                url("../../images/main_section_img1.jpg") no-repeat;
+    background: linear-gradient(rgba(64, 179, 255, 0.6) 0, rgba(64, 179, 255, 0.8) 0),
+                url("../../images/main_section_img1-1.jpg") no-repeat;
     background-size: cover;
     /*aspect-ratio: 1/1;*/
 }
 .business-box:nth-child(2) {
-    background: linear-gradient(rgba(61, 210, 255, 0.8) 0, rgba(61, 210, 255, 0.8) 0),
-    url("../../images/main_section_img2.jpg") no-repeat;
+    background: linear-gradient(rgba(61, 210, 255, 0.6) 0, rgba(61, 210, 255, 0.8) 0),
+    url("../../images/main_section_img2-1.jpg") no-repeat;
     background-size: cover;
 }
 .business-box:nth-child(3) {
-    background: linear-gradient(rgba(56, 164, 232, 0.8) 0, rgba(56, 164, 232, 0.8) 0),
-    url("../../images/main_section_img3.jpg") no-repeat;
+    background: linear-gradient(rgba(56, 164, 232, 0.6) 0, rgba(56, 164, 232, 0.8) 0),
+    url("../../images/main_section_img3-1.jpg") no-repeat;
     background-size: cover;
 }
 .business-box:last-child {
-    background: linear-gradient(rgba(75, 159, 255, 0.8) 0, rgba(75, 159, 255, 0.8) 0),
-    url("../../images/main_section_img4.jpg") no-repeat;
+    background: linear-gradient(rgba(75, 159, 255, 0.6) 0, rgba(75, 159, 255, 0.8) 0),
+    url("../../images/main_section_img4-1.jpg") no-repeat;
     background-size: cover;
 }
 /* 문구 */
@@ -173,7 +173,7 @@ section{
 .community-box td {
     padding: 0.5rem;
 }
-.community-box tr:first-child td {
+.community-box table thead > tr > td {
     text-align: center;
     font-weight: bold;
     color: #5b5b5b;

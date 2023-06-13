@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface BoardMapper {
-    List<BoardVO> get_all_notice();
+    List<BoardVO> simple_main_notice();
 
     BoardVO get_notice(int no);
 
