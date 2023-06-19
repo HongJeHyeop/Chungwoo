@@ -53,6 +53,11 @@ public class MainController {
         log.info("====== 연혁 ======");
     }
 
+    @GetMapping("/introduce/groupChart")
+    public void group_chart() {
+        log.info("======= 조직도 =========");
+    }
+
     /*** 커뮤니티 페이지 ***/
     // 공지사항
     @GetMapping("/community/notice")
