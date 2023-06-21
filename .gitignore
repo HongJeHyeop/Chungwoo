@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### user upload images ###
+ src/main/resources/static/uploadImages/ 
+ 
