@@ -33,5 +33,5 @@ build/
 .vscode/
 
 ### user upload images ###
-src/**/uploadImages/ 
+**/uploadImages/ 
  
