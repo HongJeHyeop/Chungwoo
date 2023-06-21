@@ -10,15 +10,32 @@
     <title>Title</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
     <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/introduce/introduce.css}"
-          href="../../static/css/introduce/introduce.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/introduce/introduce.css}" href="../../static/css/introduce/introduce.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/introduce/groupChart.css}" href="../../static/css/introduce/groupChart.css">
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
     <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
 </head>
 <body>
 <th:block th:replace="~{home/header:: header}"/>
 <div id="body-wrapper">
-    <img src="../../static/images/groupchart.png" alt="" width="20rem" height="10rem">
+    <div id="title">
+        <h1>회사소개</h1>
+    </div>
+    <article>
+        <h1>조직도</h1>
+        <div id="container">
+            <nav id="intro-list">
+                <ul>
+                    <li><a href="/introduce/greeting">인사말</a></li>
+                    <li><a href="/introduce/history">연혁</a></li>
+                    <li><a href="/introduce/groupChart">조직도</a></li>
+                </ul>
+            </nav>
+            <div id="chart">
+                <img th:src="@{/images/groupChart.png}" src="../../static/images/groupchart.png" alt="asdf">
+            </div>
+        </div>
+    </article>
 </div>
 <th:block th:replace="~{home/footer::footer}"/>
 </body>

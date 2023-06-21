@@ -1,0 +1,7 @@
+#chart {
+    margin: 2rem 0 2rem 8rem
+}
+#chart > img{
+    width: 45rem;
+    height: 30rem;
+}
