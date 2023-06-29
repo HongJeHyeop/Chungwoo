@@ -198,13 +198,9 @@ public class MainController {
 
     /*** 고객센터 ***/
     // 온라인 문의
-    @GetMapping("/service/inquiry")
+    @GetMapping("/service/inquiryList")
     public void inquiry() {
         log.info("온라인 문의 접속");
     }
 
-    @GetMapping("/service/mailsend")
-    public void mailsend() {
-        log.info("메일보내기 접속");
-    }
 }

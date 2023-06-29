@@ -27,123 +27,7 @@
     <section>
         <form action="/service/mailsend" id="a">
             <div class="info">
-                <h2>회사정보</h2>
-                <table>
-                    <tr>
-                        <td>* 운송정보</td>
-                        <td>
-                            <div><input type="radio">수출</div>
-                            <div><input type="radio">수입</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>* 무역거래형태</td>
-                        <td>
-                            <div><input type="radio">신용장</div>
-                            <div><input type="radio">전신환</div>
-                            <div><input type="radio">무환</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>* 선적지</td>
-                        <td>
-                            <div>
-                                <input type="text">
-                                <input type="text">
-                                <input type="button" value="PORT">
-                            </div>
-                            <div>
-                                <input type="text">
-                                <input type="text">
-                                <input type="button" value="Country">
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>* 도착지</td>
-                        <td>
-                            <div>
-                                <input type="text">
-                                <input type="text">
-                                <input type="button" value="PORT">
-                            </div>
-                            <div>
-                                <input type="text">
-                                <input type="text">
-                                <input type="button" value="Country">
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>* 품목</td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <td>* CONTAINER</td>
-                        <td>
-                            <div>20'<input type="text"></div>
-                            <div>40'<input type="text"></div>
-                            <div>LCL <input type="checkbox"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>* 수량</td>
-                        <td><input type="text"> (PCS)</td>
-                    </tr>
-                    <tr>
-                        <td>* 중량 & 부피</td>
-                        <td>
-                            <div><input type="text">(KGS)</div>
-                            <div><input type="text">(CMB)</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>* 예상픽업일</td>
-                        <td><input type="text"><input type="button"></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>* 귀사오더번호</div>
-                            <div class="small-font">(오퍼/신용장/구매오더번호등)</div>
-                        </td>
-                        <td><input type="text"></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="info">
-                <h2>고객정보</h2>
-                <table>
-                    <tr>
-                        <td>* 고객명</td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <td>* 전화번호</td>
-                        <td>
-                            <input type="text">
-                            <input type="text">
-                            <input type="text">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>* 담당자</td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <td>* 이메일</td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <td>* 수출업체</td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <td>* 참고사항</td>
-                        <td>
-                            <input type="text">
-                        </td>
-                    </tr>
-                </table>
+
             </div>
             <div id="btn-box">
                 <input type="submit" value="PDF변환">
@@ -154,3 +38,120 @@
 <th:block th:replace="~{home/footer::footer}"/>
 </body>
 </html>
+            <!--                <h2>회사정보</h2>-->
+            <!--                <table>-->
+            <!--                    <tr>-->
+            <!--                        <td>* 운송정보</td>-->
+            <!--                        <td>-->
+            <!--                            <div><input type="radio">수출</div>-->
+            <!--                            <div><input type="radio">수입</div>-->
+            <!--                        </td>-->
+            <!--                    </tr>-->
+            <!--                    <tr>-->
+            <!--                        <td>* 무역거래형태</td>-->
+            <!--                        <td>-->
+            <!--                            <div><input type="radio">신용장</div>-->
+            <!--                            <div><input type="radio">전신환</div>-->
+            <!--                            <div><input type="radio">무환</div>-->
+            <!--                        </td>-->
+            <!--                    </tr>-->
+            <!--                    <tr>-->
+            <!--                        <td>* 선적지</td>-->
+            <!--                        <td>-->
+            <!--                            <div>-->
+            <!--                                <input type="text">-->
+            <!--                                <input type="text">-->
+            <!--                                <input type="button" value="PORT">-->
+            <!--                            </div>-->
+            <!--                            <div>-->
+            <!--                                <input type="text">-->
+            <!--                                <input type="text">-->
+            <!--                                <input type="button" value="Country">-->
+            <!--                            </div>-->
+            <!--                        </td>-->
+            <!--                    </tr>-->
+            <!--                    <tr>-->
+            <!--                        <td>* 도착지</td>-->
+            <!--                        <td>-->
+            <!--                            <div>-->
+            <!--                                <input type="text">-->
+            <!--                                <input type="text">-->
+            <!--                                <input type="button" value="PORT">-->
+            <!--                            </div>-->
+            <!--                            <div>-->
+            <!--                                <input type="text">-->
+            <!--                                <input type="text">-->
+            <!--                                <input type="button" value="Country">-->
+            <!--                            </div>-->
+            <!--                        </td>-->
+            <!--                    </tr>-->
+            <!--                    <tr>-->
+            <!--                        <td>* 품목</td>-->
+            <!--                        <td><input type="text"></td>-->
+            <!--                    </tr>-->
+            <!--                    <tr>-->
+            <!--                        <td>* CONTAINER</td>-->
+            <!--                        <td>-->
+            <!--                            <div>20'<input type="text"></div>-->
+            <!--                            <div>40'<input type="text"></div>-->
+            <!--                            <div>LCL <input type="checkbox"></div>-->
+            <!--                        </td>-->
+            <!--                    </tr>-->
+            <!--                    <tr>-->
+            <!--                        <td>* 수량</td>-->
+            <!--                        <td><input type="text"> (PCS)</td>-->
+            <!--                    </tr>-->
+            <!--                    <tr>-->
+            <!--                        <td>* 중량 & 부피</td>-->
+            <!--                        <td>-->
+            <!--                            <div><input type="text">(KGS)</div>-->
+            <!--                            <div><input type="text">(CMB)</div>-->
+            <!--                        </td>-->
+            <!--                    </tr>-->
+            <!--                    <tr>-->
+            <!--                        <td>* 예상픽업일</td>-->
+            <!--                        <td><input type="text"><input type="button"></td>-->
+            <!--                    </tr>-->
+            <!--                    <tr>-->
+            <!--                        <td>-->
+            <!--                            <div>* 귀사오더번호</div>-->
+            <!--                            <div class="small-font">(오퍼/신용장/구매오더번호등)</div>-->
+            <!--                        </td>-->
+            <!--                        <td><input type="text"></td>-->
+            <!--                    </tr>-->
+            <!--                </table>-->
+            <!--            </div>-->
+            <!--            <div class="info">-->
+            <!--                <h2>고객정보</h2>-->
+            <!--                <table>-->
+            <!--                    <tr>-->
+            <!--                        <td>* 고객명</td>-->
+            <!--                        <td><input type="text"></td>-->
+            <!--                    </tr>-->
+            <!--                    <tr>-->
+            <!--                        <td>* 전화번호</td>-->
+            <!--                        <td>-->
+            <!--                            <input type="text">-->
+            <!--                            <input type="text">-->
+            <!--                            <input type="text">-->
+            <!--                        </td>-->
+            <!--                    </tr>-->
+            <!--                    <tr>-->
+            <!--                        <td>* 담당자</td>-->
+            <!--                        <td><input type="text"></td>-->
+            <!--                    </tr>-->
+            <!--                    <tr>-->
+            <!--                        <td>* 이메일</td>-->
+            <!--                        <td><input type="text"></td>-->
+            <!--                    </tr>-->
+            <!--                    <tr>-->
+            <!--                        <td>* 수출업체</td>-->
+            <!--                        <td><input type="text"></td>-->
+            <!--                    </tr>-->
+            <!--                    <tr>-->
+            <!--                        <td>* 참고사항</td>-->
+            <!--                        <td>-->
+            <!--                            <input type="text">-->
+            <!--                        </td>-->
+            <!--                    </tr>-->
+            <!--                </table>-->

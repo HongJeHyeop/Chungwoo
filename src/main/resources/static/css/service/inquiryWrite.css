@@ -1,0 +1,37 @@
+section{
+    margin: 0 auto;
+    width: 1200px;
+}
+#inquiry-write-description {
+    width: 60rem;
+    padding: 1rem 0;
+}
+#inquiry-write-box {
+    margin: 2rem 0;
+}
+#inquiry-write-box > table{
+    width: 60rem;
+    background-color: coral;
+    border-spacing: 0;
+}
+#inquiry-write-box > table > tr{
+    border-bottom: 1px solid #ccc;
+}
+.write-box-header {
+    width: 30%;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #999;
+}
+.write-box-body {
+    width: 70%;
+    padding: 1rem;
+    border-bottom: 1px solid #999;
+}
+.write-box-body > input[type=text] {
+    width: 30rem;
+    height: 2rem;
+}
+.write-box-body > textarea {
+    resize: none;
+}

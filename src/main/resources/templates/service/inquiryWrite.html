@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
+    <title>온라인문의 글쓰기</title>
+    <link rel="stylesheet" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
+    <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
+    <link rel="stylesheet" th:href="@{/css/service/service.css}" href="../../static/css/service/service.css">
+    <link rel="stylesheet" th:href="@{/css/service/inquiryWrite.css}" href="../../static/css/service/inquiryWrite.css">
+    <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
+    <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
+
+</head>
+<body>
+<th:block th:replace="~{home/header:: header}"/>
+<div id="body-wrapper">
+    <div id="title">
+        <h1>온라인 문의</h1>
+    </div>
+    <section>
+         <div id="inquiry-write-description">
+             <h3>유의사항</h3>
+             <p>온라인 문의 작성시 게시글은 비밀글로 작성되며, 작성된 후에는 본인 휴대폰번호로 조회 가능합니다.</p>
+         </div>
+        <div id="inquiry-write-box">
+            <hr/>
+            <table>
+                <tr>
+                    <td class="write-box-header">성 함</td>
+                    <td class="write-box-body"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td class="write-box-header">연락처</td>
+                    <td class="write-box-body"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td class="write-box-header">회사명</td>
+                    <td class="write-box-body"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td class="write-box-header">제목</td>
+                    <td class="write-box-body"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td class="write-box-header">문의내용</td>
+                    <td class="write-box-body"><textarea name="" id="" cols="100" rows="30"></textarea></td>
+                </tr>
+            </table>
+    </section>
+</div>
+<th:block th:replace="~{home/footer::footer}"/>
+</body>
+</html>
