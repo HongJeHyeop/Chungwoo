@@ -2,6 +2,8 @@ const userList = document.getElementById('user-list');
 
 // 데이터베이스에서 회원가입 요청한 유저 목록 받아오기
 get_all_register_request();
+
+// 유저 리스트 요청
 function get_all_register_request() {
     fetch('/user/allList')
         .then(response => response.json())

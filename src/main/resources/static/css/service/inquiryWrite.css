@@ -2,20 +2,37 @@ section{
     margin: 0 auto;
     width: 1200px;
 }
+section > h2 {
+    margin: 2rem 0;
+    font-size: 2.5rem;
+    color: #666;
+}
+
+/* 글쓰기 유의사항 */
 #inquiry-write-description {
     width: 60rem;
-    padding: 1rem 0;
 }
+#inquiry-write-description > h3, #inquiry-write-description > p {
+    color: red;
+}
+
+/* 글내용 작성 */
 #inquiry-write-box {
-    margin: 2rem 0;
+    margin: 1rem 0;
 }
 #inquiry-write-box > table{
     width: 60rem;
-    background-color: coral;
+    /*background-color: coral;*/
     border-spacing: 0;
+    border-radius: 20px;
+    border: 2px solid #ccc;
 }
-#inquiry-write-box > table > tr{
-    border-bottom: 1px solid #ccc;
+#inquiry-write-box > table input:focus, #inquiry-write-box > table textarea:focus{
+    outline: 2px solid rgba(198, 218, 231, 0.8);
+    border: 1px solid rgba(198, 218, 231, 0.8);
+}
+#inquiry-write-box > table  tr:last-child  td{
+    border: none;
 }
 .write-box-header {
     width: 30%;
@@ -24,14 +41,39 @@ section{
     border-bottom: 1px solid #999;
 }
 .write-box-body {
-    width: 70%;
+    width: 80%;
     padding: 1rem;
     border-bottom: 1px solid #999;
+    font-size: 0.8rem;
+    color: red;
 }
 .write-box-body > input[type=text] {
-    width: 30rem;
+    width: 20rem;
     height: 2rem;
+    font-size: 1rem;
 }
 .write-box-body > textarea {
     resize: none;
+    font-size: 1rem;
+}
+
+/* 작성하기 돌아가기 버튼 */
+#inquiry-write-btn-box {
+    margin: 2rem 0;
+    text-align: center;
+}
+#inquiry-write-btn-box input {
+    margin: 0 5rem;
+    width: 7rem;
+    height: 2.5rem;
+    color: white;
+    font-size: 1rem;
+    background-color: #4646b6;
+    border: none;
+    cursor: pointer;
+}
+#inquiry-write-btn-box input:active {
+    background-color: #69A6F0;
+    width: 6.7rem;
+    height: 2.2rem;
 }

@@ -57,7 +57,6 @@ fetch('/mainNotice')
     .then(value => value.json())
     .then(value => {
         create_simple_main_notice(value)
-        console.log('받은 데이터', value)
     })
     .catch(reason => {
         console.log('심플 공지사항 생성 오류! :' + reason)
@@ -78,7 +77,7 @@ function create_simple_main_notice(value) {
 
 // 네이버 지도 API
 const mapOptions = {
-    center: new naver.maps.LatLng(35.8443562, 128.6225852),
+    center: new naver.maps.LatLng(35.8443562, 128.6225852), // 회사 위치
     zoom: 15
 }
 const map = new naver.maps.Map('map', mapOptions);

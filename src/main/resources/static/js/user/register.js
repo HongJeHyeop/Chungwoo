@@ -4,7 +4,6 @@ const [pw, pwChk] = [...document.querySelectorAll('input[type=password]')];
 
 
 duplBtn.addEventListener('click', () => {
-    console.log(duplText.value)
     if (duplText.value.trim() === '' || duplText.value === undefined) {
         alert('아이디를 입력하세요!')
     } else {
@@ -14,6 +13,7 @@ duplBtn.addEventListener('click', () => {
 pw.addEventListener('keyup', password_reg)
 pwChk.addEventListener('keyup', password_check)
 
+// 중복 체크
 function duplicate_check(id) {
     fetch(`/user/register/duplicate?id=${id}`)
         .then(value => value.text())
@@ -26,6 +26,7 @@ function duplicate_check(id) {
         })
 }
 
+// 패스워드 체크
 function password_check() {
 
     pwChk.nextElementSibling.remove()
@@ -43,6 +44,7 @@ function password_check() {
     }
 }
 
+// 패스워드 정규식 체크
 function password_reg() {
     const reg = new RegExp('^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$');
     if (reg.test(pw.value)) {

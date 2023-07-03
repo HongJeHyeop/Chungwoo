@@ -7,7 +7,7 @@ function show_header_list(e) {
 function hide_header_list(e) {
     e.querySelector('ul').style.display = "none";
 }
-/*** header list show ***/
+/*** 헤더 메뉴 보여주기 ***/
 for (let list of headerListTitle) {
     list.addEventListener('mouseover', () => {
         show_header_list(list);

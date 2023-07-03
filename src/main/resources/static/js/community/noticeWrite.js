@@ -39,7 +39,7 @@ function quill_editor_init() {
     quill.on('text-change', function () {
         contents.value = quill.root.innerHTML;
     });
-
+    // quill에서 이미지 업로드 처리
     quill.getModule('toolbar').addHandler('image', function () {
         const input = document.createElement('input');
         input.setAttribute('type', 'file');
@@ -80,30 +80,7 @@ function quill_editor_init() {
     });
 }
 
-
-
-// 작성하기 버튼 클릭시 서버전송
-// function insert_contents() {
-//     console.log("클릭")
-//     fetch('/community/insert',{
-//         method:'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'X-CSRF-TOKEN': csrfToken
-//         },
-//         body: JSON.stringify({
-//             contents: quill.root.innerHTML
-//         })
-//     })
-//         .then(value => value.text())
-//         .then(value => {
-//             console.log("승인여부 >>>" + value);
-//         })
-//         .catch(reason => {
-//             console.log("승인오류");
-//         })
-// }
-
+// 작성여부 체크
 function notice_write_check() {
     const check = confirm('정말 작성하시겠습니까?');
     if (check) {
@@ -112,6 +89,7 @@ function notice_write_check() {
     }
 }
 
+// 수정하기 폼 생성
 function update_write(item) {
     formBox.innerHTML = '';
     formBox.insertAdjacentHTML('beforeend',
@@ -143,9 +121,9 @@ function update_write(item) {
 // 수정하기로 왔을때
 notice_update()
 
+// 수정 요청
 function notice_update() {
     if (updateNo != null) {
-        console.log("수정하기")
         fetch(`/community/notice/update/write/${updateNo.value}`)
             .then(value => value.json())
             .then(value => {

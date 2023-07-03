@@ -59,7 +59,6 @@ function create_board(boardVO) {
 }
 
 // 게시글 삭제
-
 function delete_notice(noticeNo) {
     console.log(noticeNo)
     fetch('/community/notice/delete', {
