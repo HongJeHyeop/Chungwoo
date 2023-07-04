@@ -2,13 +2,13 @@ const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute("con
 const detailItem = document.getElementById('notice-detail');
 const boardNo = document.getElementById('board-no').value;
 
-get_board_detail(boardNo);
+
 
 // 게시글 번호에 따른 GET요청
-function get_board_detail(pageNo, arrow) {
+const get_board_detail = async (pageNo, arrow) => {
     no = pageNo.toString()
     console.log(arrow)
-    fetch(`/community/restDetail/${no}?arrow=${arrow}`)
+    await fetch(`/community/restDetail/${no}?arrow=${arrow}`)
         .then(response => response.json())
         .then(value => {
             // 생성
@@ -20,7 +20,7 @@ function get_board_detail(pageNo, arrow) {
             console.log("보드 생성 오류")
         })
 }
-
+get_board_detail(boardNo);
 // 상세 게시글 생성 메서드
 function create_board(boardVO) {
     detailItem.innerHTML = '';
