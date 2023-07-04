@@ -109,7 +109,13 @@ public class MainController {
 
     @GetMapping("/community/noticeWrite")
     public void notice_write(@RequestParam String no, Model model) {
-        model.addAttribute("no", no);
+        if (no == "" || no.equals(null) || no.isEmpty()) {
+            log.info("false=" + no);
+            model.addAttribute("no", null);
+        } else {
+            log.info("true=" + no);
+            model.addAttribute("no", no);
+        }
     }
 
 //    @GetMapping("/community/noticeWrite/{no}")
