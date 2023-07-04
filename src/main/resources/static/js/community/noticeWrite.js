@@ -124,7 +124,8 @@ notice_update()
 // 수정 요청
 function notice_update() {
     if (updateNo != null) {
-        fetch(`/community/notice/update/write/${updateNo.value}`)
+        const url = '/community/notice/update/write/' + updateNo.value;
+        fetch(url)
             .then(value => value.json())
             .then(value => {
                 update_write(value)

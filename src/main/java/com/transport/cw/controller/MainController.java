@@ -108,14 +108,15 @@ public class MainController {
     }
 
     @GetMapping("/community/noticeWrite")
-    public void notice_write() {
+    public void notice_write(@RequestParam String no, Model model) {
+        model.addAttribute("no", no);
     }
 
-    @GetMapping("/community/noticeWrite/{no}")
-    public String update_notice_write(@PathVariable String no, Model model) {
-        model.addAttribute("no", no);
-        return "/community/noticeWrite";
-    }
+//    @GetMapping("/community/noticeWrite/{no}")
+//    public String update_notice_write(@PathVariable String no, Model model) {
+//        model.addAttribute("no", no);
+//        return "/community/noticeWrite";
+//    }
 
     @ResponseBody
     @GetMapping("/community/notice/update/write/{no}")
