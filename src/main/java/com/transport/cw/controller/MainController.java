@@ -66,22 +66,21 @@ public class MainController {
 
     // 공지사항 게시글 상세페이지
     @GetMapping("/community/detail")
-    public void detail_page() {
-
-    }
-
-    @GetMapping("/community/detail/{no}")
-    public String detail(@PathVariable int no, Model model) {
+    public void detail_page(@RequestParam String no, Model model) {
         model.addAttribute("no", no);
-        return "/community/detail";
     }
+
+//    @GetMapping("/community/detail/{no}")
+//    public String detail(@PathVariable int no, Model model) {
+//        model.addAttribute("no", no);
+//        return "redirect:/community/detail";
+//    }
 
     @ResponseBody
     @GetMapping("/community/restDetail/{boardNo}")
     public BoardVO rest_detail(@PathVariable String boardNo, @RequestParam String arrow) {
         int no = Integer.parseInt(boardNo);
         log.info("공지사항 상세보기 접속!");
-        log.info(arrow);
         if (arrow.equals("next")) {
             log.info(arrow);
             return boardService.next_notice(no);

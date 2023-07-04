@@ -13,7 +13,7 @@ function create_notice_list(list) {
     noticeList.insertAdjacentHTML('beforeend',
         `<tr>
                         <td class="tbl-title">${item.no}</td>
-                        <td class="tbl-content"><a href="/community/detail/${item.no}">${item.title}</a></td>
+                        <td class="tbl-content"><a href="/community/detail?no=${item.no}">${item.title}</a></td>
                         <td class="tbl-upload">${item.writeDate}</td>
                     </tr>`)
 
