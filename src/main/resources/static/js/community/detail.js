@@ -3,9 +3,10 @@ const detailItem = document.getElementById('notice-detail');
 const boardNo = document.getElementById('board-no').value;
 
 
+get_board_detail(boardNo);
 
 // 게시글 번호에 따른 GET요청
-const get_board_detail = async (pageNo, arrow) => {
+async function get_board_detail(pageNo, arrow) {
     no = pageNo.toString()
     console.log(arrow)
     await fetch(`/community/restDetail/${no}?arrow=${arrow}`)
@@ -20,7 +21,6 @@ const get_board_detail = async (pageNo, arrow) => {
             console.log("보드 생성 오류")
         })
 }
-get_board_detail(boardNo);
 // 상세 게시글 생성 메서드
 function create_board(boardVO) {
     detailItem.innerHTML = '';

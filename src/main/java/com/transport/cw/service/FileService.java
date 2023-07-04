@@ -25,8 +25,8 @@ public class FileService {
     private static final List<String> ALLOWED_EXTENSIONS = Arrays.asList("jpg", "jpeg", "png", "pdf" );
     private static final long MAX_FILE_SIZE = 10 * 1024 * 1024; //10MB
 
-    private String uploadDirectory =/* System.getProperty("user.dir")*/
-            "home/ubuntu/Chungwoo/src/main/resources/static/uploadImages/";
+    private String uploadDirectory = System.getProperty("user.dir")
+            + "/src/main/resources/static/uploadImages/";
 
 
     public List<Object> upload_file(MultipartFile file) throws IOException {
@@ -84,7 +84,7 @@ public class FileService {
             log.info("quill 업로드할 파일이 존재하지않습니다.");
         }
         String fileName = UUID.randomUUID().toString().substring(0,8) + "_" + image.getOriginalFilename();
-        Path filePath = Path.of(uploadDirectory + "quillImages\\", fileName);
+        Path filePath = Path.of(uploadDirectory + "quillImages/", fileName);
         if(!Files.exists(filePath)){
                 Files.createDirectories(filePath);
         }
