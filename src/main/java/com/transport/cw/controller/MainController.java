@@ -80,6 +80,7 @@ public class MainController {
     @GetMapping("/community/restDetail/{boardNo}")
     public BoardVO rest_detail(@PathVariable String boardNo, @RequestParam String arrow) {
         int no = Integer.parseInt(boardNo);
+        log.info("공지사항 상세보기 접속!");
         log.info(arrow);
         if (arrow.equals("next")) {
             log.info(arrow);
@@ -103,7 +104,7 @@ public class MainController {
 
 
         log.info("공지사항 목록 접속");
-        log.info("controller>>>>" + boardService.find_all(new PagingDTO(nowPage, recordSize, pageSize, searchKeyword, searchType)));
+//        log.info("controller>>>>" + boardService.find_all(new PagingDTO(nowPage, recordSize, pageSize, searchKeyword, searchType)));
         return boardService.find_all(new PagingDTO(nowPage, recordSize, pageSize, searchKeyword, searchType));
     }
 

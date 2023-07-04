@@ -26,7 +26,7 @@ public class FileService {
     private static final long MAX_FILE_SIZE = 10 * 1024 * 1024; //10MB
 
     private String uploadDirectory =/* System.getProperty("user.dir")*/
-            "/home/ubuntu/Chungwoo/src/main/resources/static/uploadImages/";
+            "home/ubuntu/Chungwoo/src/main/resources/static/uploadImages/";
 
 
     public List<Object> upload_file(MultipartFile file) throws IOException {
