@@ -25,8 +25,8 @@ public class FileService {
     private static final List<String> ALLOWED_EXTENSIONS = Arrays.asList("jpg", "jpeg", "png", "pdf" );
     private static final long MAX_FILE_SIZE = 10 * 1024 * 1024; //10MB
 
-    private String uploadDirectory = System.getProperty("user.dir")
-            + "\\src\\main\\resources\\static\\uploadImages\\";
+    private String uploadDirectory =/* System.getProperty("user.dir")*/
+            "/home/ubuntu/Chungwoo/src/main/resources/static/uploadImages/";
 
 
     public List<Object> upload_file(MultipartFile file) throws IOException {
