@@ -68,7 +68,7 @@ function create_simple_main_notice(value) {
     value.forEach((boardVO) => {
         simpleMainNotice.insertAdjacentHTML('beforeend',
             `<tr>
-                <td><a href="/community/detail/${boardVO.no}">${boardVO.title}</a></td>
+                <td><a href="/community/detail?no=${boardVO.no}">${boardVO.title}</a></td>
                 <td>${boardVO.writeDate}</td>
             </tr>`)
     })
