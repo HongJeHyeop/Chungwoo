@@ -152,7 +152,6 @@ public class MainController {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            log.info(boardVO);
             boardService.insert_board(boardVO, userDetails.getUsername());
         }
             return "redirect:/community/notice";
@@ -160,7 +159,6 @@ public class MainController {
 
     @PostMapping("/community/notice/update")
     public String update_notice(BoardVO boardVO, MultipartFile file) {
-        log.info(boardVO);
         try {
             if (!file.isEmpty()) {
                 boardVO.setFileAddr(fileService.upload_file(file).get(0).toString());
@@ -179,7 +177,6 @@ public class MainController {
     @ResponseBody
     @DeleteMapping("/community/notice/delete")
     public boolean delete_notice(@RequestBody BoardVO boardVO) {
-        log.info(boardVO.getNo());
         return boardService.delete_notice(boardVO);
     }
 

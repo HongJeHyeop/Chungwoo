@@ -69,7 +69,6 @@ public class BoardService {
         Pagination pagination = new Pagination(count, pagingDTO);
         pagingDTO.setPagination(pagination);
         List<BoardVO> boardVOS = boardMapper.find_all(pagingDTO);
-        log.info(boardVOS);
 
         return new PagingResponse(boardVOS, pagination);
     }

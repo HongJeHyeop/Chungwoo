@@ -93,7 +93,6 @@ public class FileService {
 
         // 저장된 이미지의 URL 반환
         String imageUrl = "/uploadImages/quillImages/" + fileName;
-        log.info(imageUrl);
         return ResponseEntity.ok(imageUrl);
     }
 }

@@ -20,7 +20,6 @@ public class UserService {
     // 회원가입 요청
     public void register_user(UserVO userVO){
         userVO.setPw(passwordEncoder.encode(userVO.getPw()));
-        log.info("암호화된 패스워드 : " + userVO.getPw());
         userMapper.register_user(userVO);
     };
 

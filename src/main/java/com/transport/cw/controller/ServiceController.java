@@ -37,7 +37,6 @@ public class ServiceController {
 
 
         log.info("공지사항 목록 접속");
-        log.info("controller>>>>" + inquiryService.find_all_inquiry(new PagingDTO(nowPage, recordSize, pageSize, searchKeyword, searchType)));
         return inquiryService.find_all_inquiry(new PagingDTO(nowPage, recordSize, pageSize, searchKeyword, searchType));
     }
 
@@ -45,7 +44,6 @@ public class ServiceController {
     @PostMapping("/inquiryWrite/insert")
     public String insert_inquiry(InquiryVO inquiryVO) {
         inquiryService.insert_inquiry(inquiryVO);
-        log.info(inquiryVO);
         return "redirect:/service/inquiryList";
     }
 }

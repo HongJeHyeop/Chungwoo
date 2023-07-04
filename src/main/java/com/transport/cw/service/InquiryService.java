@@ -32,7 +32,6 @@ public class InquiryService {
         Pagination pagination = new Pagination(count, pagingDTO);
         pagingDTO.setPagination(pagination);
         List<InquiryVO> inquiryVOS = inquiryMapper.find_all_inquiry(pagingDTO);
-        log.info(inquiryVOS);
 
         return new InquiryPagingResponse(inquiryVOS, pagination);
     }
