@@ -8,8 +8,8 @@ get_board_detail(boardNo);
 // 게시글 번호에 따른 GET요청
 async function get_board_detail(pageNo, arrow) {
     no = pageNo.toString()
-    console.log(arrow)
-    await fetch(`/community/restDetail/${no}?arrow=${arrow}`)
+    const url = '/community/restDetail/' + no + '?arrow=' + arrow;
+    await fetch(url)
         .then(response => response.json())
         .then(value => {
             // 생성
