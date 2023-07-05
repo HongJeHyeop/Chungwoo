@@ -16,5 +16,6 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler(resourcePath).addResourceLocations(uploacPath);
+        registry.addResourceHandler("/images/**").addResourceLocations("file:src/main/resources/static/images/");
     }
 }
