@@ -36,4 +36,4 @@ build/
 **/uploadImages/
 
 application.properties
- 
+keystore.p12
