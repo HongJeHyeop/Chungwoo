@@ -13,7 +13,6 @@ async function get_board_detail(pageNo, arrow) {
         .then(response => response.json())
         .then(value => {
             // 생성
-            console.log(value)
             create_board(value);
         })
         .catch(reason => {
