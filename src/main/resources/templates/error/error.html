@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
+    <title>접근불가</title>
+</head>
+<body>
+
+<h1>해당 페이지는 접근이 불가능합니다.</h1>
+<a href="/"> 메인페이지로 돌아가기</a>
+
+
+</body>
+</html>
