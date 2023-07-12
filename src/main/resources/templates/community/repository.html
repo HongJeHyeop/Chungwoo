@@ -12,6 +12,7 @@
     <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
     <link rel="stylesheet" th:href="@{/css/community/community.css}" href="../../static/css/community/community.css">
     <link rel="stylesheet" th:href="@{/css/community/repository.css}" href="../../static/css/community/repository.css">
+    <link rel="stylesheet" th:href="@{/css/community/communityHeader.css}" href="../../static/css/community/communityHeader.css">
     <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
 </head>
@@ -21,6 +22,7 @@
     <div id="title">
         <h1>자료실</h1>
     </div>
+    <th:block th:replace="~{community/communityHeader:: communityHeader}"/>
     <section>
         <div id="container">
             <div id="search-input">

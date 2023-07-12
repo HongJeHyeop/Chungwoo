@@ -14,6 +14,8 @@
           href="../../static/css/introduce/introduce.css">
     <link rel="stylesheet" type="text/css" th:href="@{/css/introduce/greeting.css}"
           href="../../static/css/introduce/greeting.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/introduce/introHeader.css}"
+          href="../../static/css/introduce/introHeader.css">
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
     <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
 </head>
@@ -24,17 +26,10 @@
     <div id="title">
         <h1>회사소개</h1>
     </div>
-
+    <th:block th:replace="~{introduce/introHeader:: introHeader}"/>
     <article id="greeting">
         <h1>인사말</h1>
         <div id="container">
-            <nav id="intro-list">
-                <ul>
-                    <li><a href="/introduce/greeting">인사말</a></li>
-                    <li><a href="/introduce/history">연혁</a></li>
-                    <li><a href="/introduce/groupChart">조직도</a></li>
-                </ul>
-            </nav>
             <div id="greeting-box">
                 <div>
                     <span>(주)청우국제운송은 국제복합운송업체로서 1978년 3월에 설립 이후 지난 40여년간 고객과 더불어<br/>

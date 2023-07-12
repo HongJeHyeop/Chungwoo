@@ -12,6 +12,7 @@
     <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
     <link rel="stylesheet" th:href="@{/css/service/service.css}" href="../../static/css/service/service.css">
     <link rel="stylesheet" th:href="@{/css/service/inquiryList.css}" href="../../static/css/service/inquiryList.css">
+    <link rel="stylesheet" th:href="@{/css/service/serviceHeader.css}" href="../../static/css/service/serviceHeader">
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
     <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
     <script th:src="@{/js/service/inquiryList.js}" src="../../static/js/service/inquiryList.js" defer></script>
@@ -22,6 +23,7 @@
     <div id="title">
         <h1>온라인 문의</h1>
     </div>
+    <th:block th:replace="~{service/serviceHeader:: serviceHeader}"/>
     <section>
         <div id="inquiry-container">
             <div id="inquiry-btn-box">

@@ -10,8 +10,12 @@
     <title>청우국제운송</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
     <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/introduce/introduce.css}" href="../../static/css/introduce/introduce.css">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/introduce/groupChart.css}" href="../../static/css/introduce/groupChart.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/introduce/introduce.css}"
+          href="../../static/css/introduce/introduce.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/introduce/groupChart.css}"
+          href="../../static/css/introduce/groupChart.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/introduce/introHeader.css}"
+          href="../../static/css/introduce/introHeader.css">
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
     <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
 </head>
@@ -21,18 +25,49 @@
     <div id="title">
         <h1>회사소개</h1>
     </div>
+    <th:block th:replace="~{introduce/introHeader:: introHeader}"/>
     <article>
         <h1>조직도</h1>
-        <div id="container">
-            <nav id="intro-list">
+        <div id="chart-wrap">
+            <div>
+                <h3>대표이사</h3>
+            </div>
+            <div>
                 <ul>
-                    <li><a href="/introduce/greeting">인사말</a></li>
-                    <li><a href="/introduce/history">연혁</a></li>
-                    <li><a href="/introduce/groupChart">조직도</a></li>
+                    <li>영업부</li>
+                    <li>관리부</li>
+                    <li>국내지점</li>
+                    <li>차량기지</li>
                 </ul>
-            </nav>
-            <div id="chart">
-                <img th:src="@{/images/groupchart.png}" src="../../static/images/groupchart.png" alt="조직도">
+            </div>
+            <div>
+                <ul>
+                    <li>컨테이너운송</li>
+                    <li>해상운송</li>
+                    <li>항공운송</li>
+                    <li>수출입통관</li>
+                </ul>
+                <ul>
+                    <li>영업지원부</li>
+                    <li>인사총무부</li>
+                </ul>
+                <ul>
+                    <li>대구지점<br/>
+                        <span>053) 753 – 1901 ~ 5</span>
+                    </li>
+                    <li>부산지점<br/>
+                        <span>051) 466 - 6912</span>
+                    </li>
+                    <li>구미지점<br/>
+                        <span>054) 461 - 0993</span>
+                    </li>
+                    <li>서울지점<br/>
+                        <span>02) 777 - 4060</span>
+                    </li>
+                </ul>
+                <ul>
+                    <li>진량 차고지</li>
+                </ul>
             </div>
         </div>
     </article>

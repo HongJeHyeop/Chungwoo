@@ -25,9 +25,9 @@ section {
 
 /*** 제목 ***/
 #title {
-    background: linear-gradient(rgba(252, 225, 255, 0.5) 0, rgba(255, 255, 255, 0.5) 0), url("../../images/main.jpg") 100% no-repeat;
+    background: url("../../images/service_title_back.jpg") 100% no-repeat;
     background-size: cover;
-    height: 12em;
+    height: 15em;
 
     display: flex;
     justify-content: center;

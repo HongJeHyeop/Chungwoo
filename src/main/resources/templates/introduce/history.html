@@ -14,6 +14,8 @@
           href="../../static/css/introduce/introduce.css">
     <link rel="stylesheet" type="text/css" th:href="@{/css/introduce/history.css}"
           href="../../static/css/introduce/history.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/introduce/introHeader.css}"
+          href="../../static/css/introduce/introHeader.css">
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
     <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
 </head>
@@ -24,17 +26,10 @@
     <div id="title">
         <h1>회사소개</h1>
     </div>
-
+    <th:block th:replace="~{introduce/introHeader:: introHeader}"/>
     <article>
         <h1>연 혁</h1>
         <div id="container">
-            <nav id="intro-list">
-                <ul>
-                    <li><a href="/introduce/greeting">인사말</a></li>
-                    <li><a href="/introduce/history">연혁</a></li>
-                    <li><a href="/introduce/groupChart">조직도</a></li>
-                </ul>
-            </nav>
             <div id="history">
                 <table>
                     <tr>
@@ -59,7 +54,7 @@
                     </tr>
                     <tr>
                         <td>1997.03</td>
-                        <td>㈜청우쉬핑 경산지사 개설(컨테이너차량 차고지)</td>
+                        <td>㈜청우쉬핑 경산지점 개설(컨테이너차량 차고지)</td>
                     </tr>
                     <tr>
                         <td>1997.04</td>

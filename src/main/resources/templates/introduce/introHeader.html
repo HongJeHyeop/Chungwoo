@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <!--    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">-->
+    <title>$Title$</title>
+    <link rel="stylesheet" th:href="@{css/introduce/introHeader.css}" href="../../static/css/introduce/introHeader.css">
+    <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div th:fragment="introHeader" id="intro-header-wrap">
+    <div id="intro-header">
+        <ul>
+            <li><a href="/introduce/greeting">인사말</a></li>
+            <li><a href="/introduce/history">연혁</a></li>
+            <li><a href="/introduce/groupChart">조직도</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

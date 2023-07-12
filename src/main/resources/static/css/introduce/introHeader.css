@@ -1,0 +1,29 @@
+#intro-header-wrap {
+    background-color: #666;
+    box-shadow: 0 2px 2px 1px #666;
+}
+#intro-header {
+    margin: 0 auto;
+    width: 1200px;
+}
+#intro-header > ul {
+    display: flex;
+}
+#intro-header > ul > li:first-child{
+    border-left: 2px solid #fff;
+}
+#intro-header > ul > li{
+    width: 100%;
+    height: 2.5rem;
+    border-right: 2px solid #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#intro-header > ul > li > a{
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
