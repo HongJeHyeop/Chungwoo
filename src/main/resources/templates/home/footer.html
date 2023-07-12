@@ -14,6 +14,11 @@
 <body>
 <footer th:fragment="footer">
     <div id="foot-container">
+        <div id="info">
+            <h2>CHEONGWOO INTERNATIONAL SERVICE</h2>
+            <h2>청 우 국 제 운 송 (주)</h2>
+            <span>대구광역시 수성구 들안로 32길 101, 2층</span>
+        </div>
         <div id="foot-list">
             <ul>
                 <li><a href="#">개인정보취급방침</a></li>
@@ -22,9 +27,8 @@
                 <li sec:authorize="hasRole('ADMIN')"><a href="/user/userList">회원관리</a></li>
             </ul>
         </div>
-        <div id="info">
-            <h2>(주) 청 우 국 제 운 송</h2>
-            <span>대구광역시 수성구 들안로 32길 101, 2층</span>
+        <div id="copyright">
+            <p>Copyright 2023. Cheongwoo International Service. All rights reserved.</p>
         </div>
     </div>
 </footer>

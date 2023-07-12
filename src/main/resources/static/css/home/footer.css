@@ -1,7 +1,6 @@
 html, body {
     margin: 0;
     padding: 0;
-    color: #383838;
 }
 li, a {
     text-decoration: none;
@@ -9,24 +8,45 @@ li, a {
 }
 footer {
     position: relative;
-    height: 10rem;
-    background-color: rgba(117, 150, 183, 0.6);
+    background-color: #1a2636;
 }
 #foot-container {
     width: 1200px;
-    height: 100%;
     margin: 0 auto;
     padding: 0 1rem;
 }
-#foot-list {
 
+#info {
+    text-align: left;
+    padding: 1rem 0 2rem 0;
+}
+#info h2 {
+    margin: 0.5em 0;
+    font-size: 1rem;
+    color: #fff;
+}
+#info h2:nth-child(2) {
+    letter-spacing: 11px;
+}
+#info span {
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+
+#foot-list {
+    padding: 1rem 0;
 }
 #foot-list ul {
     display: flex;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
 }
 #foot-list li {
     cursor: pointer;
+    color: #fff;
+}
+#foot-list li a{
+    color: #fff;
 }
 #foot-list li a:hover {
     color: #d1ecff;
@@ -39,13 +59,9 @@ footer {
 #foot-list li:last-child::after {
     content: '';
 }
-#info {
-    text-align: center;
-}
-#info h2 {
-    margin: 0.5em 0;
-    font-size: 1.6rem;
-}
-#info span {
-    font-size: 1.2rem;
+
+#copyright > p{
+    padding-bottom: 1rem;
+    font-size: 0.8rem;
+    color: #fff;
 }
