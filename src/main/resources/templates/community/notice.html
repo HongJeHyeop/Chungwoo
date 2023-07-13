@@ -22,21 +22,22 @@
 <div id="body-wrapper">
     <div id="title">
         <h1>공지사항</h1>
+        <div id="search-input">
+            <select>
+                <option>제목+내용</option>
+                <option>제목</option>
+                <option>내용</option>
+            </select>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="검색어를 입력하세요">
+            <input type="submit" value="검 색">
+        </div>
     </div>
     <th:block th:replace="~{community/communityHeader:: communityHeader}"/>
     <section>
         <div id="container">
             <div id="write-btn" sec:authorize="isAuthenticated()">
                 <input type="button" value="글쓰기" onclick="location.href='/community/noticeWrite?no='">
-            </div>
-            <div id="search-input">
-                <select>
-                    <option>제목+내용</option>
-                    <option>제목</option>
-                    <option>내용</option>
-                </select>
-                <input type="text" placeholder="검색어를 입력하세요">
-                <input type="submit" value="검 색">
             </div>
             <div id="notice-box">
                 <table>

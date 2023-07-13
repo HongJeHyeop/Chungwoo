@@ -7,46 +7,85 @@ section{
     /*background-color: yellow;*/
 }
 
-/* 글쓰기, 검색 */
+/* 글쓰기 */
 #inquiry-btn-box {
     text-align: right;
 }
 #inquiry-btn-box > input[type=button]{
+    margin: 0 1rem 1rem 0;
     width: 5rem;
     height: 2rem;
     color: white;
-    background-color: #4646b6;
+    background-color: #666;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
 }
+#inquiry-btn-box > input[type=button]:hover{
+    background-color: #1a2636;
+}
+#inquiry-btn-box > input[type=button]:active{
+    width: 4.9rem;
+    height: 1.9rem;
+}
+/* 검색 */
 #inquiry-search-box {
+    width: 65rem;
+    height: 4rem;
     margin: 1rem 0;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 0 5px 1px #999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #inquiry-search-box select {
-    width: 5rem;
+    margin-right: 1rem;
+    width: 6rem;
     height: 2.5rem;
+    border: none;
+    border-right: 2px solid #ccc;
+}
+#inquiry-search-box select:focus {
+    outline: none;
 }
 #inquiry-search-box input[type=text]{
-    width: 20rem;
+    margin-right: 1rem;
+    padding: 0 1rem;
+    width: 45rem;
     height: 2.2rem;
+    border: none;
+}
+#inquiry-search-box input[type=text]:focus{
+    outline: none;
 }
 #inquiry-search-box input[type=button] {
     width: 4rem;
     height: 2.5rem;
-    background-color: #B3E3FF;
+    color: #fff;
     font-weight: bold;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
+    background-color: #666;
     cursor: pointer;
+}
+#inquiry-search-box input[type=button]:hover {
+    color: #fff;
+    background-color: #1a2636;
+}
+#inquiry-search-box input[type=button]:active {
+    width: 3.8rem;
+    height: 2.3rem;
 }
 
 /* 문의 내역 */
 #inquiry-header {
     margin: 1rem 0;
     padding: 0 1rem;
-    width: 60rem;
+    width: 70rem;
     height: 4rem;
     box-sizing: border-box;
     /*background-color: #69A6F0;*/
@@ -60,12 +99,14 @@ section{
     display: flex;
     align-items: center;
     text-align: center;
-    border-bottom: 3px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    border-top: 2px solid #ddd;
 }
 #inquiry-header > ul > li{
     font-weight: bold;
+    font-size: 1.1rem;
     color: #999;
-    border-right: 2px solid #ccc;
+    border-right: 1px solid #ccc;
 }
 #inquiry-header > ul > li:last-child{
     border-right: none;
@@ -74,7 +115,7 @@ section{
 .inquiry-box {
     margin: 1rem 0;
     padding: 0 1rem;
-    width: 60rem;
+    width: 70rem;
     height: 4rem;
     border: 1px solid #ddd;
     border-radius: 30px;
@@ -126,5 +167,7 @@ section{
 }
 #inquiry-page-num > ul > li{
     padding: 1rem;
+    font-weight: bold;
+    font-size: 1.1rem;
     cursor: pointer;
 }

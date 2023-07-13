@@ -7,6 +7,9 @@
         INSERT INTO `inquiry_tbl`
         VALUES (default, #{name}, #{phone}, #{company}, #{header}, #{contents}, default, default, default)
     </insert>
+    <select id="simple_main_inquiry" resultType="com.transport.cw.domain.vos.InquiryVO">
+        SELECT * FROM `inquiry_tbl` WHERE `inquiryType`='온라인문의' ORDER BY `no` DESC LIMIT 3
+    </select>
 
     <!-- 페이징 -->
     <select id="find_all_inquiry" parameterType="com.transport.cw.domain.dtos.PagingDTO"

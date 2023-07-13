@@ -27,13 +27,15 @@ section {
 #title {
     background: url("../../images/service_title_back.jpg") 100% no-repeat;
     background-size: cover;
-    height: 15em;
+    height: 18em;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 #title h1 {
+    margin-bottom: 3rem;
     color: #fff;
     font-size: 2rem;
     text-shadow: 2px 2px 3px black;

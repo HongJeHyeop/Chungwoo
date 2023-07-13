@@ -13,5 +13,7 @@ public interface InquiryMapper {
 
     List<InquiryVO> find_all_inquiry(PagingDTO pagingDTO);
 
+    List<InquiryVO> simple_main_inquiry();
+
     int count(PagingDTO pagingDTO);
 }

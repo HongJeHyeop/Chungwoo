@@ -35,6 +35,11 @@ public class InquiryService {
 
         return new InquiryPagingResponse(inquiryVOS, pagination);
     }
+
+    public List<InquiryVO> simple_main_inquiry(){
+        return inquiryMapper.simple_main_inquiry();
+    };
+
     public void insert_inquiry(InquiryVO inquiryVO) {
             inquiryMapper.insert_inquiry(inquiryVO);
     }

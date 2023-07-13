@@ -39,6 +39,11 @@ public class ServiceController {
         log.info("공지사항 목록 접속");
         return inquiryService.find_all_inquiry(new PagingDTO(nowPage, recordSize, pageSize, searchKeyword, searchType));
     }
+    @GetMapping("/mainInquiry")
+    @ResponseBody
+    public List<InquiryVO> simple_main_inquiry() {
+       return inquiryService.simple_main_inquiry();
+    }
 
     // 온라인 문의 글쓰기 저장
     @PostMapping("/inquiryWrite/insert")

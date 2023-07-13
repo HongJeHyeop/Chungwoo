@@ -4,26 +4,54 @@
 
 /*** 공지사항 검색 ***/
 #search-input {
-    /*background-color: red;*/
-    text-align: right;
-    margin: 1rem 7rem;
+    width: 65rem;
+    height: 4rem;
+    margin: 1rem 0;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 0 5px 2px #999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #search-input select {
-    width: 5rem;
+    margin-right: 1rem;
+    width: 6rem;
     height: 2.5rem;
+    border: none;
+    border-right: 2px solid #ccc;
 }
-#search-input input:nth-child(2){
-    width: 20rem;
+#search-input select:focus {
+    outline: none;
+}
+#search-input input[type=text]{
+    margin-right: 1rem;
+    padding: 0 1rem;
+    width: 45rem;
     height: 2.2rem;
+    border: none;
 }
-#search-input input:last-child {
+#search-input input[type=text]:focus{
+    outline: none;
+}
+#search-input input[type=submit] {
     width: 4rem;
     height: 2.5rem;
-    background-color: #B3E3FF;
+    color: #fff;
     font-weight: bold;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
+    background-color: #1a2636;
     cursor: pointer;
+}
+#search-input input[type=submit]:hover {
+    color: #fff;
+    background-color: #a86d41;
+}
+#search-input input[type=submit]:active {
+    width: 3.8rem;
+    height: 2.3rem;
 }
 
 /*** 공지사항 목록 ***/
@@ -31,26 +59,42 @@
     display: flex;
     justify-content: center;
 }
+#repository-box > table {
+    border-spacing: 0;
+}
+#repository-box  table  thead  th {
+    border-top: 2px solid #bbb;
+    border-bottom: 2px solid #bbb;
+}
 .tbl-title {
-    width: 3rem;
-    height: 2.5rem;
+    width: 4rem;
+    height: 3rem;
     text-align: center;
-    border-bottom: 2px solid #c0bfbf;
+    border-bottom: 1px solid #ccc;
 }
 .tbl-content {
-    width: 45rem;
+    width: 60rem;
     padding-left: 1em;
-    border-bottom: 2px solid #c0bfbf;
+    border-bottom: 1px solid #ccc;
 }
 .tbl-upload {
     width: 7rem;
     text-align: center;
-    border-bottom: 2px solid #c0bfbf;
-}
-.tbl-count {
-    width: 5rem;
-    text-align: center;
-    border-bottom: 2px solid #c0bfbf;
-
+    border-bottom: 1px solid #ccc;
 }
 
+
+
+#page-num > ul {
+    margin: 3rem 1rem;
+
+    display: flex;
+    justify-content: center;
+}
+#page-num > ul li {
+    margin-right: 1.7rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #355172;
+    cursor: pointer;
+}

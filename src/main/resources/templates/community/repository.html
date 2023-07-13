@@ -6,13 +6,14 @@
 >
 <head>
     <meta charset="UTF-8">
-        <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
+    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
     <title>청우국제운송</title>
     <link rel="stylesheet" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
     <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
     <link rel="stylesheet" th:href="@{/css/community/community.css}" href="../../static/css/community/community.css">
     <link rel="stylesheet" th:href="@{/css/community/repository.css}" href="../../static/css/community/repository.css">
-    <link rel="stylesheet" th:href="@{/css/community/communityHeader.css}" href="../../static/css/community/communityHeader.css">
+    <link rel="stylesheet" th:href="@{/css/community/communityHeader.css}"
+          href="../../static/css/community/communityHeader.css">
     <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
 </head>
@@ -21,47 +22,54 @@
 <div id="body-wrapper">
     <div id="title">
         <h1>자료실</h1>
+        <div id="search-input">
+            <select>
+                <option>제목+내용</option>
+                <option>제목</option>
+                <option>내용</option>
+            </select>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="검색어를 입력하세요">
+            <input type="submit" value="검 색">
+        </div>
     </div>
     <th:block th:replace="~{community/communityHeader:: communityHeader}"/>
     <section>
         <div id="container">
-            <div id="search-input">
-                <select>
-                    <option>제목</option>
-                    <option>내용</option>
-                </select>
-                <input type="text" placeholder="검색어를 입력하세요">
-                <input type="submit" value="검색">
-            </div>
             <div id="repository-box">
                 <table>
                     <thead>
                     <th class="tbl-title">순번</th>
                     <th class="tbl-content">제목</th>
                     <th class="tbl-upload">등록일</th>
-                    <th class="tbl-count">조회수</th>
                     </thead>
                     <tbody>
                     <tr>
                         <td class="tbl-title">1</td>
                         <td class="tbl-content"><a href="/community/detail">제목입니다</a></td>
                         <td class="tbl-upload">2023-04-10</td>
-                        <td class="tbl-count">23</td>
                     </tr>
                     <tr>
                         <td class="tbl-title">1</td>
                         <td class="tbl-content">제목입니다</td>
                         <td class="tbl-upload">2023-04-10</td>
-                        <td class="tbl-count">23</td>
                     </tr>
                     <tr>
                         <td class="tbl-title">1</td>
                         <td class="tbl-content">제목입니다</td>
                         <td class="tbl-upload">2023-04-10</td>
-                        <td class="tbl-count">23</td>
                     </tr>
                     </tbody>
                 </table>
+            </div>
+            <div id="page-num">
+                <ul>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                </ul>
             </div>
         </div>
     </section>

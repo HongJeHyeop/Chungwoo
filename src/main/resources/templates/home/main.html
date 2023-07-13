@@ -16,20 +16,24 @@
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
     <script th:src="@{js/home/header.js}" src="../../static/js/home/header.js" defer></script>
     <script th:src="@{js/home/main.js}" src="../../static/js/home/main.js" defer></script>
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=vrlpeor7op"></script>
+    <script type="text/javascript"
+            src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=vrlpeor7op"></script>
 </head>
 <body>
 <th:block th:replace="~{home/header:: header}"/>
 <div id="body-wrapper">
     <div id="main-img-container">
         <div id="main-img-items">
-            <img class="main-img active" src="../../images/main.jpg" alt="메인1">
+            <img class="main-img active" src="../../images/main1.jpg" alt="메인1">
             <img class="main-img" src="../../images/main2.jpg" alt="메인2">
             <img class="main-img" src="../../images/main3.jpg" alt="메인3">
         </div>
-        <!--        <div id="main-title">-->
-        <!--            <h1>CHUNGWOO</h1>-->
-        <!--        </div>-->
+        <div id="back-cover">
+            <div id="main-title">
+                <h2>CHEONGWOO INTERNATIONAL SERVICE</h2>
+                <h1>청 우 국 제 운 송 ㈜</h1>
+            </div>
+        </div>
         <div id="img-num">
             <button class="select-btn" data-index="0"></button>
             <button class="select-btn" data-index="1"></button>
@@ -69,30 +73,30 @@
                 <h2>공지사항</h2>
                 <table>
                     <thead>
-                        <tr>
-                            <td>제 목</td>
-                            <td>날 짜</td>
-                        </tr>
+                    <tr>
+                        <td>제 목</td>
+                        <td>날 짜</td>
+                    </tr>
                     </thead>
                     <tbody id="simple-main-notice">
-                        <tr>
-                            <td><a href="/community/detail">공지1</a></td>
-                            <td>2022-08-23</td>
-                        </tr>
-                        <tr>
-                            <td>공지1</td>
-                            <td>2022-08-23</td>
-                        </tr>
-                        <tr>
-                            <td>공지1</td>
-                            <td>2022-08-23</td>
-                        </tr>
+                    <tr>
+                        <td><a href="/community/detail">공지1</a></td>
+                        <td>2022-08-23</td>
+                    </tr>
+                    <tr>
+                        <td>공지1</td>
+                        <td>2022-08-23</td>
+                    </tr>
+                    <tr>
+                        <td>공지1</td>
+                        <td>2022-08-23</td>
+                    </tr>
                     </tbody>
                 </table>
                 <p><a href="/community/notice">더보기...</a></p>
             </div>
             <div class="community-box">
-                <h2>자료실</h2>
+                <h2>온라인문의</h2>
                 <table>
                     <thead>
                     <tr>
@@ -100,7 +104,7 @@
                         <td>날 짜</td>
                     </tr>
                     </thead>
-                    <tbody id="simple-main-repository">
+                    <tbody id="simple-main-inquiry">
                     <tr>
                         <td><a href="/community/detail">공지1</a></td>
                         <td>2022-08-23</td>

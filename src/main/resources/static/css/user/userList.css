@@ -27,7 +27,7 @@ html, body {
 }
 /* 타이틀 */
 #title {
-    background: linear-gradient(rgba(252, 225, 255, 0.5) 0, rgba(255, 255, 255, 0.5) 0), url("../../images/main.jpg") 100% no-repeat;
+    background: linear-gradient(rgba(252, 225, 255, 0.5) 0, rgba(255, 255, 255, 0.5) 0), url("../../images/main3.jpg") 100% no-repeat;
     background-size: cover;
     height: 12em;
 

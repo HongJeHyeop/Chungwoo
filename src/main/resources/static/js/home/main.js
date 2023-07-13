@@ -1,6 +1,7 @@
 const images = document.querySelectorAll('.main-img');
 const selectBtns = document.querySelectorAll('.select-btn');
 const simpleMainNotice = document.getElementById('simple-main-notice');
+const simpleMainInquiry = document.getElementById('simple-main-inquiry');
 
 // 현재 이미지 번호
 let currentImageIndex = 0;
@@ -61,6 +62,14 @@ fetch('/mainNotice')
     .catch(reason => {
         console.log('심플 공지사항 생성 오류! :' + reason)
     })
+fetch('/mainInquiry')
+    .then(value => value.json())
+    .then(value => {
+        create_simple_main_inquiry(value)
+    })
+    .catch(reason => {
+        console.log('심플 공지사항 생성 오류! :' + reason)
+    })
 
 // 공지사항 생성 함수
 function create_simple_main_notice(value) {
@@ -70,6 +79,17 @@ function create_simple_main_notice(value) {
             `<tr>
                 <td><a href="/community/detail?no=${boardVO.no}">${boardVO.title}</a></td>
                 <td>${boardVO.writeDate}</td>
+            </tr>`)
+    })
+}
+
+function create_simple_main_inquiry(value) {
+    simpleMainInquiry.innerHTML = '';
+    value.forEach((inquiryVO) => {
+        simpleMainInquiry.insertAdjacentHTML('beforeend',
+            `<tr>
+                <td><a href="/community/detail?no=${inquiryVO.no}">비공개글입니다.</a></td>
+                <td>${inquiryVO.writeDate}</td>
             </tr>`)
     })
 }

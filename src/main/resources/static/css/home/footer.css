@@ -17,7 +17,7 @@ footer {
 }
 
 #info {
-    text-align: left;
+    text-align: center;
     padding: 1rem 0 2rem 0;
 }
 #info h2 {
@@ -26,10 +26,11 @@ footer {
     color: #fff;
 }
 #info h2:nth-child(2) {
-    letter-spacing: 11px;
+    letter-spacing: 10px;
 }
 #info span {
     font-size: 0.9rem;
+    letter-spacing: normal;
     color: #fff;
 }
 

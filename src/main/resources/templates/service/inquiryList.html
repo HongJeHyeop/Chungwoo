@@ -22,21 +22,23 @@
 <div id="body-wrapper">
     <div id="title">
         <h1>온라인 문의</h1>
+        <div id="inquiry-search-box">
+            <select>
+                <option>게시글 번호</option>
+                <option>게시글 내용</option>
+                <option>작성자</option>
+                <option>휴대폰</option>
+            </select>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="검색어를 입력하세요">
+            <input type="button" value="검 색">
+        </div>
     </div>
     <th:block th:replace="~{service/serviceHeader:: serviceHeader}"/>
     <section>
         <div id="inquiry-container">
             <div id="inquiry-btn-box">
                 <input type="button" value="글쓰기" onclick="location.href='/service/inquiryWrite'">
-                <div id="inquiry-search-box">
-                    <select>
-                        <option>제목+내용</option>
-                        <option>제목</option>
-                        <option>내용</option>
-                    </select>
-                    <input type="text" placeholder="검색어를 입력하세요">
-                    <input type="button" value="검 색">
-                </div>
             </div>
             <div id="inquiry-header">
                 <ul>
