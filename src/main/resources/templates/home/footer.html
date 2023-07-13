@@ -14,21 +14,43 @@
 <body>
 <footer th:fragment="footer">
     <div id="foot-container">
-        <div id="info">
-            <h2>CHEONGWOO INTERNATIONAL SERVICE</h2>
-            <h2>청 우 국 제 운 송<span>(주)</span></h2>
-            <span>대구광역시 수성구 들안로 32길 101, 2층</span>
+        <div id="foot-box">
+            <div id="info">
+                <h2>CHEONGWOO INTERNATIONAL SERVICE</h2>
+                <h2>청 우 국 제 운 송<span>(주)</span></h2>
+                <span>대구광역시 수성구 들안로 32길 101, 2층</span>
+            </div>
+            <div id="foot-list">
+                <ul>
+                    <li><a href="#">개인정보취급방침</a></li>
+                    <li sec:authorize="isAnonymous()"><a href="/user/login">로그인</a></li>
+                    <li sec:authorize="authenticated"><a href="/user/logout">로그아웃</a></li>
+                    <li sec:authorize="hasRole('ADMIN')"><a href="/user/userList">회원관리</a></li>
+                </ul>
+            </div>
+            <div id="copyright">
+                <p>Copyright 2023. Cheongwoo International Service. All rights reserved.</p>
+            </div>
         </div>
-        <div id="foot-list">
-            <ul>
-                <li><a href="#">개인정보취급방침</a></li>
-                <li sec:authorize="isAnonymous()"><a href="/user/login">로그인</a></li>
-                <li sec:authorize="authenticated"><a href="/user/logout">로그아웃</a></li>
-                <li sec:authorize="hasRole('ADMIN')"><a href="/user/userList">회원관리</a></li>
-            </ul>
+        <div class="certified">
+            <img th:src="@{/images/cert_left.png}" src="../../static/images/cert_left.png" alt="">
+            <div class="cert-contents">
+                <p>우수기업</p>
+                <span>중소벤처기업부를 통해 <br/>
+                    우수기업으로 선정된 기업입니다.
+                </span>
+            </div>
+            <img th:src="@{/images/cert_right.png}" src="../../static/images/cert_right.png" alt="">
         </div>
-        <div id="copyright">
-            <p>Copyright 2023. Cheongwoo International Service. All rights reserved.</p>
+        <div class="certified">
+            <img th:src="@{/images/cert_left.png}" src="../../static/images/cert_left.png" alt="">
+            <div class="cert-contents">
+                <p>메인비즈</p>
+                <span>중소벤처기업부를 통해 <br/>
+                    메인비즈기업으로 인증된 기업입니다.
+                </span>
+            </div>
+            <img th:src="@{/images/cert_right.png}" src="../../static/images/cert_right.png" alt="">
         </div>
     </div>
 </footer>

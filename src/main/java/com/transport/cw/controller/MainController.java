@@ -50,12 +50,17 @@ public class MainController {
 
     @GetMapping("/introduce/history")
     public void history() {
-        log.info("====== 연혁 ======");
+        log.info("====== 연혁 접속! ======");
     }
 
     @GetMapping("/introduce/groupChart")
     public void group_chart() {
-        log.info("======= 조직도 =========");
+        log.info("======= 조직도 접속! =========");
+    }
+
+    @GetMapping("/introduce/rule")
+    public void rule() {
+        log.info("======= 기업원칙 접속! =========");
     }
 
     /*** 커뮤니티 페이지 ***/

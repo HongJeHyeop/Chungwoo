@@ -104,15 +104,35 @@ section{
 }
 
 /*** 사업영역 ***/
+#business-header {
+    margin: 5rem auto 0 auto;
+    padding: 1rem;
+    width: 1200px;
+}
+#business-header > h2{
+    font-size: 3rem;
+    color: #1a2636;
+}
+#business-header > h2 > i{
+    color: #1a2636;
+}
+#business-header > h3{
+    padding: 0.5rem 0 0 2rem;
+    font-size: 1.5rem;
+    color: #1a2636;
+}
+#business-header > h3 > i{
+    color: #1a2636;
+}
 #business-area-container {
 
     display: flex;
     justify-content: center;
 }
 .business-box {
-    margin: 5rem 1rem;
+    margin: 2rem 1rem 5rem 1rem;
     width: 25%;
-    height: 25rem;
+    height: 28rem;
     border-radius: 20px;
     box-shadow: 3px 5px 5px 2px #999;
 }
@@ -148,10 +168,13 @@ section{
     color: white;
 }
 .business-box p {
-    text-align: center;
-    line-height: 3rem;
+    padding: 0 0 2rem 2.8rem;
     font-size: 1.5rem;
     font-weight: bold;
+    color: #ffffff;
+}
+.business-box span {
+    font-size: 1rem;
     color: #ffffff;
 }
 
