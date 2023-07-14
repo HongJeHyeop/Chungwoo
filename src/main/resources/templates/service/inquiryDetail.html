@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
+    <title>청우국제운송(주)</title>
+    <link rel="stylesheet" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
+    <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
+    <link rel="stylesheet" th:href="@{/css/service/service.css}" href="../../static/css/service/service.css">
+    <link rel="stylesheet" th:href="@{/css/service/inquiryDetail.css}"
+          href="../../static/css/service/inquiryDetail.css">
+    <link rel="stylesheet" th:href="@{/css/service/serviceHeader.css}" href="../../static/css/service/serviceHeader">
+    <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
+    <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
+    <script th:src="@{/js/service/inquiryDetail.js}" src="../../static/js/service/inquiryDetail.js" defer></script>
+</head>
+<body>
+<th:block th:replace="~{home/header:: header}"/>
+<div id="body-wrapper">
+    <div id="title">
+        <h1>온라인 문의</h1>
+    </div>
+    <th:block th:replace="~{service/serviceHeader:: serviceHeader}"/>
+    <section>
+        <h2>문의내용</h2>
+        <div id="process-btn">
+            <input type="hidden" th:value="${inquiryVO.no}" id="inquiry-no">
+            <th:block th:if="${inquiryVO.processing  == 0}">
+                <input type="button" value="접수하기" onclick="confirm_req(1)">
+            </th:block>
+            <th:block th:if="${inquiryVO.processing == 1}">
+                <input type="button" value="접수취소" onclick="confirm_req(0)">
+            </th:block>
+            <input type="button" value="삭제하기" id="delete-btn">
+        </div>
+        <div id="inquiry-detail-box">
+            <table>
+                <tr>
+                    <td class="detail-box-header">성 함</td>
+                    <td class="detail-box-body" th:text="${inquiryVO.name}"></td>
+                </tr>
+                <tr>
+                    <td class="detail-box-header">연락처</td>
+                    <td class="detail-box-body" th:text="${inquiryVO.phone}"></td>
+                </tr>
+                <tr>
+                    <td class="detail-box-header">회사명</td>
+                    <td class="detail-box-body" th:text="${inquiryVO.company}"></td>
+                </tr>
+                <tr>
+                    <td class="detail-box-header">제목</td>
+                    <td class="detail-box-body" th:text="${inquiryVO.header}"></td>
+                </tr>
+                <tr>
+                    <td class="detail-box-header">문의내용</td>
+                    <td class="detail-box-body" th:text="${inquiryVO.contents}"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="move-page-btn">
+            <input type="button" value="이전" onclick="location.href = '/service/inquiryList'">
+            <input type="button" value="목록" onclick="location.href = '/service/inquiryList'">
+            <input type="button" value="다음" onclick="location.href = '/service/inquiryList'">
+        </div>
+    </section>
+</div>
+<th:block th:replace="~{home/footer::footer}"/>
+</body>
+</html>

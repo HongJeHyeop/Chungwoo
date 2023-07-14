@@ -63,14 +63,14 @@ footer {
 #foot-list li:last-child::after {
     content: '';
 }
-
-/* 우수기업 인증 */
-.copyright > p{
+#copyright > p{
     padding-bottom: 1rem;
     font-size: 0.8rem;
     color: #fff;
 }
 
+
+/* 우수기업 인증 */
 .certified {
     padding: 1rem;
     height: 100%;

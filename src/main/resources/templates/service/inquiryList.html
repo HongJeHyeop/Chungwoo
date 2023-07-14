@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
-    <title>청우국제운송</title>
+    <title>청우국제운송(주)</title>
     <link rel="stylesheet" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
     <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
     <link rel="stylesheet" th:href="@{/css/service/service.css}" href="../../static/css/service/service.css">
@@ -19,10 +19,12 @@
 </head>
 <body>
 <th:block th:replace="~{home/header:: header}"/>
+    <input type="hidden" th:value="${#authentication.getAuthorities()}" id="auth">
 <div id="body-wrapper">
     <div id="title">
         <h1>온라인 문의</h1>
         <div id="inquiry-search-box">
+
             <select>
                 <option>게시글 번호</option>
                 <option>게시글 내용</option>
@@ -35,6 +37,7 @@
         </div>
     </div>
     <th:block th:replace="~{service/serviceHeader:: serviceHeader}"/>
+
     <section>
         <div id="inquiry-container">
             <div id="inquiry-btn-box">

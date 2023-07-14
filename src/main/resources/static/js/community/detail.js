@@ -1,6 +1,6 @@
 const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute("content");
 const detailItem = document.getElementById('notice-detail');
-const boardNo = document.getElementById('board-no').value;
+let boardNo = document.getElementById('board-no').value;
 
 
 get_board_detail(boardNo);
@@ -20,6 +20,7 @@ async function get_board_detail(pageNo, arrow) {
             console.log("보드 생성 오류")
         })
 }
+
 // 상세 게시글 생성 메서드
 function create_board(boardVO) {
     detailItem.innerHTML = '';
@@ -55,26 +56,28 @@ function create_board(boardVO) {
             `<td colspan="2"><a href="/board/down/${boardVO.no}"><i class="fa-solid fa-download"></i> ${orgFileName}</a></td>
                   <td>2022-03-21</td>`)
     }
+    boardNo = boardVO.no
 }
 
 // 게시글 삭제
-function delete_notice(noticeNo) {
-    console.log(noticeNo)
-    fetch('/community/notice/delete', {
-        method : 'DELETE',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': csrfToken
-        },
-        body   : JSON.stringify({
-            no: noticeNo
-        })
-    }).then(value => value.text())
-        .then(value => {
-            console.log("삭제여부 >> " + value)
-            location.href = '/community/notice'
-        })
-        .catch(reason => {
-            console.log(reason)
-        })
+function delete_notice() {
+    const check = confirm('정말 삭제하시겠습니까?');
+    if (check) {
+        fetch('/community/notice/delete', {
+            method : 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrfToken
+            },
+            body   : JSON.stringify({
+                no: boardNo
+            })
+        }).then(value => value.text())
+            .then(value => {
+                location.href = '/community/notice'
+            })
+            .catch(reason => {
+                console.log(reason)
+            });
+    }
 }

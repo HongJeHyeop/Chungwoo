@@ -28,7 +28,59 @@
     <th:block th:replace="~{introduce/introHeader:: introHeader}"/>
     <article>
         <h1>기업원칙</h1>
-    </article>
+        <div id="container">
+            <div class="rule-container">
+                <h2>서비스 4S 원칙</h2>
+                <div class="rule-box">
+                    <div class="rule-item1">
+                        <div class="rule-contents">
+                            <p>Speedy</p>
+                            <span>업무진행사항을 신속하게 제공합니다</span>
+                        </div>
+                        <img th:src="@{/images/rule1.png}" src="../../static/images/rule1.png" alt="">
+                    </div>
+                    <div class="rule-item2">
+                        <div class="rule-contents">
+                            <p>Soultion For any Biz</p>
+                            <span>무역, 물류와 관련된 모든 정보 제공합니다</span>
+                        </div>
+                        <img th:src="@{/images/rule2.png}" src="../../static/images/rule2.png" alt="">
+                    </div>
+                    <div class="rule-item3">
+                        <img th:src="@{/images/rule3.png}" src="../../static/images/rule3.png" alt="">
+                        <div class="rule-contents">
+                            <p>Saving cost</p>
+                            <span>경제적이고 합리적인 물류 비용을 제공합니다</span>
+                        </div>
+                    </div>
+                    <div class="rule-item4">
+                        <img th:src="@{/images/rule4.png}" src="../../static/images/rule4.png" alt="">
+                        <div class="rule-contents">
+                            <p>Satisfaction</p>
+                            <span>만족할 수 있는 결과를 제공합니다</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="philosophy-container">
+            <h2>기업 철학</h2>
+            <div class="philosophy-box">
+                <div class="philosophy-item1">
+                    <p>도전 정신과 <br/> 가치 창조</p>
+                </div>
+                <div class="philosophy-item-wrap">
+                    <div class="philosophy-item2">
+                        <p>도전 정신과 <br/> 가치 창조</p>
+                    </div>
+                    <div class="philosophy-item3">
+                        <p>도전 정신과 <br/> 가치 창조</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</article>
 </div>
 <th:block th:replace="~{home/footer::footer}"/>
 </body>

@@ -229,6 +229,29 @@ section{
 .community-box td {
     border-bottom: 1px dotted #c4c4c4;
 }
+/* 온라인문의 */
+.community-box:nth-child(2) table {
+    border-spacing: 0;
+}
+.community-box:nth-child(2) tr td:first-child {
+    width: 10%;
+    text-align: center;
+}
+.community-box:nth-child(2) tr td:nth-child(2) {
+    width: 40%;
+}
+.community-box:nth-child(2) tr td:nth-child(3) {
+    width: 15%;
+    text-align: center;
+}
+.community-box:nth-child(2) tr td:nth-child(4) {
+    width: 15%;
+    text-align: center;
+}
+.community-box:nth-child(2) tr td:nth-child(5) {
+    width: 20%;
+}
+
 
 /*** 연락 ***/
 #contact-container {

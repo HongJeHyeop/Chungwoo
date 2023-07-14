@@ -18,10 +18,17 @@
     width: 5rem;
     height: 1.5rem;
     color: white;
-    background-color: #314E70;
+    background-color: #555;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+#update-btn input:hover {
+    background-color: #1a2636;
+}
+#update-btn input:active {
+    width: 4.9rem;
+    height: 1.4rem;
 }
 
 #notice-detail tbody  td  img {
@@ -31,7 +38,7 @@
 }
 
 /* 테이블 헤더(제목) */
-#container th {
+#notice-detail > table  th {
     padding: 1rem;
     width: 15%;
     font-size: 0.9rem;
@@ -41,30 +48,55 @@
     border-bottom: 2px solid #999999;
 
 }
-#container th:first-child {
+#notice-detail > table  th:first-child {
     width: 70%;
     font-size: 1.1rem;
     text-align: left;
 }
 
-/* 테이블 바디(내용) */
-#container tbody td {
+/* 테이블 바디(내용) quill*/
+#notice-detail tbody td {
     padding: 2rem 1rem;
-    line-height: 1.5rem;
 }
-
+#notice-detail tbody td h1{
+    font-size: 2em;
+}
+#notice-detail tbody td h2{
+    font-size: 1.5em;
+}
+#notice-detail tbody td h3{
+    font-size: 1.17em;
+}
+#notice-detail tbody td h4{
+    font-size: 1em;
+}
+#notice-detail tbody td h5{
+    font-size: 0.83em;
+}
+#notice-detail tbody td h6{
+    font-size: 0.67em;
+}
+#notice-detail tbody td .ql-size-large {
+    font-size: 1.5em;
+}
+#notice-detail tbody td .ql-size-huge {
+    font-size: 2.5em;
+}
+#notice-detail tbody td .ql-size-small {
+    font-size: 0.75em;
+}
 /* 테이블 풋(첨부파일) */
-#container tfoot tr:first-child td {
+#notice-detail  tfoot tr:first-child td {
 
     border-top: 2px solid #999;
 }
-#container tfoot td {
+#notice-detail  tfoot td {
     padding: 1rem;
     font-size: 0.9rem;
 
     border-bottom: 1px dotted #999;
 }
-#container tfoot td:last-child{
+#notice-detail  tfoot td:last-child{
     padding: 1rem 0.5rem;
     font-size: 0.8rem;
 }
@@ -81,7 +113,15 @@
     margin: 2rem;
     font-size: 0.8rem;
     color: white;
-    background-color: #314E70;
+    background-color: #555;
     cursor: pointer;
     border: none;
 }
+#move-btn input:hover {
+    background-color: #1a2636;
+}
+#move-btn input:active {
+    width: 3.9rem;
+    height: 1.9rem;
+}
+

@@ -11,7 +11,7 @@
     margin: 3rem 0;
     font-size: 2rem;
     text-shadow: 1px 1px 1px #999999;
-    color: #4646b6;
+    color: #1a2636;
 }
 
 #board-type > select{
@@ -42,12 +42,14 @@
     width: 5rem;
     height: 2rem;
     color: white;
-    background-color: #4646b6;
+    background-color: #555;
     border: none;
     cursor: pointer;
 }
+#btn input:hover {
+    background-color: #1a2636;
+}
 #btn input:active {
-    background-color: #69A6F0;
     width: 4.8rem;
     height: 1.8rem;
 }

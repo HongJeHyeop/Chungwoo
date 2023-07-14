@@ -22,7 +22,7 @@ html, body {
     justify-content: center;
     align-items: center;
 }
-#title h1 {
+#title > h1 {
     margin-bottom: 3rem;
     color: #fff;
     font-size: 2rem;

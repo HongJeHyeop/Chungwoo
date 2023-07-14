@@ -10,7 +10,9 @@
     <select id="simple_main_inquiry" resultType="com.transport.cw.domain.vos.InquiryVO">
         SELECT * FROM `inquiry_tbl` WHERE `inquiryType`='온라인문의' ORDER BY `no` DESC LIMIT 3
     </select>
-
+    <select id="get_inquiry" resultType="com.transport.cw.domain.vos.InquiryVO">
+        SELECT * FROM `inquiry_tbl` WHERE `no`= #{no}
+    </select>
     <!-- 페이징 -->
     <select id="find_all_inquiry" parameterType="com.transport.cw.domain.dtos.PagingDTO"
             resultType="com.transport.cw.domain.vos.InquiryVO">
@@ -25,4 +27,14 @@
         `header` LIKE CONCAT ('%', #{keyword}, '%') OR
         `contents` LIKE CONCAT ('%', #{keyword}, '%')
     </select>
+
+    <!-- 접수확인 업데이트 -->
+    <update id="update_process" parameterType="com.transport.cw.domain.vos.InquiryVO">
+        UPDATE `inquiry_tbl` SET `processing` = #{processing} WHERE `no` = #{no}
+    </update>
+
+    <!-- 접수 삭제 -->
+    <delete id="delete_inquiry" parameterType="com.transport.cw.domain.vos.InquiryVO">
+        DELETE FROM `inquiry_tbl` WHERE `no` = #{no}
+    </delete>
 </mapper>

@@ -1,6 +1,7 @@
 const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute("content");
 const formBox = document.getElementById('insert-form');
 const updateNo = document.getElementById('update-no');
+let titleCheck = document.getElementById('board-header').firstElementChild;
 
 quill_editor_init()
 
@@ -55,11 +56,11 @@ function quill_editor_init() {
             try {
                 // 이미지 업로드
                 const response = await fetch('/board/quillImage', {
-                    method: 'POST',
+                    method : 'POST',
                     headers: {
                         'X-CSRF-TOKEN': csrfToken
                     },
-                    body: formData,
+                    body   : formData,
                 });
 
                 if (response.ok) {
@@ -80,15 +81,9 @@ function quill_editor_init() {
     });
 }
 
-// 작성여부 체크
-function notice_write_check() {
-    const check = confirm('정말 작성하시겠습니까?');
-    if (check) {
-        const form = document.forms.item(0);
-        form.submit();
-    }
-}
 
+// 수정하기로 왔을때
+notice_update()
 // 수정하기 폼 생성
 function update_write(item) {
     formBox.innerHTML = '';
@@ -116,10 +111,9 @@ function update_write(item) {
                 </div>
                 </form>`)
     quill_editor_init()
+    titleCheck = document.getElementById('board-header').firstElementChild;
 }
 
-// 수정하기로 왔을때
-notice_update()
 
 // 수정 요청
 function notice_update() {
@@ -133,5 +127,20 @@ function notice_update() {
             .catch(reason => {
                 console.log(reason)
             })
+    }
+}
+
+
+// 작성여부 체크
+function notice_write_check() {
+    if (titleCheck.value.trim() === '' || titleCheck.value === undefined || titleCheck.value === null) {
+        alert('제목을 작성하여주세요!');
+        return;
+    } else {
+        const check = confirm('정말 작성하시겠습니까?');
+        if (check) {
+            const form = document.forms.item(0);
+            form.submit();
+        }
     }
 }

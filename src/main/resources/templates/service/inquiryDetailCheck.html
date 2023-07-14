@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
+    <title>청우국제운송(주)</title>
+    <link rel="stylesheet" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
+    <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
+    <link rel="stylesheet" th:href="@{/css/service/service.css}" href="../../static/css/service/service.css">
+    <link rel="stylesheet" th:href="@{/css/service/inquiryList.css}" href="../../static/css/service/inquiryList.css">
+    <link rel="stylesheet" th:href="@{/css/service/serviceHeader.css}" href="../../static/css/service/serviceHeader">
+    <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
+    <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
+</head>
+<body>
+<th:block th:replace="~{home/header:: header}"/>
+<div id="body-wrapper">
+    <div id="title">
+        <h1>온라인 문의</h1>
+    </div>
+    <section>
+        <form action="/service/inquiryDetail">
+            <input type="hidden" id="inquiry-no" th:value="${no}">
+            <h2>이름을 입력하세요</h2>
+            <input type="text" name="name">
+            <h2>전화번호를 입력하세요</h2>
+            <input type="text" name="phone">
+        </form>
+    </section>
+    <th:block th:replace="~{service/serviceHeader:: serviceHeader}"/>
+</div>
+<th:block th:replace="~{home/footer::footer}"/>
+</body>
+</html>

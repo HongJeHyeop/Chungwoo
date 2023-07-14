@@ -1,6 +1,6 @@
 const inquiryBoxWrap = document.getElementById('inquiry-box-wrap');
 const inquiryPageNum = document.getElementById('inquiry-page-num').firstElementChild;
-
+const authCheck = document.getElementById('auth').value.slice(6, -1);
 find_all_inquiry();
 
 // DB에서 문의정보 불러오기
@@ -29,20 +29,21 @@ function find_all_inquiry(nowPage, recordSize, pageSize, searchKeyword) {
 /* 온라인문의 목록 생성 함수 */
 const create_inquiry_list = (data) => {
     inquiryBoxWrap.innerHTML = '';
-    data.forEach((data, i) => {
-        let asterisk = '';
-        for (let i = 0; i < data.name.length - 2; i++) {
-            asterisk += '*';
-        }
-        const name = data.name?.slice(0, 1) + asterisk + data.name?.slice(-1);
-        const phone = data.phone?.slice(-4);
-        const validation = data.processing === 0 ? '미확인' : '확인완료';
+    if (authCheck === 'ANONYMOUS') {
+        data.forEach((data, i) => {
+            let asterisk = '';
+            for (let i = 0; i < data.name.length - 2; i++) {
+                asterisk += '*';
+            }
+            const name = data.name?.slice(0, 1) + asterisk + data.name?.slice(-1);
+            const phone = data.phone?.slice(-4);
+            const validation = data.processing === 0 ? '미확인' : '확인완료';
 
-        inquiryBoxWrap.insertAdjacentHTML('beforeend',
-            `<div class="inquiry-box">
+            inquiryBoxWrap.insertAdjacentHTML('beforeend',
+                `<div class="inquiry-box">
                 <ul>
                     <li class="inquiry-no">${data.no}</li>
-                    <li class="inquiry-title">비공개입니다.</li>
+                    <li class="inquiry-title">${name}님의 글입니다.</li>
                     <li class="inquiry-write">${name}</li>
                     <li class="inquiry-phone">${phone}</li>
                     <li class="inquiry-write-date">${data.writeDate}</li>
@@ -50,11 +51,33 @@ const create_inquiry_list = (data) => {
                 </ul>
             </div>`)
 
-        const inquiryBox = document.getElementsByClassName('inquiry-box').item(i);
-        if (data.processing === 1) {
-            inquiryBox.style.backgroundColor = "rgba(255, 255, 0, 0.2)";
-        }
-    })
+            const inquiryBox = document.getElementsByClassName('inquiry-box').item(i);
+            if (data.processing === 1) {
+                inquiryBox.style.backgroundColor = "rgba(255, 255, 0, 0.2)";
+            }
+        })
+    } else if (authCheck === 'ADMIN') {
+        data.forEach((data, i) => {
+            const validation = data.processing === 0 ? '미확인' : '확인완료';
+
+            inquiryBoxWrap.insertAdjacentHTML('beforeend',
+                `<div class="inquiry-box">
+                <ul>
+                    <li class="inquiry-no">${data.no}</li>
+                    <li class="inquiry-title"><a href="/service/inquiryDetail?no=${data.no}">${data.header}</a></li>
+                    <li class="inquiry-write">${data.name}</li>
+                    <li class="inquiry-phone">${data.phone}</li>
+                    <li class="inquiry-write-date">${data.writeDate}</li>
+                    <li class="inquiry-validation">${validation}</li>
+                </ul>
+            </div>`)
+
+            const inquiryBox = document.getElementsByClassName('inquiry-box').item(i);
+            if (data.processing === 1) {
+                inquiryBox.style.backgroundColor = "rgba(255, 255, 0, 0.2)";
+            }
+        })
+    }
 }
 
 // 페이지네이션 생성 함수

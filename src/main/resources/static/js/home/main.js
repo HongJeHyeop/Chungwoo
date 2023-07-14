@@ -52,7 +52,6 @@ function select_image(e) {
     // 현재 이미지 인덱스 업데이트
     currentImageIndex = i;
 }
-
 // 공지사항 간략히 보기
 fetch('/mainNotice')
     .then(value => value.json())
@@ -62,7 +61,7 @@ fetch('/mainNotice')
     .catch(reason => {
         console.log('심플 공지사항 생성 오류! :' + reason)
     })
-fetch('/mainInquiry')
+fetch('/service/mainInquiry')
     .then(value => value.json())
     .then(value => {
         create_simple_main_inquiry(value)
@@ -86,9 +85,18 @@ function create_simple_main_notice(value) {
 function create_simple_main_inquiry(value) {
     simpleMainInquiry.innerHTML = '';
     value.forEach((inquiryVO) => {
+    let asterisk = '';
+    for (let i = 0; i < inquiryVO.name.length - 2; i++) {
+        asterisk += '*';
+    }
+    const name = inquiryVO.name?.slice(0, 1) + asterisk + inquiryVO.name?.slice(-1);
+    const phone = inquiryVO.phone?.slice(-4);
         simpleMainInquiry.insertAdjacentHTML('beforeend',
             `<tr>
-                <td><a href="/community/detail?no=${inquiryVO.no}">비공개글입니다.</a></td>
+                <td><a href="/community/detail?no=${inquiryVO.no}">${inquiryVO.no}</a></td>
+                <td><a href="/community/detail?no=${inquiryVO.no}">${name}님의 글입니다.</a></td>
+                <td>${name}</td>
+                <td>${phone}</td>
                 <td>${inquiryVO.writeDate}</td>
             </tr>`)
     })

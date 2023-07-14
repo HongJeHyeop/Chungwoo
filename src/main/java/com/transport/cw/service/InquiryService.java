@@ -40,7 +40,19 @@ public class InquiryService {
         return inquiryMapper.simple_main_inquiry();
     };
 
+    public InquiryVO get_inquiry(String no) {return inquiryMapper.get_inquiry(no);}
+
     public void insert_inquiry(InquiryVO inquiryVO) {
             inquiryMapper.insert_inquiry(inquiryVO);
+    }
+
+    // 접수확인 업데이트
+    public boolean update_process(InquiryVO inquiryVO) {
+        return inquiryMapper.update_process(inquiryVO);
+    }
+
+    // 접수 삭제
+    public boolean delete_inquiry(InquiryVO inquiryVO) {
+        return inquiryMapper.delete_inquiry(inquiryVO);
     }
 }
