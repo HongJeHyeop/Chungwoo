@@ -27,44 +27,60 @@
     <th:block th:replace="~{service/serviceHeader:: serviceHeader}"/>
     <section>
         <h2>문의내용</h2>
-        <div id="process-btn">
-            <input type="hidden" th:value="${inquiryVO.no}" id="inquiry-no">
-            <th:block th:if="${inquiryVO.processing  == 0}">
-                <input type="button" value="접수하기" onclick="confirm_req(1)">
-            </th:block>
-            <th:block th:if="${inquiryVO.processing == 1}">
-                <input type="button" value="접수취소" onclick="confirm_req(0)">
-            </th:block>
-            <input type="button" value="삭제하기" id="delete-btn">
-        </div>
-        <div id="inquiry-detail-box">
-            <table>
-                <tr>
-                    <td class="detail-box-header">성 함</td>
-                    <td class="detail-box-body" th:text="${inquiryVO.name}"></td>
-                </tr>
-                <tr>
-                    <td class="detail-box-header">연락처</td>
-                    <td class="detail-box-body" th:text="${inquiryVO.phone}"></td>
-                </tr>
-                <tr>
-                    <td class="detail-box-header">회사명</td>
-                    <td class="detail-box-body" th:text="${inquiryVO.company}"></td>
-                </tr>
-                <tr>
-                    <td class="detail-box-header">제목</td>
-                    <td class="detail-box-body" th:text="${inquiryVO.header}"></td>
-                </tr>
-                <tr>
-                    <td class="detail-box-header">문의내용</td>
-                    <td class="detail-box-body" th:text="${inquiryVO.contents}"></td>
-                </tr>
-            </table>
-        </div>
-        <div id="move-page-btn">
-            <input type="button" value="이전" onclick="location.href = '/service/inquiryList'">
-            <input type="button" value="목록" onclick="location.href = '/service/inquiryList'">
-            <input type="button" value="다음" onclick="location.href = '/service/inquiryList'">
+        <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+            <div id="process-btn">
+                <input type="hidden" th:value="${inquiryVO.no}" id="inquiry-no">
+                <th:block th:if="${inquiryVO.processing  == 0}">
+                    <input type="button" value="접수하기" th:onclick="'confirm_req(\'' + ${inquiryVO.no} + '\', 1)'">
+                </th:block>
+                <th:block th:if="${inquiryVO.processing == 1}">
+                    <input type="button" value="접수취소" th:onclick="'confirm_req(\'' + ${inquiryVO.no} + '\', 0)'">
+                </th:block>
+                <input type="button" value="삭제하기" id="delete-btn" th:onclick="'delete_req(\'' + ${inquiryVO.no} + '\')'">
+            </div>
+            <div id="inquiry-detail-box">
+                <table>
+                    <tr>
+                        <td class="detail-box-header">문의 번호</td>
+                        <td class="detail-box-body" th:text="${inquiryVO.no}"></td>
+                    </tr>
+                    <tr>
+                        <td class="detail-box-header">성 함</td>
+                        <td class="detail-box-body" th:text="${inquiryVO.name}"></td>
+                    </tr>
+                    <tr>
+                        <td class="detail-box-header">연락처</td>
+                        <td class="detail-box-body" th:text="${inquiryVO.phone}"></td>
+                    </tr>
+                    <tr>
+                        <td class="detail-box-header">회사명</td>
+                        <td class="detail-box-body" th:text="${inquiryVO.company}"></td>
+                    </tr>
+                    <tr>
+                        <td class="detail-box-header">제 목</td>
+                        <td class="detail-box-body" th:text="${inquiryVO.header}"></td>
+                    </tr>
+                    <tr>
+                        <td class="detail-box-header">문의 내용</td>
+                        <td class="detail-box-body" th:text="${inquiryVO.contents}"></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="move-page-btn">
+                <input type="button" value="이전" th:onclick="'move_page(\'' + ${inquiryVO.no} + '\', \'prev\')'">
+                <input type="button" value="목록" onclick="location.href = '/service/inquiryList'">
+                <input type="button" value="다음" th:onclick="'move_page(\'' + ${inquiryVO.no} + '\', \'next\')'">
+            </div>
+        </th:block>
+        <div sec:authorize="hasRole('ROLE_ANONYMOUS')" id="anonymous-inquiry">
+            <div id="check-box">
+                <h2>이름을 입력하세요</h2>
+                <input type="text" name="name" id="check-name">
+                <h2>전화번호를 입력하세요</h2>
+                <input type="text" name="phone" id="check-phone">
+                <input type="button" value="확인" th:onclick="'check_anonymous(\'' + ${inquiryVO.name} + '\', \'' + ${inquiryVO.phone} + '\')'">
+                <input type="button" value="돌아가기" onclick="location.href='/service/inquiryList'">
+            </div>
         </div>
     </section>
 </div>

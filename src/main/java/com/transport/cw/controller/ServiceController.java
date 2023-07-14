@@ -62,9 +62,46 @@ public class ServiceController {
     }
 
     @GetMapping("/inquiryDetail")
-    public void inquiry_detail(@RequestParam String no, Model model) {
-        InquiryVO inquiryVO =inquiryService.get_inquiry(no);
+    public void inquiry_detail(@RequestParam String no, @RequestParam String arrow, Model model) {
+        InquiryVO inquiryVO = null;
+        if (arrow.equals("next")) {
+            log.info(arrow);
+            inquiryVO = inquiryService.next_inquiry(no);
+            if (inquiryVO == null) {
+                inquiryVO = inquiryService.get_inquiry(no);
+            }
+        } else if (arrow.equals("prev")) {
+            log.info(arrow);
+            inquiryVO = inquiryService.prev_inquiry(no);
+            if (inquiryVO == null) {
+                inquiryVO = inquiryService.get_inquiry(no);
+            }
+        } else {
+            inquiryVO =inquiryService.get_inquiry(no);
+        }
         model.addAttribute("inquiryVO", inquiryVO);
+    }
+
+    @ResponseBody
+    @GetMapping("/inquiryDetailUser")
+    public InquiryVO inquiry_detail_user(@RequestParam String no, @RequestParam String arrow) {
+        if (arrow.equals("next")) {
+            log.info(arrow);
+            InquiryVO inquiryVO = inquiryService.next_inquiry(no);
+            if (inquiryVO == null) {
+                inquiryVO = inquiryService.get_inquiry(no);
+            }
+            return inquiryVO;
+        } else if (arrow.equals("prev")) {
+            log.info(arrow);
+            InquiryVO inquiryVO = inquiryService.prev_inquiry(no);
+            if (inquiryVO == null) {
+                inquiryVO = inquiryService.get_inquiry(no);
+            }
+            return inquiryVO;
+        } else {
+            return inquiryService.get_inquiry(no);
+        }
     }
 
     // 문의 접수하기

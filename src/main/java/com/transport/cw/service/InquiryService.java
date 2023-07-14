@@ -41,6 +41,8 @@ public class InquiryService {
     };
 
     public InquiryVO get_inquiry(String no) {return inquiryMapper.get_inquiry(no);}
+    public InquiryVO next_inquiry(String no) {return inquiryMapper.next_inquiry(no);}
+    public InquiryVO prev_inquiry(String no) {return inquiryMapper.prev_inquiry(no);}
 
     public void insert_inquiry(InquiryVO inquiryVO) {
             inquiryMapper.insert_inquiry(inquiryVO);

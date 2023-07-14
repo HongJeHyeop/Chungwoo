@@ -43,7 +43,7 @@ const create_inquiry_list = (data) => {
                 `<div class="inquiry-box">
                 <ul>
                     <li class="inquiry-no">${data.no}</li>
-                    <li class="inquiry-title">${name}님의 글입니다.</li>
+                    <li class="inquiry-title"><a href="/service/inquiryDetail?no=${data.no}&arrow=">${name}님의 글입니다.</a></li>
                     <li class="inquiry-write">${name}</li>
                     <li class="inquiry-phone">${phone}</li>
                     <li class="inquiry-write-date">${data.writeDate}</li>
@@ -64,7 +64,7 @@ const create_inquiry_list = (data) => {
                 `<div class="inquiry-box">
                 <ul>
                     <li class="inquiry-no">${data.no}</li>
-                    <li class="inquiry-title"><a href="/service/inquiryDetail?no=${data.no}">${data.header}</a></li>
+                    <li class="inquiry-title"><a href="/service/inquiryDetail?no=${data.no}&arrow=">${data.header}</a></li>
                     <li class="inquiry-write">${data.name}</li>
                     <li class="inquiry-phone">${data.phone}</li>
                     <li class="inquiry-write-date">${data.writeDate}</li>

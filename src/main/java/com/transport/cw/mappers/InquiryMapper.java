@@ -22,6 +22,8 @@ public interface InquiryMapper {
 
     // 문의번호로 하나 가져오기
     InquiryVO get_inquiry(String no);
+    InquiryVO next_inquiry(String no);
+    InquiryVO prev_inquiry(String no);
 
     // 접수확인 업데이트
     boolean update_process(InquiryVO inquiryVO);
