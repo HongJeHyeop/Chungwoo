@@ -27,16 +27,17 @@
     <th:block th:replace="~{service/serviceHeader:: serviceHeader}"/>
     <section>
         <h2>문의내용</h2>
+        <input type="hidden" th:value="${inquiryVO.no}" id="inquiry-no">
         <th:block sec:authorize="hasRole('ROLE_ADMIN')">
             <div id="process-btn">
-                <input type="hidden" th:value="${inquiryVO.no}" id="inquiry-no">
                 <th:block th:if="${inquiryVO.processing  == 0}">
                     <input type="button" value="접수하기" th:onclick="'confirm_req(\'' + ${inquiryVO.no} + '\', 1)'">
                 </th:block>
                 <th:block th:if="${inquiryVO.processing == 1}">
                     <input type="button" value="접수취소" th:onclick="'confirm_req(\'' + ${inquiryVO.no} + '\', 0)'">
                 </th:block>
-                <input type="button" value="삭제하기" id="delete-btn" th:onclick="'delete_req(\'' + ${inquiryVO.no} + '\')'">
+                <input type="button" value="삭제하기" id="delete-btn"
+                       th:onclick="'delete_req(\'' + ${inquiryVO.no} + '\')'">
             </div>
             <div id="inquiry-detail-box">
                 <table>
@@ -78,7 +79,7 @@
                 <input type="text" name="name" id="check-name">
                 <h2>전화번호를 입력하세요</h2>
                 <input type="text" name="phone" id="check-phone">
-                <input type="button" value="확인" th:onclick="'check_anonymous(\'' + ${inquiryVO.name} + '\', \'' + ${inquiryVO.phone} + '\')'">
+                <input type="button" value="확인" onclick="check_anonymous()">
                 <input type="button" value="돌아가기" onclick="location.href='/service/inquiryList'">
             </div>
         </div>

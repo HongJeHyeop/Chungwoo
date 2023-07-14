@@ -68,12 +68,14 @@ section > h2 {
     height: 2.5rem;
     color: white;
     font-size: 1rem;
-    background-color: #4646b6;
+    background-color: #555;
     border: none;
     cursor: pointer;
 }
+#inquiry-write-btn-box input:hover {
+    background-color: #1a2636;
+}
 #inquiry-write-btn-box input:active {
-    background-color: #69A6F0;
-    width: 6.7rem;
-    height: 2.2rem;
+    width: 6.8rem;
+    height: 2.3rem;
 }

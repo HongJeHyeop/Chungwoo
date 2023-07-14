@@ -54,13 +54,6 @@ public class ServiceController {
         return "redirect:/service/inquiryList";
     }
 
-    // 온라인 문의 상세정보
-    @GetMapping("/inquiryDetailCheck")
-    public void inquiry_datail_check(@RequestParam String no) {
-
-        log.info("글쓰기 상세정보 체크 페이지 접속!");
-    }
-
     @GetMapping("/inquiryDetail")
     public void inquiry_detail(@RequestParam String no, @RequestParam String arrow, Model model) {
         InquiryVO inquiryVO = null;
@@ -82,6 +75,7 @@ public class ServiceController {
         model.addAttribute("inquiryVO", inquiryVO);
     }
 
+    // 온라인 문의 상세정보
     @ResponseBody
     @GetMapping("/inquiryDetailUser")
     public InquiryVO inquiry_detail_user(@RequestParam String no, @RequestParam String arrow) {
