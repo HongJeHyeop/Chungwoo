@@ -93,8 +93,8 @@ function create_simple_main_inquiry(value) {
     const phone = inquiryVO.phone?.slice(-4);
         simpleMainInquiry.insertAdjacentHTML('beforeend',
             `<tr>
-                <td><a href="/community/detail?no=${inquiryVO.no}">${inquiryVO.no}</a></td>
-                <td><a href="/community/detail?no=${inquiryVO.no}">${name}님의 글입니다.</a></td>
+                <td><a href="/service/inquiryDetail?no=${inquiryVO.no}&arrow=">${inquiryVO.no}</a></td>
+                <td><a href="/service/inquiryDetail?no=${inquiryVO.no}&arrow=">${name}님의 글입니다.</a></td>
                 <td>${name}</td>
                 <td>${phone}</td>
                 <td>${inquiryVO.writeDate}</td>
