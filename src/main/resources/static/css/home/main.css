@@ -229,6 +229,11 @@ section{
 .community-box td {
     border-bottom: 1px dotted #c4c4c4;
 }
+#simple-main-notice > tr > td, #simple-main-notice > tr > td > a {
+    padding: 0.8rem 0;
+    font-size: 0.9rem;
+}
+
 /* 온라인문의 */
 .community-box:nth-child(2) table {
     border-spacing: 0;
@@ -250,6 +255,10 @@ section{
 }
 .community-box:nth-child(2) tr td:nth-child(5) {
     width: 20%;
+}
+#simple-main-inquiry > tr > td, #simple-main-inquiry > tr > td > a {
+    padding: 0.8rem 0;
+    font-size: 0.9rem;
 }
 
 

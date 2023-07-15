@@ -33,13 +33,14 @@ public class ServiceController {
             @RequestParam(defaultValue = "1") int nowPage,
             @RequestParam(defaultValue = "10") int recordSize,
             @RequestParam(defaultValue = "10") int pageSize,
-            @RequestParam(defaultValue = "") String searchKeyword,
-            @RequestParam(defaultValue = "온라인문의") String searchType
+            @RequestParam(defaultValue = "") String keyword,
+            @RequestParam(defaultValue = "no") String searchType
     ) {
 
-
+        log.info("keyword : " + keyword);
+        log.info("searchType : " + searchType);
         log.info("공지사항 목록 접속");
-        return inquiryService.find_all_inquiry(new PagingDTO(nowPage, recordSize, pageSize, searchKeyword, searchType));
+        return inquiryService.find_all_inquiry(new PagingDTO(nowPage, recordSize, pageSize, keyword, searchType));
     }
     @GetMapping("/mainInquiry")
     @ResponseBody

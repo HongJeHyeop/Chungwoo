@@ -52,6 +52,7 @@ function select_image(e) {
     // 현재 이미지 인덱스 업데이트
     currentImageIndex = i;
 }
+
 // 공지사항 간략히 보기
 fetch('/mainNotice')
     .then(value => value.json())
@@ -85,12 +86,23 @@ function create_simple_main_notice(value) {
 function create_simple_main_inquiry(value) {
     simpleMainInquiry.innerHTML = '';
     value.forEach((inquiryVO) => {
-    let asterisk = '';
-    for (let i = 0; i < inquiryVO.name.length - 2; i++) {
-        asterisk += '*';
-    }
-    const name = inquiryVO.name?.slice(0, 1) + asterisk + inquiryVO.name?.slice(-1);
-    const phone = inquiryVO.phone?.slice(-4);
+        let asterisk = '';
+        let nameComut = 0;
+        let name = '';
+        if (inquiryVO.name.length <= 2) {
+            nameComut = inquiryVO.name.length - 1;
+            for (let i = 0; i < nameComut; i++) {
+                asterisk += '*';
+            }
+            name = inquiryVO.name?.slice(0, 1) + asterisk;
+        } else {
+            nameComut = inquiryVO.name.length - 2;
+            for (let i = 0; i < nameComut; i++) {
+                asterisk += '*';
+            }
+            name = inquiryVO.name?.slice(0, 1) + asterisk + inquiryVO.name?.slice(-1);
+        }
+        const phone = inquiryVO.phone?.slice(-4);
         simpleMainInquiry.insertAdjacentHTML('beforeend',
             `<tr>
                 <td><a href="/service/inquiryDetail?no=${inquiryVO.no}&arrow=">${inquiryVO.no}</a></td>
@@ -106,11 +118,11 @@ function create_simple_main_inquiry(value) {
 // 네이버 지도 API
 const mapOptions = {
     center: new naver.maps.LatLng(35.8443562, 128.6225852), // 회사 위치
-    zoom: 15
+    zoom  : 15
 }
 const map = new naver.maps.Map('map', mapOptions);
 
 const marker = new naver.maps.Marker({
     position: new naver.maps.LatLng(35.8443562, 128.6225852),
-    map: map
+    map     : map
 });

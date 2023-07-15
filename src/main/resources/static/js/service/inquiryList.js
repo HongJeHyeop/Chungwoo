@@ -1,17 +1,21 @@
 const inquiryBoxWrap = document.getElementById('inquiry-box-wrap');
 const inquiryPageNum = document.getElementById('inquiry-page-num').firstElementChild;
 const authCheck = document.getElementById('auth').value.slice(6, -1);
+const searchKeyword = document.getElementById('inquiry-search-keyword');
+const inquirySearchBtn = document.getElementById('inquiry-search-btn');
 find_all_inquiry();
 
 // DB에서 문의정보 불러오기
-function find_all_inquiry(nowPage, recordSize, pageSize, searchKeyword) {
+function find_all_inquiry(nowPage, recordSize, pageSize, searchKeyword, searchTpype) {
     let url = '/service/findAllInquiry';
     url = nowPage === undefined || nowPage === '' ? url : url + '?nowPage=' + nowPage;
     url = recordSize === undefined || recordSize === '' ? url : url + '&recordSize=' + recordSize;
     url = pageSize === undefined || pageSize === '' ? url : url + '&pageSize=' + pageSize;
-    url = searchKeyword === undefined || searchKeyword === '' ? url : url + '&searchKeyword=' + searchKeyword; // 검색키워드
+    url = searchKeyword === undefined || searchKeyword === '' ? url : url + '&keyword=' + searchKeyword; // 검색키워드
+    url = searchTpype === undefined || searchTpype === '' ? url : url + '&searchType=' + searchTpype; // 검색타입
 
-    fetch(`${url}`)
+
+    fetch(url)
         .then(value => value.json())
         .then(value => {
             // 리스트 생성
@@ -32,10 +36,21 @@ const create_inquiry_list = (data) => {
     if (authCheck === 'ANONYMOUS') {
         data.forEach((data, i) => {
             let asterisk = '';
-            for (let i = 0; i < data.name.length - 2; i++) {
-                asterisk += '*';
+            let nameComut = 0;
+            let name = '';
+            if(data.name.length <= 2) {
+                nameComut = data.name.length - 1;
+                for (let i = 0; i < nameComut; i++) {
+                    asterisk += '*';
+                }
+                name = data.name?.slice(0, 1) + asterisk;
+            } else {
+                nameComut = data.name.length - 2;
+                for (let i = 0; i < nameComut; i++) {
+                    asterisk += '*';
+                }
+                name = data.name?.slice(0, 1) + asterisk + data.name?.slice(-1);
             }
-            const name = data.name?.slice(0, 1) + asterisk + data.name?.slice(-1);
             const phone = data.phone?.slice(-4);
             const validation = data.processing === 0 ? '미확인' : '확인완료';
 
@@ -103,6 +118,19 @@ const create_page_num = (pagination) => {
     }
 
 }
+
+// 게시글 검색 이벤트
+inquirySearchBtn.addEventListener('click', () => {
+    const searchType = document.getElementById('inquiry-search-type').value;
+    const keyword = searchKeyword.value;
+    find_all_inquiry('1', '', '', keyword, searchType);
+})
+searchKeyword.addEventListener('keyup', (e) => {
+    if(e.code === 'Enter'){
+        inquirySearchBtn.click();
+    }
+
+})
 
 // 클릭한 페이지 색상 변경
 const click_page_num = (nowPage) => {

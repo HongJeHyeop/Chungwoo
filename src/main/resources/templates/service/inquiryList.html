@@ -25,15 +25,15 @@
         <h1>온라인 문의</h1>
         <div id="inquiry-search-box">
 
-            <select>
-                <option>게시글 번호</option>
-                <option>게시글 내용</option>
-                <option>작성자</option>
-                <option>휴대폰</option>
+            <select id="inquiry-search-type">
+                <option value="no">게시글 번호</option>
+                <option value="contents">게시글 내용</option>
+                <option value="name">작성자</option>
+                <option value="phone">휴대폰</option>
             </select>
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="검색어를 입력하세요">
-            <input type="button" value="검 색">
+            <input type="text" placeholder="검색어를 입력하세요" id="inquiry-search-keyword">
+            <input type="button" value="검 색" id="inquiry-search-btn">
         </div>
     </div>
     <th:block th:replace="~{service/serviceHeader:: serviceHeader}"/>
