@@ -18,13 +18,13 @@
     width: 5rem;
     height: 1.5rem;
     color: white;
-    background-color: #555;
+    background-color: #1a2636;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 #update-btn input:hover {
-    background-color: #1a2636;
+    background-color: #777;
 }
 #update-btn input:active {
     width: 4.9rem;
@@ -113,12 +113,12 @@
     margin: 2rem;
     font-size: 0.8rem;
     color: white;
-    background-color: #555;
+    background-color: #1a2636;
     cursor: pointer;
     border: none;
 }
 #move-btn input:hover {
-    background-color: #1a2636;
+    background-color: #777;
 }
 #move-btn input:active {
     width: 3.9rem;

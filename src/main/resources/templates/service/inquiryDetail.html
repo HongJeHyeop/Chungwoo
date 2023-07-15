@@ -26,9 +26,9 @@
     </div>
     <th:block th:replace="~{service/serviceHeader:: serviceHeader}"/>
     <section>
-        <h2>문의내용</h2>
         <input type="hidden" th:value="${inquiryVO.no}" id="inquiry-no">
-        <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+        <th:block sec:authorize="isAuthenticated()">
+        <h2>문의내용</h2>
             <div id="process-btn">
                 <th:block th:if="${inquiryVO.processing  == 0}">
                     <input type="button" value="접수하기" th:onclick="'confirm_req(\'' + ${inquiryVO.no} + '\', 1)'">
@@ -73,14 +73,21 @@
                 <input type="button" value="다음" th:onclick="'move_page(\'' + ${inquiryVO.no} + '\', \'next\')'">
             </div>
         </th:block>
-        <div sec:authorize="hasRole('ROLE_ANONYMOUS')" id="anonymous-inquiry">
+        <div sec:authorize="isAnonymous()" id="anonymous-inquiry">
             <div id="check-box">
-                <h2>이름을 입력하세요</h2>
-                <input type="text" name="name" id="check-name">
-                <h2>전화번호를 입력하세요</h2>
-                <input type="text" name="phone" id="check-phone">
-                <input type="button" value="확인" onclick="check_anonymous()">
-                <input type="button" value="돌아가기" onclick="location.href='/service/inquiryList'">
+                <h2>작성자 확인</h2>
+                <div class="check-box-input">
+                    <p>* 이름을 입력하세요</p>
+                    <input type="text" name="name" id="check-name" placeholder="이름">
+                </div>
+                <div class="check-box-input">
+                    <p>* 전화번호를 입력하세요</p>
+                    <input type="text" name="phone" id="check-phone" placeholder="하이픈('-') 제외 전화번호">
+                </div>
+                <div id="check-btn-box">
+                    <input type="button" value="확인" onclick="check_anonymous()">
+                    <input type="button" value="돌아가기" onclick="location.href='/service/inquiryList'">
+                </div>
             </div>
         </div>
     </section>

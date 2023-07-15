@@ -2,10 +2,11 @@ section{
     margin: 0 auto;
     width: 1200px;
 }
-section > h2 {
+section > h2, #anonymous-inquiry > h2 {
+    text-align: center;
     margin: 2rem 0;
     font-size: 2.5rem;
-    color: #666;
+    color: #1a2636;
 }
 #process-btn {
     width: 100%;
@@ -17,13 +18,13 @@ section > h2 {
     width: 5rem;
     height: 2rem;
     color: white;
-    background-color: #555;
+    background-color: #1a2636;
     border: none;
     border-radius: 30px;
     cursor: pointer;
 }
 #process-btn > input:hover {
-    background-color: #1a2636;
+    background-color: #777;
 }
 #process-btn > input:active {
     width: 4.9rem;
@@ -68,14 +69,74 @@ section > h2 {
     height: 2.5rem;
     color: white;
     font-size: 1rem;
-    background-color: #555;
+    background-color: #1a2636;
     border: none;
     cursor: pointer;
 }
 #move-page-btn input:hover {
-    background-color: #1a2636;
+    background-color: #777;
 }
 #move-page-btn input:active {
+    width: 5.9rem;
+    height: 2.4rem;
+}
+
+
+/* 일반유저 작성자 확인 */
+#check-box {
+    margin: 10rem;
+    padding: 2rem;
+
+    /*background-color: #d0e1ff;*/
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    box-shadow: 1px 1px 5px 2px #ccc;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#check-box > h2 {
+    margin: 1rem 0;
+    font-size: 3rem;
+    color: #1a2636;
+}
+.check-box-input {
+    padding: 1rem;
+    width: 25rem;
+}
+.check-box-input > p {
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #1a2636;
+}
+.check-box-input > input {
+    padding-left: 0.5rem;
+    width: 24rem;
+    height: 2.5rem;
+    font-size: 1rem;
+}
+
+/* 버튼 */
+#check-btn-box {
+    margin: 2rem 0;
+    text-align: center;
+}
+#check-btn-box input {
+    margin: 0 3rem;
+    width: 6rem;
+    height: 2.5rem;
+    color: white;
+    font-size: 1rem;
+    background-color: #1a2636;
+    border: none;
+    cursor: pointer;
+}
+#check-btn-box input:hover {
+    background-color: #777;
+}
+#check-btn-box input:active {
     width: 5.9rem;
     height: 2.4rem;
 }

@@ -12,13 +12,13 @@
     width: 5rem;
     height: 2rem;
     color: white;
-    background-color: #555;
+    background-color: #1a2636;
     border: none;
     border-radius: 10px;
     cursor: pointer;
 }
 #write-btn input:hover {
-    background-color: #1a2636;
+    background-color: #777;
 }
 #write-btn input:active {
     width: 4.9rem;
@@ -65,12 +65,12 @@
     font-weight: bold;
     border: none;
     border-radius: 20px;
-    background-color: #666;
+    background-color: #1a2636;
     cursor: pointer;
 }
 #search-input input[type=submit]:hover {
     color: #fff;
-    background-color: #1a2636;
+    background-color: #777;
 }
 #search-input input[type=submit]:active {
     width: 3.8rem;

@@ -16,13 +16,13 @@ section{
     width: 5rem;
     height: 2rem;
     color: white;
-    background-color: #666;
+    background-color: #1a2636;
     border: none;
     border-radius: 10px;
     cursor: pointer;
 }
 #inquiry-btn-box > input[type=button]:hover{
-    background-color: #1a2636;
+    background-color: #777;
 }
 #inquiry-btn-box > input[type=button]:active{
     width: 4.9rem;
@@ -69,12 +69,12 @@ section{
     font-weight: bold;
     border: none;
     border-radius: 20px;
-    background-color: #666;
+    background-color: #1a2636;
     cursor: pointer;
 }
 #inquiry-search-box input[type=button]:hover {
     color: #fff;
-    background-color: #1a2636;
+    background-color: #777;
 }
 #inquiry-search-box input[type=button]:active {
     width: 3.8rem;

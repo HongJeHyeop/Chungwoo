@@ -76,6 +76,7 @@ function create_detail_anonymous(res) {
         const anonymousInquiry = document.getElementById('anonymous-inquiry');
         anonymousInquiry.innerHTML = '';
         anonymousInquiry.insertAdjacentHTML('beforeend', `
+            <h2>문의내용</h2>
             <div id="process-btn">
                 <input type="button" value="삭제하기" id="delete-btn" onclick="delete_req(${res.no})">
             </div>
