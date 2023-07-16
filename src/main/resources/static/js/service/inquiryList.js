@@ -1,6 +1,5 @@
 const inquiryBoxWrap = document.getElementById('inquiry-box-wrap');
 const inquiryPageNum = document.getElementById('inquiry-page-num').firstElementChild;
-const authCheck = document.getElementById('auth').value.slice(6, -1);
 const searchKeyword = document.getElementById('inquiry-search-keyword');
 const inquirySearchBtn = document.getElementById('inquiry-search-btn');
 find_all_inquiry();
@@ -32,8 +31,9 @@ function find_all_inquiry(nowPage, recordSize, pageSize, searchKeyword, searchTp
 
 /* 온라인문의 목록 생성 함수 */
 const create_inquiry_list = (data) => {
+    const authCheck = document.getElementById('auth').value === 'true';
     inquiryBoxWrap.innerHTML = '';
-    if (authCheck === 'ANONYMOUS') {
+    if (!authCheck) {
         data.forEach((data, i) => {
             let asterisk = '';
             let nameComut = 0;
@@ -71,7 +71,7 @@ const create_inquiry_list = (data) => {
                 inquiryBox.style.backgroundColor = "rgba(255, 255, 0, 0.2)";
             }
         })
-    } else if (authCheck === 'ADMIN') {
+    } else if (authCheck) {
         data.forEach((data, i) => {
             const validation = data.processing === 0 ? '미확인' : '확인완료';
 
@@ -97,8 +97,9 @@ const create_inquiry_list = (data) => {
 
 // 페이지네이션 생성 함수
 const create_page_num = (pagination) => {
+
     inquiryPageNum.innerHTML = '';
-    const nextBtnNum = (Math.trunc(pagination.nowPage / 10) + 1) * 10 + 1;
+    const nextBtnNum = (Math.trunc(pagination.nowPage / 10) + 1) * 10 + 17
     const prevBtnNum = (Math.trunc(pagination.nowPage / 10) - 1) * 10 + 1;
     if (pagination.existPrevPage) {
         inquiryPageNum.insertAdjacentHTML('beforeend',`

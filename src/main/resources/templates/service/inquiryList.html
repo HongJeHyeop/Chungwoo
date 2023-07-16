@@ -19,7 +19,7 @@
 </head>
 <body>
 <th:block th:replace="~{home/header:: header}"/>
-    <input type="hidden" th:value="${#authentication.getAuthorities()}" id="auth">
+    <input type="hidden" th:value="${#authorization.expression('isAuthenticated()')}" id="auth">
 <div id="body-wrapper">
     <div id="title">
         <h1>온라인 문의</h1>

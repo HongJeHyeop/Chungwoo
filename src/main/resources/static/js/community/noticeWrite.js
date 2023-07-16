@@ -1,6 +1,7 @@
 const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute("content");
 const formBox = document.getElementById('insert-form');
 const updateNo = document.getElementById('update-no');
+const fileInput = document.querySelector('input[type="file"]');
 let titleCheck = document.getElementById('board-header').firstElementChild;
 
 quill_editor_init()
@@ -130,6 +131,23 @@ function notice_update() {
     }
 }
 
+// 업로드 파일 확장자 체크
+fileInput.addEventListener('change', (event) => {
+    const extension = ['jpg', 'jpeg', 'png', 'pdf'];
+    let check = false;
+    const file = event.target.files[0];
+    const fileExtension = file.name.split('.').pop();
+    extension.forEach(data => {
+        if(fileExtension === data) {
+            check = true;
+        }
+    })
+    if(!check) {
+        alert('올바른 파일 확장자가 아닙니다.\n * 사용가능한 확장자명 : JPG, JPEG, PNG, PDF');
+        fileInput.value = '';
+    }
+    console.log(fileExtension);
+});
 
 // 작성여부 체크
 function notice_write_check() {
