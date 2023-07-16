@@ -46,7 +46,7 @@ function find_all_notice(nowPage, recordSize, pageSize, searchKeyword) {
 // 페이지네이션 생성 함수
 function create_page_num(pagination){
     pageNum.innerHTML = '';
-    const nextBtnNum = (Math.trunc(pagination.nowPage / 10) + 1) * 10 + 1;
+    const nextBtnNum = (Math.trunc((pagination.nowPage - 1) / 10) + 1) * 10 + 1;
     const prevBtnNum = (Math.trunc(pagination.nowPage / 10) - 1) * 10 + 1;
     if (pagination.existPrevPage) {
     pageNum.insertAdjacentHTML('beforeend',`

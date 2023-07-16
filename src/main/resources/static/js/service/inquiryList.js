@@ -97,24 +97,28 @@ const create_inquiry_list = (data) => {
 
 // 페이지네이션 생성 함수
 const create_page_num = (pagination) => {
-
+    const searchType = document.getElementById('inquiry-search-type').value;
+    const keyword = searchKeyword.value;
     inquiryPageNum.innerHTML = '';
-    const nextBtnNum = (Math.trunc(pagination.nowPage / 10) + 1) * 10 + 17
+    const nextBtnNum = (Math.trunc((pagination.nowPage - 1) / 10) + 1) * 10 + 1;
+    console.log('next : ' + nextBtnNum)
     const prevBtnNum = (Math.trunc(pagination.nowPage / 10) - 1) * 10 + 1;
+    console.log('prev : ' + prevBtnNum)
+    console.log('now : ' + pagination.nowPage)
     if (pagination.existPrevPage) {
         inquiryPageNum.insertAdjacentHTML('beforeend',`
-        <li onclick="find_all_inquiry(${prevBtnNum})"><</li>              
+        <li onclick="find_all_inquiry('${prevBtnNum}','', '', '${keyword}', '${searchType}')"><</li>              
     `)
     }
     for (let i = pagination.startPage; i <= pagination.endPage; i++){
         inquiryPageNum.insertAdjacentHTML('beforeend', `
-        <li class="page-no" onclick="find_all_inquiry(${i})">${i}</li>
+        <li class="page-no" onclick="find_all_inquiry('${i}','', '', '${keyword}', '${searchType}')">${i}</li>
         `)
     }
 
     if (pagination.existNextPage) {
         inquiryPageNum.insertAdjacentHTML('beforeend',`
-        <li onclick="find_all_inquiry(${nextBtnNum})">></li>            
+        <li onclick="find_all_inquiry('${nextBtnNum}','', '', '${keyword}', '${searchType}')">></li>            
     `)
     }
 

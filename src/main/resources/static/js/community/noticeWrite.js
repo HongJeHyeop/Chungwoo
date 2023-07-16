@@ -146,7 +146,6 @@ fileInput.addEventListener('change', (event) => {
         alert('올바른 파일 확장자가 아닙니다.\n * 사용가능한 확장자명 : JPG, JPEG, PNG, PDF');
         fileInput.value = '';
     }
-    console.log(fileExtension);
 });
 
 // 작성여부 체크
