@@ -131,12 +131,13 @@ function notice_update() {
     }
 }
 
-// 업로드 파일 확장자 체크
+// 업로드 파일 체크
 fileInput.addEventListener('change', (event) => {
     const extension = ['jpg', 'jpeg', 'png', 'pdf'];
     let check = false;
     const file = event.target.files[0];
     const fileExtension = file.name.split('.').pop();
+    const fileSize = Math.trunc((file.size / 1024 / 1024) *100) /100
     extension.forEach(data => {
         if(fileExtension === data) {
             check = true;
@@ -144,6 +145,9 @@ fileInput.addEventListener('change', (event) => {
     })
     if(!check) {
         alert('올바른 파일 확장자가 아닙니다.\n * 사용가능한 확장자명 : JPG, JPEG, PNG, PDF');
+        fileInput.value = '';
+    } else if (fileSize > 10) {
+        alert('허용가능한 파일 용량을 초과하여 업로드하였습니다! ');
         fileInput.value = '';
     }
 });
