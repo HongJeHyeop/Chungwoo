@@ -285,7 +285,6 @@ section{
     padding: 1rem;
 }
 #contact-info h2 {
-    padding: 1.5rem 0;
     font-size: 2rem;
 }
 #contact-info h3 {
@@ -293,9 +292,7 @@ section{
 }
 #contact-info p {
     padding-left: 1rem;
-    line-height: 1.3rem;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    line-height: 1.5rem;
 }
 #contact-container img {
     /*border: 1px solid red;*/
