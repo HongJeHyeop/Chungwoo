@@ -272,7 +272,6 @@ section{
     padding: 1rem 0;
 }
 #contact-container > h2 {
-    /*border-bottom: 2px solid #c4c4c4;*/
     padding: 1rem;
     font-size: 2rem;
 }
@@ -287,12 +286,16 @@ section{
 }
 #contact-info h2 {
     padding: 1.5rem 0;
+    font-size: 2rem;
 }
 #contact-info h3 {
-    padding: 1rem 0;
+    padding: 1.5rem 0 0.5rem 0;
 }
 #contact-info p {
-    padding: 0 0 1.5rem 1rem;
+    padding-left: 1rem;
+    line-height: 1.3rem;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
 }
 #contact-container img {
     /*border: 1px solid red;*/

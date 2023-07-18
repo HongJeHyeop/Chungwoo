@@ -23,9 +23,27 @@ header {
 }
 
 /*** 로고 이미지 ***/
+#header-logo {
+    display: flex;
+    /*flex-direction: column;*/
+}
 #header-logo img {
     width: 6rem;
     cursor: pointer;
+}
+#header-logo-title {
+
+    padding-bottom: 3px;
+}
+#header-logo-title > span {
+    font-size: 0.7rem;
+    line-height: 1.2rem;
+    font-weight: bold;
+    color: #aaa;
+}
+#header-logo-title > span:nth-child(2) {
+    font-size: 1.2rem;
+    color: #999;
 }
 
 
