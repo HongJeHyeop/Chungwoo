@@ -43,8 +43,8 @@ html, body {
 #user-list-container h2 {
     margin-bottom: 2rem;
     font-size: 3rem;
-    color: #4646b6;
-    text-shadow: 1px 1px 2px #999999;
+    color: #1a2636;
+    text-shadow: 1px 1px 2px #ccc;
 }
 /* 유저 리스트 테이블 */
 #user-table {
@@ -55,15 +55,15 @@ html, body {
 #user-table thead td {
     font-size: 1.1rem;
     color: white;
-    background-color: #69A6F0;
+    background-color: #1a2636;
 }
 #user-table tbody td {
     font-size: 0.9rem;
 }
 #user-table td {
     padding: 1rem;
-    border-right: 1px dotted #d9d9d9;
-    border-bottom: 1px dotted #d9d9d9;
+    border-right: 1px dotted #ccc;
+    border-bottom: 1px dotted #ccc;
     text-align: center;
 }
 #user-table td:last-child {
@@ -102,7 +102,14 @@ input[type=button] {
     width: 5rem;
     height: 1.5rem;
     color: white;
-    background-color: #4646b6;
+    background-color: #1a2636;
     border: none;
     cursor: pointer;
+}
+input[type=button]:hover {
+    background-color: #777;
+}
+input[type=button]:active {
+    width: 4.9rem;
+    height: 1.4rem;
 }

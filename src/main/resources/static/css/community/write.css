@@ -58,12 +58,12 @@
     width: 5rem;
     height: 2rem;
     color: white;
-    background-color: #555;
+    background-color: #1a2636;
     border: none;
     cursor: pointer;
 }
 #btn input:hover {
-    background-color: #1a2636;
+    background-color: #777;
 }
 #btn input:active {
     width: 4.8rem;
