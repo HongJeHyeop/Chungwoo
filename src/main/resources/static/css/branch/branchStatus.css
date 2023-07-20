@@ -18,7 +18,7 @@ html, body {
 
 /*** 제목 ***/
 #title {
-    background: url("../../images/intro_title_back.jpg") 100% no-repeat;
+    background: url("../../images/branch_title_back.jpg") 100% no-repeat;
     background-size: cover;
     height: 15em;
 
