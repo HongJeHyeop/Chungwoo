@@ -40,6 +40,7 @@ header {
     line-height: 1.2rem;
     font-weight: bold;
     color: #aaa;
+    cursor: pointer;
 }
 #header-logo-title > span:nth-child(2) {
     font-size: 1.2rem;

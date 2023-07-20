@@ -1,7 +1,9 @@
 package com.transport.cw.mappers;
 
+import com.transport.cw.domain.dtos.BoardDTO;
 import com.transport.cw.domain.dtos.PagingDTO;
 import com.transport.cw.domain.vos.BoardVO;
+import com.transport.cw.domain.vos.FileVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -12,11 +14,23 @@ public interface BoardMapper {
 
     BoardVO get_notice(int no);
 
-    void insert_board(BoardVO boardVO);
+    List<FileVO> get_files(int no);
+    FileVO get_file(int no);
+    List<FileVO> next_files(int no);
 
-    boolean update_notice(BoardVO boardVO);
+    // 이전 게시물
+    List<FileVO> prev_files(int no);
+    int get_last_insert_no();
 
-    boolean delete_notice(BoardVO boardVO);
+    void insert_board(BoardDTO boardDTO);
+
+    void insert_file(BoardDTO boardDTO);
+
+    boolean delete_file(BoardDTO boardDTO);
+
+    boolean update_notice(BoardDTO boardDTO);
+
+    boolean delete_notice(BoardDTO boardDTO);
 
     /*** 페이징 ***/
     List<BoardVO> find_all(PagingDTO pagingDTO);

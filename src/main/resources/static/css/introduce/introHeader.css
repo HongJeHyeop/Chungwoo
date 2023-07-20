@@ -21,9 +21,15 @@
     justify-content: center;
     align-items: center;
 }
+#intro-header > ul > li:hover {
+    background-color: #ccc;
+}
 #intro-header > ul > li > a{
     color: #fff;
     font-size: 1.2rem;
     font-weight: bold;
     letter-spacing: 3px;
+}
+#intro-header > ul > li:hover > a{
+    color: #1a2636;
 }

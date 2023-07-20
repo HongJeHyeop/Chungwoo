@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <!--    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">-->
+    <title>$Title$</title>
+    <link rel="stylesheet" th:href="@{css/branch/branchHeader.css}" href="../../static/css/branch/branchHeader.css">
+    <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div th:fragment="branchHeader" id="branch-header-wrap">
+    <div id="branch-header">
+        <ul>
+            <li><a href="/branch/branchStatus?branch=daegu">대구본사</a></li>
+            <li><a href="/branch/branchStatus?branch=gumi">구미지점</a></li>
+            <li><a href="/branch/branchStatus?branch=seoul">서울지점</a></li>
+            <li><a href="/branch/branchStatus?branch=gyeongsan">경산지점</a></li>
+            <li><a href="/branch/branchStatus?branch=busan">부산지점</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

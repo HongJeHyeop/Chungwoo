@@ -21,9 +21,16 @@
     justify-content: center;
     align-items: center;
 }
+#community-header > ul > li:hover {
+    background-color: #ccc;
+}
+
 #community-header > ul > li > a{
     color: #fff;
     font-size: 1.2rem;
     font-weight: bold;
     letter-spacing: 3px;
+}
+#community-header > ul > li:hover > a{
+    color: #1a2636;
 }

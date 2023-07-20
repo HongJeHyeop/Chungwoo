@@ -6,19 +6,28 @@
 >
 <head>
     <meta charset="UTF-8">
-<!--    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">-->
-    <title>Title</title>
+    <!--    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">-->
+    <title>청우국제운송(주)</title>
     <link rel="stylesheet" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
     <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
     <link rel="stylesheet" th:href="@{/css/service/service.css}" href="../../static/css/service/service.css">
+    <link rel="stylesheet" th:href="@{/css/service/faq.css}" href="../../static/css/service/faq.css">
+    <link rel="stylesheet" th:href="@{/css/service/serviceHeader.css}" href="../../static/css/service/serviceHeader">
     <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
     <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
 </head>
 <body>
 <th:block th:replace="~{home/header:: header}"/>
+<input type="hidden" th:value="${#authorization.expression('isAuthenticated()')}" id="auth">
 <div id="body-wrapper">
-<section>
-</section>
+    <div id="title">
+        <h1>자주묻는 질문</h1>
+    </div>
+    <th:block th:replace="~{service/serviceHeader:: serviceHeader}"/>
+
+    <section>
+        <h1>페이지 준비중입니다...</h1>
+    </section>
 </div>
 <th:block th:replace="~{home/footer::footer}"/>
 </body>

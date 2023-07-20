@@ -86,15 +86,19 @@
     font-size: 0.75em;
 }
 /* 테이블 풋(첨부파일) */
-#notice-detail  tfoot tr:first-child td {
+#notice-detail tfoot tr:first-child td {
 
     border-top: 2px solid #999;
 }
-#notice-detail  tfoot td {
+#notice-detail tfoot td {
     padding: 1rem;
     font-size: 0.9rem;
 
     border-bottom: 1px dotted #999;
+}
+#notice-detail tfoot td:first-child a:hover {
+    color: #628ed9;
+    font-weight: bold;
 }
 #notice-detail  tfoot td:last-child{
     padding: 1rem 0.5rem;

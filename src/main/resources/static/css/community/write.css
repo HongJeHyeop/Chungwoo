@@ -21,8 +21,10 @@
 
 #board-header input:first-child{
     width: 100%;
-    height: 2rem;
+    height: 3rem;
     margin: 1rem 0;
+    padding-left: 0.5rem;
+    font-size: 1rem;
     border: 1px solid #c0c0c0;
     box-sizing: border-box;
 }
@@ -30,6 +32,20 @@
     outline: 1px solid #d3d3d3;
 }
 #board-header input:last-child {
+}
+
+/* 에디터 */
+.ql-editor {
+    min-height: 30rem;
+}
+
+/* dropzone */
+.dropzone {
+    margin: 1rem 0;
+    border: 2px dashed #ccc !important;
+}
+.dropzone .dz-default.dz-message, .dropzone .dz-default.dz-message  i {
+    color: #999;
 }
 
 /* 버튼 */

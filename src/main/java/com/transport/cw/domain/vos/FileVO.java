@@ -15,15 +15,16 @@ import java.time.LocalDateTime;
 @ToString
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class BoardVO {
+public class FileVO {
     private int no;
+    private int refNo;
     private String boardType;
-    private String id;
-    private String title;
-    private String contents;
-    private String uuidPath;
+    private String fileAddr;
+    private String fileName;
+    private String fileOrgName;
+
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
     private LocalDateTime writeDate;
-
 }

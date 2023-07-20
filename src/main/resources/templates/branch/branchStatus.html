@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <!--    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">-->
+    <title>청우국제운송(주)</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
+    <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/branch/branchStatus.css}"
+          href="../../static/css/branch/branchStatus.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/branch/branchStatus.css}"
+          href="../../static/css/branch/branchStatus.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/branch/branchHeader.css}"
+          href="../../static/css/branch/branchHeader.css">
+    <script src="https://kit.fontawesome.com/31019ea24a.js" crossorigin="anonymous"></script>
+    <script th:src="@{/js/home/header.js}" src="../../static/js/home/header.js" defer></script>
+    <script th:src="@{/js/branch/branchStatus.js}" src="../../static/js/branch/branchStatus.js" defer></script>
+    <script type="text/javascript"
+            src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=vrlpeor7op"></script>
+</head>
+<body>
+<th:block th:replace="~{home/header:: header}"/>
+<div id="body-wrapper">
+    <div id="title">
+        <h1>지점안내</h1>
+    </div>
+    <th:block th:replace="~{branch/branchHeader:: branchHeader}"/>
+    <article>
+        <input type="hidden" th:value="${branch}" id="branch">
+        <h1>[[${name}]]</h1>
+        <div id="map" style="width:90%;height:500px;"></div>
+        <div id="branch-contents">
+            <table>
+                <tr>
+                    <td>주소</td>
+                    <td>[[${addr}]]</td>
+                </tr>
+                <tr>
+                    <td>전화</td>
+                    <td>[[${tel}]]</td>
+                </tr>
+                <tr>
+                    <td>FAX</td>
+                    <td>[[${fax}]]</td>
+                </tr>
+            </table>
+        </div>
+    </article>
+</div>
+<th:block th:replace="~{home/footer::footer}"/>
+</body>
+</html>

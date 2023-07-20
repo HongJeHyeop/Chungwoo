@@ -1,5 +1,6 @@
 package com.transport.cw.service;
 
+import com.transport.cw.domain.dtos.BoardDTO;
 import com.transport.cw.domain.dtos.PagingDTO;
 import com.transport.cw.domain.vos.BoardVO;
 import com.transport.cw.mappers.BoardMapper;
@@ -20,13 +21,13 @@ public class BoardService {
     @Autowired
     private BoardMapper boardMapper;
 
-    public void insert_board(BoardVO boardVO, String id) {
-        boardVO.setId(id);
-//        for (int i = 0; i <= 400; i++) {
-//            boardVO.setTitle("test" + i);
-//        }
-        boardMapper.insert_board(boardVO);
-    }
+//    public void insert_board(BoardVO boardVO, String id) {
+//        boardVO.setId(id);
+////        for (int i = 0; i <= 400; i++) {
+////            boardVO.setTitle("test" + i);
+////        }
+//        boardMapper.insert_board(boardVO);
+//    }
 
     ;
 
@@ -48,13 +49,12 @@ public class BoardService {
         return boardMapper.prev_notice(no);
     }
 
-    public boolean update_notice(BoardVO boardVO) {
-//        boardVO.setFileAddr("C:/update/file");
-        return boardMapper.update_notice(boardVO);
+    public boolean update_notice(BoardDTO boardDTO) {
+        return boardMapper.update_notice(boardDTO);
     }
 
-    public boolean delete_notice(BoardVO boardVO) {
-        return boardMapper.delete_notice(boardVO);
+    public boolean delete_notice(BoardDTO boardDTO) {
+        return boardMapper.delete_notice(boardDTO);
     }
 
     /*** 페이징 ***/

@@ -22,6 +22,11 @@ public class ServiceController {
     @Autowired
     private InquiryService inquiryService;
 
+    @GetMapping("/faq")
+    public void faq() {
+        log.info("자주묻는질문 접속!");
+    }
+
     @GetMapping("/inquiryWrite")
     public void inquiry_write() {
         log.info("온라인문의 글쓰기 접속");
@@ -113,6 +118,9 @@ public class ServiceController {
     public boolean delete_inquiry(@RequestBody InquiryVO inquiryVO) {
         return inquiryService.delete_inquiry(inquiryVO);
     }
+
+
+
 }
 
 

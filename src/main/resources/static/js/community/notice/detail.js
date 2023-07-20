@@ -17,7 +17,18 @@ async function get_board_detail(pageNo, arrow) {
         })
         .catch(reason => {
             alert("페이지가 존재하지않습니다!")
-            console.log("보드 생성 오류")
+            location.href = '/community/notice';
+        })
+    const fileUrl = '/community/restDetail/files/' + no + '?arrow=' + arrow;
+    await fetch(fileUrl)
+        .then(response => response.json())
+        .then(value => {
+            // 파일목록생성
+            console.log('성공')
+            create_files(value);
+        })
+        .catch(reason => {
+            console.log(reason)
         })
 }
 
@@ -36,8 +47,8 @@ function create_board(boardVO) {
                     ${boardVO.contents}
                 </td>
                 </tbody>
-                <tfoot>
-                <tr id="upload-files">
+                <tfoot id="upload-files">
+                <tr>
                 <td colspan="2"></td>
                 <td></td>
                 </tr>
@@ -48,15 +59,26 @@ function create_board(boardVO) {
                 <input type="button" value="목록" onclick="location.href='/community/notice'">
                 <input type="button" value="다음글" onclick="get_board_detail('${boardVO.no}', 'next')">
             </div>`);
-    const uploadFiles = document.getElementById('upload-files');
-    if (boardVO.fileName !== null && boardVO.fileName !== undefined && boardVO.fileName !== '') {
-        const orgFileName = boardVO.fileName.substring(boardVO.fileName.indexOf('_', boardVO.fileName.indexOf('_') + 1) + 1)
-        uploadFiles.innerHTML = '';
-        uploadFiles.insertAdjacentHTML('beforeend',
-            `<td colspan="2"><a href="/board/down/${boardVO.no}"><i class="fa-solid fa-download"></i> ${orgFileName}</a></td>
-                  <td>2022-03-21</td>`)
-    }
+
     boardNo = boardVO.no
+}
+
+function create_files(fileVO) {
+    const uploadFiles = document.getElementById('upload-files');
+    uploadFiles.innerHTML = '';
+    if (fileVO.length > 0) {
+        for (const file of fileVO) {
+            if (file.fileOrgName !== null && file.fileOrgName !== undefined && file.fileOrgName !== '') {
+                uploadFiles.insertAdjacentHTML('beforeend',
+                    `<tr><td colspan="2"><a href="/board/down/${file.no}"><i class="fa-solid fa-download"></i> ${file.fileOrgName}</a></td>
+                  <td>${file.writeDate}</td></tr>`)
+            }
+        }
+    } else {
+        uploadFiles.insertAdjacentHTML('beforeend',
+            `<tr><td colspan="2"></td><td></td></tr>`
+        )
+    }
 }
 
 // 게시글 삭제
