@@ -75,7 +75,7 @@ public class MainController {
         model.addAttribute("branch", branch);
         switch (branch) {
             case "daegu" :
-                model.addAttribute("name", "대구지점");
+                model.addAttribute("name", "대구본점");
                 model.addAttribute("addr", "대구광역시 수성구 들안로 32길 101");
                 model.addAttribute("tel", "053) 753 – 1901 ~ 5");
                 model.addAttribute("fax", "053) 756 - 3370 / 752 - 4551");
