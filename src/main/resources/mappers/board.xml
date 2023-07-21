@@ -42,18 +42,6 @@
         ]]>
     </select>
 
-    <!-- 다음 파일 -->
-    <select id="next_files" resultType="com.transport.cw.domain.vos.FileVO" parameterType="int">
-        SELECT * FROM `file_tbl` WHERE `refNo` = (SELECT MIN(refNo) FROM `file_tbl` WHERE `refNo` > #{no})
-    </select>
-
-    <!-- 이전 파일 -->
-    <select id="prev_files" resultType="com.transport.cw.domain.vos.FileVO" parameterType="int">
-        <![CDATA[
-        SELECT * FROM `file_tbl` WHERE `refNo` = (SELECT MAX(refNo) FROM `file_tbl` WHERE `refNo` < #{no})
-        ]]>
-    </select>
-
     <update id="update_notice" parameterType="com.transport.cw.domain.dtos.BoardDTO">
         UPDATE `board_tbl` SET `boardType` = #{boardType},
         `title` = #{title},

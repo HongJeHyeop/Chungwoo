@@ -43,13 +43,6 @@ public class FileService {
     public List<FileVO> get_files(int no) {
         return boardMapper.get_files(no);
     }
-    public List<FileVO> next_files(int no) {
-        return boardMapper.next_files(no);
-    }
-    public List<FileVO> prev_files(int no) {
-        return boardMapper.prev_files(no);
-    }
-
     // DB 파일데이터 삭제
     public boolean delete_file(BoardDTO boardDTO) {
         return boardMapper.delete_file(boardDTO);

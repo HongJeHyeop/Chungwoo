@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Log4j2
@@ -122,33 +123,30 @@ public class MainController {
 
     @ResponseBody
     @GetMapping("/community/restDetail/{boardNo}")
-    public BoardVO rest_detail(@PathVariable String boardNo, @RequestParam String arrow) {
+    public List<Object> rest_detail(@PathVariable String boardNo, @RequestParam String arrow) {
         int no = Integer.parseInt(boardNo);
+        List<Object> obj = new ArrayList<>();
+
         log.info("공지사항 상세보기 접속!");
         if (arrow.equals("next")) {
-            log.info(arrow);
-            return boardService.next_notice(no);
+            BoardVO boardVO = boardService.next_notice(no);
+            obj.add(boardVO);
+            obj.add(fileService.get_files(boardVO.getNo()));
+            log.info("다음 게시물 클릭! ");
+            return obj;
         } else if (arrow.equals("prev")) {
-            log.info(arrow);
-            return boardService.prev_notice(no);
+            BoardVO boardVO = boardService.prev_notice(no);
+            obj.add(boardVO);
+            obj.add(fileService.get_files(boardVO.getNo()));
+            log.info("이전 게시물 클릭! ");
+            return obj;
         }
-        return boardService.get_notice(no);
+        BoardVO boardVO = boardService.get_notice(no);
+        obj.add(boardVO);
+        obj.add(fileService.get_files(boardVO.getNo()));
+        return obj;
     }
 
-    @ResponseBody
-    @GetMapping("/community/restDetail/files/{boardNo}")
-    public List<FileVO> get_files(@PathVariable String boardNo, @RequestParam String arrow) {
-        int no = Integer.parseInt(boardNo);
-        log.info("공지사항 상세보기 접속!");
-        if (arrow.equals("next")) {
-            log.info(arrow);
-            return fileService.next_files(no);
-        } else if (arrow.equals("prev")) {
-            log.info(arrow);
-            return fileService.prev_files(no);
-        }
-        return fileService.get_files(no);
-    }
 
     @ResponseBody
     @GetMapping("/community/notice/list")

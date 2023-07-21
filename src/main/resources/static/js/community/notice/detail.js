@@ -13,22 +13,12 @@ async function get_board_detail(pageNo, arrow) {
         .then(response => response.json())
         .then(value => {
             // 생성
-            create_board(value);
+            create_board(value[0]);
+            create_files(value[1]);
         })
         .catch(reason => {
             alert("페이지가 존재하지않습니다!")
             location.href = '/community/notice';
-        })
-    const fileUrl = '/community/restDetail/files/' + no + '?arrow=' + arrow;
-    await fetch(fileUrl)
-        .then(response => response.json())
-        .then(value => {
-            // 파일목록생성
-            console.log('성공')
-            create_files(value);
-        })
-        .catch(reason => {
-            console.log(reason)
         })
 }
 
