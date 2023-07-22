@@ -49,6 +49,9 @@ header {
 
 
 /**** 헤더 메뉴 ****/
+#header-menu-toggle {
+    display: none;
+}
 #header-list > ul {
     display: flex;
     width: 50rem;
@@ -93,4 +96,43 @@ header {
     font-weight: bold;
     color: #314E70;
 }
+@media only screen and (max-width: 768px) {
+    header {
+        width: 100%;
+        margin: 0;
+        padding: 1rem 0;
 
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #header-logo {
+        width: 90%;
+    }
+    #header-logo img {
+        width: 20%;
+    }
+    #header-logo-title {
+        width: 80%;
+    }
+    #header-menu-toggle {
+        width: 10%;
+        display: block;
+    }
+    #header-list {
+        display: none;
+        width: 100%;
+    }
+    #header-list > ul {
+        width: 100%;
+        flex-direction: column;
+    }
+    #header-list > ul > li {
+        width: 100%;
+    }
+
+
+    .header-detail-list {
+        width: 100%;
+    }
+
+}

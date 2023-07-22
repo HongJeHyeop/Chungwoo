@@ -52,9 +52,6 @@ html, body {
 }
 
 /*** 이미지 중앙 글씨 ***/
-#main-title {
-
-}
 #main-title > h2 {
     font-size: 2.5rem;
     font-family: 'Josefin Sans', sans-serif;
@@ -270,14 +267,12 @@ section{
     border-bottom: 2px solid #c4c4c4;
     border-top: 2px solid #c4c4c4;
     padding: 1rem 0;
+    width: 100%;
+    display: flex;
 }
 #contact-container > h2 {
     padding: 1rem;
     font-size: 2rem;
-}
-#contact-container > div {
-    width: 100%;
-    display: flex;
 }
 #contact-info {
     /*border: 1px solid orange;*/
@@ -294,9 +289,145 @@ section{
     padding-left: 1rem;
     line-height: 1.5rem;
 }
-#contact-container img {
-    /*border: 1px solid red;*/
-    width: 65%;
+
+@media only screen and (max-width: 768px) {
+    #body-wrapper {
+        width: 100%;
+    }
+    section {
+        width: 100%;
+    }
+
+    /* 메인 슬라이드 */
+
+    #main-img-container{
+        height: 20em;
+    }
+
+    #main-img-items {
+        height: 20em;
+    }
+    .main-img {
+        height: 20em;
+    }
+
+    /*** 이미지 중앙 글씨 ***/
+    #main-title > h2 {
+        font-size: 1rem;
+    }
+    #main-title > h1 {
+        font-size: 1.5rem;
+        letter-spacing: 5px;
+    }
+
+    /*** 이미지 전환 버튼 ***/
+    #img-num {
+        height: 20em;
+    }
+    #img-num button{
+        width: 0.5rem;
+        height: 0.5rem;
+        font-size: 1rem;
+    }
+
+    /* 사업영역 */
+    #business-header {
+        margin: 0;
+        padding: 1rem 0;
+        width: 100%;
+    }
+    #business-header > h2 {
+        font-size: 1.5rem;
+    }
+    #business-header > h3 {
+        padding: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    /* 사업영역 */
+    #business-area-container {
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .business-box {
+        margin: 1rem;
+        width: 40%;
+        height: 16rem;
+    }
+    .business-box h3 {
+        margin: 1.5rem 0;
+        font-size: 1.3rem;
+    }
+
+    .business-box p {
+        padding: 0 0 0.5rem 1.5rem;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #ffffff;
+    }
+    .business-box span {
+        font-size: 0.7rem;
+    }
+
+
+    /* 커뮤니티 */
+    #community-container{
+        flex-direction: column;
+    }
+    .community-box {
+        width: 100%;
+        padding: 1rem 0;
+    }
+    .community-box h2 {
+        font-size: 1.2rem;
+    }
+    .community-box:first-child {
+        border-right: none;
+    }
+    .community-box td {
+        font-size: 0.7rem;
+    }
+    #simple-main-notice > tr > td, #simple-main-notice > tr > td > a {
+        font-size: 0.7rem;
+    }
+
+    /* 온라인문의 */
+    #simple-main-inquiry > tr > td, #simple-main-inquiry > tr > td > a {
+        padding: 0.8rem 0;
+        font-size: 0.7rem;
+    }
+
+
+    /*** 연락 ***/
+    #contact-container {
+        padding: 2rem 0;
+    }
+    #contact-container > div {
+        flex-direction: column;
+    }
+    #contact-container > h2 {
+        font-size: 1.8rem;
+    }
+    #contact-info {
+        width: 100%;
+        padding: 1rem 0;
+    }
+    #contact-info h2 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    #contact-info h3 {
+        padding: 1rem 0 0.4rem 5%;
+    }
+    #contact-info p {
+        padding-left: 10%;
+    }
+    #map {
+        width: 100% !important;
+        height: 300px!important;
+    }
+
+
+
 }
-
-

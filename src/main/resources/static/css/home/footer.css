@@ -7,6 +7,7 @@ li, a {
     list-style-type: none;
 }
 footer {
+    width: 100%;
     position: relative;
     background-color: #1a2636;
 }
@@ -24,7 +25,7 @@ footer {
     padding: 1rem 0 2rem 0;
 }
 #info h2 {
-    margin: 0.5em 0;
+    padding: 0.5rem 0;
     font-size: 1rem;
     color: #fff;
 }
@@ -58,7 +59,7 @@ footer {
 }
 #foot-list li::after {
     content: 'l';
-    margin: 0.5em;
+    padding: 0.5rem;
 }
 #foot-list li:last-child::after {
     content: '';
@@ -93,3 +94,44 @@ footer {
     font-size: 0.8rem;
 }
 
+@media only screen and (max-width: 768px) {
+
+    #foot-container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+    .cert-contents {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* 우수기업 인증 */
+    .certified {
+        padding: 1rem 0;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .certified > img{
+        width: 8%;
+        height: 4rem;
+    }
+    .cert-contents {
+        width: 50%;
+    }
+    .cert-contents > p {
+        margin-bottom: 0.5rem;
+        color: #ffe4a1;
+    }
+
+    .cert-contents > span{
+        color: #fff;
+        font-size: 0.8rem;
+    }
+}
