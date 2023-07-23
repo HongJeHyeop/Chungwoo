@@ -4,6 +4,15 @@
     color: black;
     text-decoration: none;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 html, body {
     height: 100%;
 }
@@ -21,12 +30,9 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    /*border: 1px solid red;*/
 }
 
 #register-container h1 {
-    /*margin: 2rem 0;*/
     font-size: 2.2rem;
     color: #1a2636;
     text-shadow: 1px 1px 1px #999;
@@ -36,14 +42,15 @@ html, body {
 #register-box {
     margin: 3rem 0;
     border-spacing: 0;
-    border: 2px solid #ccc;
+    border: 2px solid #ddd;
 }
 #register-box tr td {
     padding: 1.5rem;
 
     border-bottom: 1px solid #ccc;
 }
-#register-box tr:first-child {
+#register-box tr:last-child td {
+    border-bottom: none;
 }
 #register-box tr td:first-child {
     text-align: right;
@@ -59,13 +66,32 @@ html, body {
     margin-left: 1rem;
     width: 4rem;
     height: 1.7rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-color: #1a2636;
+}
+#register-box #dupl-btn:hover {
+    background-color: #777;
+}
+#register-box #dupl-btn:active {
+    width: 3.9rem;
+    height: 1.6rem;
 }
 #select-branch > select {
     width: 8rem;
     height: 1.6rem;
     text-align: center;
 }
-
+#phone-input > input[type=number]:first-child {
+    width: 3rem;
+}
+#phone-input > input[type=number]:nth-child(2) {
+    width: 4rem;
+}
+#phone-input > input[type=number]:nth-child(3) {
+    width: 4rem;
+}
 /**/
 #btn-box {
     display: flex;
