@@ -33,3 +33,15 @@
 #intro-header > ul > li:hover > a{
     color: #1a2636;
 }
+
+@media only screen and (max-width: 768px) {
+    #intro-header-wrap {
+        width: 100%;
+    }
+    #intro-header {
+        width: 100%;
+    }
+    #intro-header > ul > li > a{
+        font-size: 1rem;
+    }
+}

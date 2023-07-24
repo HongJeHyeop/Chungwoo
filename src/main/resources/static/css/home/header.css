@@ -98,15 +98,18 @@ header {
 }
 @media only screen and (max-width: 768px) {
     header {
+        position: fixed;
         width: 100%;
         margin: 0;
         padding: 1rem 0;
+        z-index: 99;
+        background-color: #fff;
 
         display: flex;
         flex-wrap: wrap;
     }
     #header-logo {
-        width: 90%;
+        width: 80%;
     }
     #header-logo img {
         width: 20%;
@@ -115,8 +118,18 @@ header {
         width: 80%;
     }
     #header-menu-toggle {
-        width: 10%;
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #header-menu-toggle > i {
+        font-size: 1.5rem;
+        color: #666;
+    }
+    #header-list.toggle-active {
         display: block;
+        width: 100%;
     }
     #header-list {
         display: none;

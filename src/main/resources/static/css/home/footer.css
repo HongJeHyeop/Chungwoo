@@ -110,6 +110,15 @@ footer {
         margin: 0;
         padding: 0;
     }
+    #foot-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #info {
+        text-align: center;
+    }
 
     /* 우수기업 인증 */
     .certified {

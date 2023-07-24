@@ -56,19 +56,14 @@ article h1 {
     display: flex;
 }
 
-/*** 사이드바 ***/
-#intro-list {
-    width: 10rem;
-    padding: 0 1rem;
-    box-sizing: border-box;
-}
-#intro-list ul li {
-    box-sizing: border-box;
-    border-top: 1px solid #b3b3b4;
-    padding: 0.5em 0;
-    text-align: center;
-    font-size: 1.2rem;
-}
-#intro-list ul li:last-child {
-    border-bottom: 1px solid #b3b3b4;
+@media only screen and (max-width: 768px) {
+    /*** 내용 ***/
+    #body-wrapper {
+        width: 100%;
+        padding-top: 5rem;
+    }
+    article {
+        width: 100%;
+    }
+
 }

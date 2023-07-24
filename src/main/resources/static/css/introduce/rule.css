@@ -149,3 +149,70 @@
     justify-content: center;
     align-items: center;
 }
+
+@media only screen and (max-width: 768px) {
+
+    .rule-container > h2{
+        padding: 1rem 0;
+        width: 50%;
+        font-size: 1.5rem;
+    }
+    .rule-box {
+        width: 80%;
+        height: 40rem;
+    }
+    .rule-box img {
+        width: 8rem;
+    }
+    /* 내용 */
+    .rule-contents > p {
+        font-size: 1rem;
+    }
+    .rule-contents > span {
+        font-size: 0.8rem;
+    }
+    .rule-item1 > .rule-contents {
+        padding-right: 4rem;
+        text-align: right;
+    }
+    .rule-item2 > .rule-contents {
+        padding-left: 4rem;
+    }
+    .rule-item3 > .rule-contents {
+        padding-right: 4rem;
+        text-align: right;
+    }
+    .rule-item4 > .rule-contents {
+        padding-left: 4rem;
+    }
+
+    /* ========== 기업 철학 =============== */
+    .philosophy-container {
+        padding-top: 3rem;
+    }
+    .philosophy-container > h2{
+        margin: 3rem 0;
+        padding: 1rem 0;
+        width: 50%;
+        font-size: 1.5rem;
+    }
+    .philosophy-box p{
+        font-size: 1.2rem;
+    }
+    .philosophy-item1 {
+        margin: 0 auto -3rem auto;
+        width: 13rem;
+        height: 13rem;
+    }
+    .philosophy-item2 {
+        margin-right: -1.5rem;
+        width: 13rem;
+        height: 13rem;
+    }
+    .philosophy-item3 {
+        margin-left: -1.5rem;
+        width: 13rem;
+        height: 13rem;
+    }
+
+}
