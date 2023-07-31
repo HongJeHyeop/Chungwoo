@@ -2,6 +2,7 @@ package com.transport.cw.mappers;
 
 import com.transport.cw.domain.vos.UserVO;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.security.core.userdetails.User;
 
 import java.util.List;
 
@@ -29,5 +30,10 @@ public interface UserMapper {
     // 관리자가 회원가입 거절
     boolean register_refusal(UserVO userVO);
 
+    // 패스워드 찾기를 위한 유저 확인
+    UserVO user_check(UserVO userVO);
+
+    // 패스워드 변경
+    boolean update_password(UserVO userVO);
 
 }

@@ -52,4 +52,19 @@ public class UserService {
     public boolean register_refusal(UserVO userVO){
         return userMapper.register_refusal(userVO);
     };
+
+    //  패스워드 찾기를 위한 유저 조회
+    public UserVO user_check(UserVO userVO) {
+        if (userMapper.user_check(userVO) == null) {
+            return null;
+        } else {
+            return userMapper.user_check(userVO);
+        }
+    }
+
+    // 패스워드 변경
+    public boolean update_password(UserVO userVO) {
+        userVO.setPw(passwordEncoder.encode(userVO.getPw()));
+        return userMapper.update_password(userVO);
+    }
 }

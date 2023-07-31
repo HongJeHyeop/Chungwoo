@@ -5,7 +5,7 @@ const fileInput = document.querySelector('input[type="file"]');
 let titleCheck = document.getElementById('board-header').firstElementChild;
 let form = document.forms.item(0);
 let uuidPath = self.crypto.randomUUID();
-let dropzoneURL = '/community/insert';
+let dropzoneURL = '/community/repository/insert';
 quill_editor_init()
 dropzone_init()
 
@@ -52,14 +52,11 @@ function quill_editor_init() {
         input.click();
 
         input.onchange = async () => {
-            console.log("image onchange");
             const file = input.files[0];
             const extension = ['jpg', 'jpeg', 'png'];
             const fileExtension = file.name.split('.').pop();
-            console.log(fileExtension)
             const fileSize = Math.trunc((file.size / 1024 / 1024) * 100) / 100
             let check = extension.includes(fileExtension);
-            console.log(check)
             if (!check) {
                 alert('이미지만 업로드 가능합니다 (JPG, JPEG, PNG)');
                 input.value = '';
@@ -205,18 +202,7 @@ function dropzone_init() {
                 });
 
                 this.on('success', function (file, responseText) {
-                    location.href = '/community/notice'
-                });
-
-                this.on('error', function (file, errorMessage) {
-
-                    // if (this.files.length > 5) {
-                    //     alert('파일 허용개수를 초과하였습니다!');
-                    //     const excessFiles = this.files.slice(5);
-                    //     for (const excessFile of excessFiles) {
-                    //         this.removeFile(excessFile);
-                    //     }
-                    // }
+                    location.href = '/community/repository/repository'
                 });
 
             }
@@ -232,11 +218,11 @@ notice_update()
 function update_write(item) {
     formBox.innerHTML = '';
     formBox.insertAdjacentHTML('beforeend',
-        `<form action="/community/notice/update" method="POST" enctype="multipart/form-data">
+        `<form action="/community/repository/update" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="uuidPath">
                 <div id="board-type">
                     <select name="boardType">
-                        <option>공지사항</option>
+                        <option>자료실</option>
                     </select>
                 </div>
                 <div id="board-header">
@@ -255,18 +241,18 @@ function update_write(item) {
                 <input type="hidden" name="no" value="${updateNo}">
                 <div id="btn">
                     <input type="button" value="작성하기" id="confirm-btn">
-                    <input type="button" value="취소하기" onclick="back_notice()">
+                    <input type="button" value="취소하기" onclick="back_repository()">
                 </div>
                 </form>`)
     quill_editor_init()
-    dropzoneURL = '/community/notice/update';
+    dropzoneURL = '/community/repository/update';
     uuidPath = item.uuidPath;
     form = document.forms.item(0);
     dropzone_init()
     titleCheck = document.getElementById('board-header').firstElementChild;
 }
 
-function back_notice() {
+function back_repository() {
     // quill 이미지 존재 확인
     const images = [...document.getElementById('editor').getElementsByTagName('img')];
 
@@ -283,14 +269,12 @@ function back_notice() {
             })
         }).then(value => value.text())
             .then(value => {
-                console.log('취소하기 파일디렉토리 삭제 결과 : ' + value)
-                location.href = '/community/notice'
+                location.href = '/community/repository/repository'
             })
             .catch(reason => {
-                console.log('취소하기 오류 파일 디렉토리 삭제 오류 : ' + reason)
             });
     } else if (check) {
-        location.href = '/community/notice';
+        location.href = '/community/repository/repository';
     } else {
         return;
     }
@@ -300,7 +284,7 @@ function back_notice() {
 // 수정 요청
 function notice_update() {
     if (updateNo != undefined) {
-        const url = '/community/notice/update/write/' + updateNo + '?boardType=공지사항';
+        const url = '/community/repository/update/write/' + updateNo + '?boardType=자료실';
         fetch(url)
             .then(value => value.json())
             .then(value => {
@@ -309,17 +293,5 @@ function notice_update() {
             .catch(reason => {
                 console.log(reason)
             })
-    }
-}
-
-// 작성여부 체크
-function notice_write_check() {
-    if (titleCheck.value.trim() === '' || titleCheck.value === undefined || titleCheck.value === null) {
-        alert('제목을 작성하여주세요!');
-        return;
-    } else {
-        const check = confirm('정말 작성하시겠습니까?');
-        if (check) {
-        }
     }
 }

@@ -37,11 +37,11 @@ public class FileService {
             + "/src/main/resources/static/uploadImages/";
 
 
-    public FileVO get_file(int no){
+    public FileVO get_file(String no){
         return boardMapper.get_file(no);
     }
-    public List<FileVO> get_files(int no) {
-        return boardMapper.get_files(no);
+    public List<FileVO> get_files(String no, String boardType) {
+        return boardMapper.get_files(no, boardType);
     }
     // DB 파일데이터 삭제
     public boolean delete_file(BoardDTO boardDTO) {

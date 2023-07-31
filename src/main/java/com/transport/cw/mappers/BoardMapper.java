@@ -12,11 +12,11 @@ import java.util.List;
 public interface BoardMapper {
     List<BoardVO> simple_main_notice();
 
-    BoardVO get_notice(int no);
+    BoardVO get_notice(String no, String boardType);
 
-    List<FileVO> get_files(int no);
+    List<FileVO> get_files(String no, String boardType);
 
-    FileVO get_file(int no);
+    FileVO get_file(String no);
 
     int get_last_insert_no();
 
@@ -37,8 +37,8 @@ public interface BoardMapper {
     int count(PagingDTO pagingDTO);
 
     // 다음 게시물
-    BoardVO next_notice(int no);
+    BoardVO next_notice(String no, String boardType);
 
     // 이전 게시물
-    BoardVO prev_notice(int no);
+    BoardVO prev_notice(String no, String boardType);
 }

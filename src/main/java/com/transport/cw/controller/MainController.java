@@ -101,7 +101,7 @@ public class MainController {
                 break;
             case "busan" :
                 model.addAttribute("name", "부산지점");
-                model.addAttribute("addr", "부산 중구 중앙대로 87 동아일보사무 9층");
+                model.addAttribute("addr", "부산 중구 중앙대로 87 동아일보사옥 9층");
                 model.addAttribute("tel", "051) 466 - 6912");
                 model.addAttribute("fax", "051) 469 - 0635");
                 break;
@@ -122,28 +122,33 @@ public class MainController {
 
 
     @ResponseBody
-    @GetMapping("/community/restDetail/{boardNo}")
-    public List<Object> rest_detail(@PathVariable String boardNo, @RequestParam String arrow) {
-        int no = Integer.parseInt(boardNo);
+    @GetMapping("/community/restDetail")
+    public List<Object> rest_detail(
+            @RequestParam(defaultValue = "") String no,
+            @RequestParam(defaultValue = "") String arrow,
+            @RequestParam(defaultValue = "") String boardType
+    ) {
+        log.info(no + arrow + boardType);
         List<Object> obj = new ArrayList<>();
 
         log.info("공지사항 상세보기 접속!");
+        log.info(boardType);
         if (arrow.equals("next")) {
-            BoardVO boardVO = boardService.next_notice(no);
+            BoardVO boardVO = boardService.next_notice(no, boardType);
             obj.add(boardVO);
-            obj.add(fileService.get_files(boardVO.getNo()));
+            obj.add(fileService.get_files(String.valueOf(boardVO.getNo()), boardType));
             log.info("다음 게시물 클릭! ");
             return obj;
         } else if (arrow.equals("prev")) {
-            BoardVO boardVO = boardService.prev_notice(no);
+            BoardVO boardVO = boardService.prev_notice(no, boardType);
             obj.add(boardVO);
-            obj.add(fileService.get_files(boardVO.getNo()));
+            obj.add(fileService.get_files(String.valueOf(boardVO.getNo()), boardType));
             log.info("이전 게시물 클릭! ");
             return obj;
         }
-        BoardVO boardVO = boardService.get_notice(no);
+        BoardVO boardVO = boardService.get_notice(no, boardType);
         obj.add(boardVO);
-        obj.add(fileService.get_files(boardVO.getNo()));
+        obj.add(fileService.get_files(String.valueOf(boardVO.getNo()), boardType));
         return obj;
     }
 
@@ -155,12 +160,14 @@ public class MainController {
             @RequestParam(defaultValue = "10") int recordSize,
             @RequestParam(defaultValue = "10") int pageSize,
             @RequestParam(defaultValue = "") String searchKeyword,
-            @RequestParam(defaultValue = "공지사항") String searchType
+            @RequestParam(defaultValue = "") String boardType,
+            @RequestParam(defaultValue = "") String searchType
     ) {
 
 
         log.info("공지사항 목록 접속");
-        return boardService.find_all(new PagingDTO(nowPage, recordSize, pageSize, searchKeyword, searchType));
+        log.info(boardType);
+        return boardService.find_all(new PagingDTO(nowPage, recordSize, pageSize, searchKeyword, boardType, searchType));
     }
 
     @GetMapping("/community/noticeWrite")
@@ -174,8 +181,8 @@ public class MainController {
 
     @ResponseBody
     @GetMapping("/community/notice/update/write/{no}")
-    public BoardVO update_notice_write(@PathVariable String no) {
-        return boardService.get_notice(Integer.parseInt(no));
+    public BoardVO update_notice_write(@PathVariable String no, @RequestParam String boardType) {
+        return boardService.get_notice(no, boardType);
     }
 
 
@@ -198,13 +205,14 @@ public class MainController {
     @PostMapping("/community/notice/update")
     public String update_notice(
             BoardDTO boardDTO,
-            @AuthenticationPrincipal UserDetails userDetails) {
+            @AuthenticationPrincipal UserDetails userDetails
+    ) {
         log.info("게시물 수정 접속 !");
         log.info("받은 DTO" + boardDTO);
         boolean result = boardService.update_notice(boardDTO);
         if (result) {
             log.info("게시물 수정 완료!");
-            List<FileVO> fileVOS = fileService.get_files(boardDTO.getNo());
+            List<FileVO> fileVOS = fileService.get_files(String.valueOf(boardDTO.getNo()), boardDTO.getBoardType());
             for (FileVO fileVO : fileVOS) {
                 File file = new File(fileVO.getFileAddr());
                 log.info("삭제할 파일 : " + file.toString());
@@ -235,7 +243,7 @@ public class MainController {
     @DeleteMapping("/community/notice/delete")
     public boolean delete_notice(@RequestBody BoardDTO boardDTO) {
         // 받은 게시물 번호로 삭제할 게시물 조회
-        BoardVO boardVO = boardService.get_notice(boardDTO.getNo());
+        BoardVO boardVO = boardService.get_notice(String.valueOf(boardDTO.getNo()), boardDTO.getBoardType());
         // 삭제할 게시물 파일 디렉토리 경로
         String filePath = System.getProperty("user.dir")
                 + "/src/main/resources/static/uploadImages/" + boardVO.getUuidPath();
@@ -267,15 +275,6 @@ public class MainController {
         } else {
             log.info("[delete_dir_all] 파일삭제 실패 : " + path.toString());
         }
-    }
-
-
-    // 자료실
-    @GetMapping("/community/repository")
-    @PreAuthorize("isAuthenticated()")
-    public void repository() {
-
-        log.info("자료실 접속");
     }
 
 

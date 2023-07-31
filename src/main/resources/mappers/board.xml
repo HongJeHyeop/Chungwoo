@@ -19,26 +19,28 @@
         SELECT * FROM `board_tbl` WHERE `boardType`='공지사항' ORDER BY `no` DESC LIMIT 3
     </select>
 
-    <select id="get_notice" resultType="com.transport.cw.domain.vos.BoardVO">
-        SELECT * FROM `board_tbl` WHERE `boardType`='공지사항' AND `no` = #{no}
+    <select id="get_notice" resultType="com.transport.cw.domain.vos.BoardVO" parameterType="String">
+        SELECT * FROM `board_tbl` WHERE `boardType`=#{boardType} AND `no` = #{no}
     </select>
 
     <select id="get_files" resultType="com.transport.cw.domain.vos.FileVO">
-        SELECT * FROM `file_tbl` WHERE `refNo` = #{no}
+        SELECT * FROM `file_tbl` WHERE `refNo` = #{no} AND `boardType` = #{boardType}
     </select>
     <select id="get_file" resultType="com.transport.cw.domain.vos.FileVO">
         SELECT * FROM `file_tbl` WHERE `no` = #{no}
     </select>
 
     <!-- 다음 게시물 -->
-    <select id="next_notice" resultType="com.transport.cw.domain.vos.BoardVO" parameterType="int">
-        SELECT * FROM `board_tbl` WHERE `no` = (SELECT MIN(no) FROM `board_tbl` WHERE `no` > #{no})
+    <select id="next_notice" resultType="com.transport.cw.domain.vos.BoardVO" parameterType="String">
+        SELECT * FROM `board_tbl` WHERE `boardType` = #{boardType} AND
+        `no` = (SELECT MIN(no) FROM `board_tbl` WHERE `boardType` = #{boardType} AND `no` > #{no} )
     </select>
 
     <!-- 이전 게시물 -->
-    <select id="prev_notice" resultType="com.transport.cw.domain.vos.BoardVO" parameterType="int">
+    <select id="prev_notice" resultType="com.transport.cw.domain.vos.BoardVO" parameterType="String">
         <![CDATA[
-        SELECT * FROM `board_tbl` WHERE `no` = (SELECT MAX(no) FROM `board_tbl` WHERE `no` < #{no})
+        SELECT * FROM `board_tbl` WHERE `boardType` = #{boardType} AND
+        `no` = (SELECT MAX(no) FROM `board_tbl` WHERE`boardType` = #{boardType} AND `no` < #{no})
         ]]>
     </select>
 
@@ -63,18 +65,20 @@
     <select id="find_all" parameterType="com.transport.cw.domain.dtos.PagingDTO"
             resultType="com.transport.cw.domain.vos.BoardVO">
         <![CDATA[
-        SELECT * FROM `board_tbl` WHERE `boardType`='공지사항' AND
-        `title` LIKE CONCAT ('%', #{keyword}, '%') OR
-        REGEXP_REPLACE(`contents`,'<[^>]*>','') LIKE CONCAT ('%', #{keyword}, '%')
+        SELECT * FROM `board_tbl` WHERE `boardType`=#{boardType} AND (
+            `title` LIKE CONCAT ('%', #{keyword}, '%') OR
+            REGEXP_REPLACE(`contents`,'<[^>]*>','') LIKE CONCAT ('%', #{keyword}, '%')
+        )
         ORDER BY `no` DESC
         LIMIT #{pagination.limitStart}, #{recordSize}
         ]]>
     </select>
     <select id="count" parameterType="com.transport.cw.domain.dtos.PagingDTO" resultType="int">
         <![CDATA[
-        SELECT COUNT(*) FROM `board_tbl` WHERE `boardType`='공지사항' AND
-        `title` LIKE CONCAT ('%', #{keyword}, '%') OR
-        REGEXP_REPLACE(`contents`,'<[^>]*>','') LIKE CONCAT ('%', #{keyword}, '%')
+        SELECT COUNT(*) FROM `board_tbl` WHERE `boardType`=#{boardType} AND (
+            `title` LIKE CONCAT ('%', #{keyword}, '%') OR
+            REGEXP_REPLACE(`contents`,'<[^>]*>','') LIKE CONCAT ('%', #{keyword}, '%')
+        )
         ]]>
     </select>
 

@@ -17,16 +17,21 @@ public class PagingDTO {
     private int pageSize;
     // 검색 키워드
     private String keyword;
+    // 게시물 타입
+    private String boardType;
     // 검색 유형
     private String searchType;
+
     // 페이지네이션 클래스
     private Pagination pagination;
 
-    public PagingDTO(int nowPage, int recordSize, int pageSize, String keyword, String searchType) {
+
+    public PagingDTO(int nowPage, int recordSize, int pageSize, String keyword, String boardType, String searchType) {
         this.nowPage = nowPage;
         this.recordSize = recordSize;
         this.pageSize = pageSize;
         this.keyword = keyword;
+        this.boardType = boardType;
         this.searchType = searchType;
     }
 }

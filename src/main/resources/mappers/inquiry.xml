@@ -27,13 +27,13 @@
     <!-- 페이징 -->
     <select id="find_all_inquiry" parameterType="com.transport.cw.domain.dtos.PagingDTO"
             resultType="com.transport.cw.domain.vos.InquiryVO">
-        SELECT * FROM `inquiry_tbl` WHERE `inquiryType` = '온라인문의' AND
+        SELECT * FROM `inquiry_tbl` WHERE `inquiryType` = #{boardType} AND
         ${searchType} LIKE CONCAT ('%', #{keyword}, '%')
         ORDER BY `no` DESC
         LIMIT #{pagination.limitStart}, #{recordSize}
     </select>
     <select id="count" parameterType="com.transport.cw.domain.dtos.PagingDTO" resultType="int">
-        SELECT COUNT(*) FROM `inquiry_tbl` WHERE `inquiryType` = '온라인문의' AND
+        SELECT COUNT(*) FROM `inquiry_tbl` WHERE `inquiryType` = #{boardType} AND
         ${searchType} LIKE CONCAT ('%', #{keyword}, '%')
     </select>
 

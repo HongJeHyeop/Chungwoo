@@ -1,40 +1,40 @@
 const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute("content");
-const detailItem = document.getElementById('notice-detail');
+const detailItem = document.getElementById('repository-detail');
 let boardNo = document.getElementById('board-no').value;
 
 
-get_board_detail(boardNo, '', '공지사항');
+get_repository_detail(boardNo, '', '자료실');
 
 // 게시글 번호에 따른 GET요청
-async function get_board_detail(boardNo, arrow, boardType) {
+async function get_repository_detail(boardNo, arrow, boardType) {
     boardNo = boardNo.toString();
-    if(arrow === undefined){
+    if (arrow === undefined) {
         arrow = '';
     }
     const params = {
-        no : boardNo,
-        boardType : boardType,
-        arrow : arrow
+        no       : boardNo,
+        boardType: boardType,
+        arrow    : arrow
     }
     const queryString = new URLSearchParams(params).toString()
-    const url = '/community/restDetail?' + queryString;
+    const url = '/community/repository/restDetail?' + queryString;
     await fetch(url)
         .then(response => response.json())
         .then(value => {
             // 생성
-            create_board(value[0]);
+            create_repository(value[0]);
             if (value[1] !== null) {
                 create_files(value[1]);
             }
         })
         .catch(reason => {
             alert("페이지가 존재하지않습니다!")
-            location.href = '/community/notice';
+            location.href = '/community/repository/repository';
         })
 }
 
 // 상세 게시글 생성 메서드
-function create_board(boardVO) {
+function create_repository(boardVO) {
     detailItem.innerHTML = '';
     detailItem.insertAdjacentHTML("beforeend",
         `
@@ -56,9 +56,9 @@ function create_board(boardVO) {
                 </tfoot>
             </table>
             <div id="move-btn">
-                <input type="button" value="이전글" onclick="get_board_detail('${boardVO.no}', 'prev', '공지사항')">
-                <input type="button" value="목록" onclick="location.href='/community/notice'">
-                <input type="button" value="다음글" onclick="get_board_detail('${boardVO.no}', 'next', '공지사항')">
+                <input type="button" value="이전글" onclick="get_repository_detail('${boardVO.no}', 'prev', '자료실')">
+                <input type="button" value="목록" onclick="location.href='/community/repository/repository'">
+                <input type="button" value="다음글" onclick="get_repository_detail('${boardVO.no}', 'next', '자료실')">
             </div>`);
 
     boardNo = boardVO.no
@@ -86,19 +86,19 @@ function create_files(fileVO) {
 function delete_notice() {
     const check = confirm('정말 삭제하시겠습니까?');
     if (check) {
-        fetch('/community/notice/delete', {
+        fetch('/community/repository/delete', {
             method : 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': csrfToken
             },
             body   : JSON.stringify({
-                no: boardNo,
-                boardType: '공지사항'
+                no       : boardNo,
+                boardType: '자료실'
             })
         }).then(value => value.text())
             .then(value => {
-                location.href = '/community/notice'
+                location.href = '/community/repository/repository'
             })
             .catch(reason => {
                 console.log(reason)
@@ -108,5 +108,5 @@ function delete_notice() {
 
 // 수정하기 클릭
 function move_update_write() {
-    window.location.href = '/community/noticeWrite?no=' + boardNo;
+    window.location.href = '/community/repository/repositoryWrite?no=' + boardNo;
 }

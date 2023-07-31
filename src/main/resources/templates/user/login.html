@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
-    <title>청우국제운송</title>
+    <title>청우국제운송(주)</title>
     <link rel="stylesheet" th:href="@{/css/home/header.css}" href="../../static/css/home/header.css">
     <link rel="stylesheet" th:href="@{/css/home/footer.css}" href="../../static/css/home/footer.css">
     <link rel="stylesheet" th:href="@{/css/user/login.css}" href="../../static/css/user/login.css">
@@ -30,7 +30,7 @@
             <input type="button" value="회원가입" onclick="location.href = '/user/register'">
         </div>
         <div id="search">
-            <a href="#">아이디/비밀번호 찾기</a> <br/>
+            <a href="/user/passwordSearch">아이디/비밀번호 찾기</a> <br/>
         </div>
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
     </form>

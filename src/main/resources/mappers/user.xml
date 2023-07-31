@@ -36,4 +36,16 @@
     <delete id="register_refusal" parameterType="com.transport.cw.domain.vos.UserVO">
         DELETE FROM `user_tbl` WHERE `id` = #{id}
     </delete>
+
+    <!-- 패스워드 찾기를 위한 유저 조회 -->
+    <select id="user_check" parameterType="com.transport.cw.domain.vos.UserVO"
+            resultType="com.transport.cw.domain.vos.UserVO">
+        SELECT * FROM `user_tbl` WHERE `id`=#{id} AND `email` = #{email}
+    </select>
+
+    <!-- 패스워드 변경 -->
+    <update id="update_password" parameterType="com.transport.cw.domain.vos.UserVO">
+        UPDATE `user_tbl` SET `pw` = #{pw} WHERE `id`=#{id} AND `email` = #{email}
+    </update>
+
 </mapper>

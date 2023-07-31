@@ -37,16 +37,16 @@ public class BoardService {
 
     ;
 
-    public BoardVO get_notice(int no) {
-        return boardMapper.get_notice(no);
+    public BoardVO get_notice(String no, String boardType) {
+        return boardMapper.get_notice(no, boardType);
     }
 
-    public BoardVO next_notice(int no) {
-        return boardMapper.next_notice(no);
+    public BoardVO next_notice(String no, String boardType) {
+        return boardMapper.next_notice(no, boardType);
     }
 
-    public BoardVO prev_notice(int no) {
-        return boardMapper.prev_notice(no);
+    public BoardVO prev_notice(String no, String boardType) {
+        return boardMapper.prev_notice(no, boardType);
     }
 
     public boolean update_notice(BoardDTO boardDTO) {

@@ -1,9 +1,12 @@
 package com.transport.cw.controller;
 
 import com.transport.cw.domain.vos.UserVO;
+import com.transport.cw.service.MailService;
 import com.transport.cw.service.UserService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -12,7 +15,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.List;
 
 @Log4j2
@@ -21,6 +27,9 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private MailService mailService;
 
     @GetMapping("/login")
     public void login() {
@@ -106,6 +115,54 @@ public class UserController {
     ){
         log.info("거절할 user >>>>>>>" + userVO);
         return userService.register_refusal(userVO);
+    }
+
+    // 비밀번호 찾기 페이지
+    @GetMapping("/passwordSearch")
+    public void password_search() {
+        log.info("패스워드 찾기 페이지 접속!");
+    }
+
+//    @ResponseBody
+//    @PostMapping("/authEmail")
+//    public String auth_email(@RequestBody HashMap<String, Object> to) {
+//
+//        try {
+//            log.info("받는사람 : " + to.get("to").toString());
+//            return mailService.sendEmail(to.get("to").toString());
+//        } catch (UnsupportedEncodingException e) {
+//            throw new RuntimeException(e);
+//        } catch (MessagingException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//    }
+
+    @ResponseBody
+    @PostMapping("/userCheck")
+    public ResponseEntity<String> user_check(@RequestBody UserVO userVO) {
+        log.info(userVO);
+        UserVO result = userService.user_check(userVO);
+        if (result == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("존재하지 않는 아이디와 이메일입니다.");
+        } else {
+            try {
+                String randomAuth = mailService.generateRandomAuth();
+                mailService.sendEmail(result.getEmail(), randomAuth);
+                return ResponseEntity.ok(randomAuth);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
+            } catch (MessagingException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+    }
+
+    @ResponseBody
+    @PutMapping("/updatePassword")
+    public boolean update_password(@RequestBody UserVO userVO) {
+        return userService.update_password(userVO);
     }
 
 }

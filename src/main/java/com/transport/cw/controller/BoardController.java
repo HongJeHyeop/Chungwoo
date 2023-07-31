@@ -38,7 +38,7 @@ public class BoardController {
 
     @GetMapping("/down/{no}")
     public ResponseEntity<Resource> fileDownload(@PathVariable String no) throws IOException {
-        FileVO fileVO = fileService.get_file(Integer.parseInt(no));
+        FileVO fileVO = fileService.get_file(no);
         log.info("다운로드 할 파일 : " + fileVO);
         Path filePath = Paths.get(fileVO.getFileAddr());
         InputStreamResource resource = new InputStreamResource(new FileInputStream(filePath.toString()));

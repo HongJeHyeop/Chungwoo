@@ -14,6 +14,7 @@ public class Pagination {
     private int totalPageCount;
     // 첫 페이지 번호
     private int startPage;
+
     // 끝 페이지 번호
     private int endPage;
     // LIMIT 시작위치

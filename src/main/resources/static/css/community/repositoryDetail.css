@@ -1,0 +1,131 @@
+
+#container {
+    padding: 8rem 2rem;
+
+    /*border: 1px solid blue;*/
+}
+#container table {
+    width: 70rem;
+    border-spacing: 0;
+}
+#update-btn {
+    margin: 1rem 5rem 1rem 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+#update-btn input {
+    margin-right: 1rem;
+    width: 5rem;
+    height: 1.5rem;
+    color: white;
+    background-color: #1a2636;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#update-btn input:hover {
+    background-color: #777;
+}
+#update-btn input:active {
+    width: 4.9rem;
+    height: 1.4rem;
+}
+
+#repository-detail tbody  td  img {
+    max-width: 100%;
+    width: auto ;
+    height: auto ;
+}
+
+/* 테이블 헤더(제목) */
+#repository-detail > table  th {
+    padding: 1rem;
+    width: 15%;
+    font-size: 0.9rem;
+    font-weight: normal;
+
+    border-top: 2px solid #999999;
+    border-bottom: 2px solid #999999;
+
+}
+#repository-detail > table  th:first-child {
+    width: 70%;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+/* 테이블 바디(내용) quill*/
+#repository-detail tbody td {
+    padding: 2rem 1rem;
+}
+#repository-detail tbody td h1{
+    font-size: 2em;
+}
+#repository-detail tbody td h2{
+    font-size: 1.5em;
+}
+#repository-detail tbody td h3{
+    font-size: 1.17em;
+}
+#repository-detail tbody td h4{
+    font-size: 1em;
+}
+#repository-detail tbody td h5{
+    font-size: 0.83em;
+}
+#repository-detail tbody td h6{
+    font-size: 0.67em;
+}
+#repository-detail tbody td .ql-size-large {
+    font-size: 1.5em;
+}
+#repository-detail tbody td .ql-size-huge {
+    font-size: 2.5em;
+}
+#repository-detail tbody td .ql-size-small {
+    font-size: 0.75em;
+}
+/* 테이블 풋(첨부파일) */
+#repository-detail tfoot tr:first-child td {
+
+    border-top: 2px solid #999;
+}
+#repository-detail tfoot td {
+    padding: 1rem;
+    font-size: 0.9rem;
+
+    border-bottom: 1px dotted #999;
+}
+#repository-detail tfoot td:first-child a:hover {
+    color: #628ed9;
+    font-weight: bold;
+}
+#repository-detail  tfoot td:last-child{
+    padding: 1rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+/* 이동 버튼 */
+#move-btn {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+}
+#move-btn input {
+    width: 4rem;
+    height: 2rem;
+    margin: 2rem;
+    font-size: 0.8rem;
+    color: white;
+    background-color: #1a2636;
+    cursor: pointer;
+    border: none;
+}
+#move-btn input:hover {
+    background-color: #777;
+}
+#move-btn input:active {
+    width: 3.9rem;
+    height: 1.9rem;
+}
+
