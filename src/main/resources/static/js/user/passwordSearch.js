@@ -37,7 +37,6 @@ authEmailBtn.addEventListener('click', () => {
             return res.text(); // 문자열 데이터를 읽어옴
         })
         .then(res => {
-            console.log(res)
             auth_num_check(res);
             authBox.style.display = 'block';
             inputId.style.border = '1px solid #69A6F0';

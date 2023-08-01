@@ -1,6 +1,7 @@
 package com.transport.cw.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,8 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class MailService {
-    private final String ADMIN_EMAIL = "jhh951217@naver.com";
+    @Value("${spring.mail.username}")
+    private String ADMIN_EMAIL;
 
     private final JavaMailSender javaMailSender;
 
