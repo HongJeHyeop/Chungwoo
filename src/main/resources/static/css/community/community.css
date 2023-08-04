@@ -43,3 +43,14 @@ section {
     width: 1200px;
     margin: 0 auto;
 }
+@media only screen and (max-width: 768px) {
+    /*** 내용 ***/
+    #body-wrapper {
+        width: 100%;
+        padding-top: 5rem;
+    }
+    #container {
+        width: 100%;
+    }
+
+}

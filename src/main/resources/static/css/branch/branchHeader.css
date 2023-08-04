@@ -34,3 +34,16 @@
 #branch-header > ul > li:hover > a{
     color: #1a2636;
 }
+
+
+@media only screen and (max-width: 768px) {
+    #branch-header-wrap {
+        width: 100%;
+    }
+    #branch-header {
+        width: 100%;
+    }
+    #branch-header > ul > li > a{
+        font-size: 0.9rem;
+    }
+}

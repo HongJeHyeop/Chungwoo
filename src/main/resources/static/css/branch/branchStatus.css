@@ -89,3 +89,23 @@ article h1 {
     color: #666;
     border-bottom: 1px solid #ccc;
 }
+
+@media only screen and (max-width: 768px) {
+    /*** 내용 ***/
+    #body-wrapper {
+        width: 100%;
+        padding-top: 5rem;
+    }
+    #title {
+        height: 10rem;
+    }
+    article {
+        width: 100%;
+    }
+    #map {
+        height: 300px!important;
+    }
+    #branch-contents > table  tr  td {
+        font-size: 1rem !important;
+    }
+}

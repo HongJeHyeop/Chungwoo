@@ -120,4 +120,87 @@
     cursor: pointer;
 }
 
+@media only screen and (max-width: 768px) {
+    #container {
+        padding: 2rem 0;
+    }
 
+    /* 글쓰기 버튼 */
+    #write-btn {
+        margin: 0 1rem 2rem 0;
+    }
+    #write-btn input {
+        width: 20%;
+        height: 2rem;
+    }
+    #write-btn input:active {
+        width: 9%;
+        height: 1.9rem;
+    }
+
+
+    /*** 공지사항 검색 ***/
+    #search-input {
+        width: 90%;
+        height: 4rem;
+    }
+    #search-input select {
+        margin-left: 1rem;
+        width: 20%;
+        height: 2.5rem;
+    }
+    #search-input input[type=text]{
+        margin: 0;
+        width: 60%;
+        height: 2.2rem;
+    }
+    #search-input input[type=submit] {
+        width: 20%;
+        height: 2.5rem;
+    }
+    #search-input input[type=submit]:active {
+        width: 9%;
+        height: 2.3rem;
+    }
+
+
+    /*** 공지사항 목록 ***/
+    #notice-box {
+        width: 100%;
+    }
+    #notice-box table {
+        width: 90%;
+    }
+    .tbl-title {
+        width: 15%;
+        height: 3rem;
+        font-size: 0.8rem;
+    }
+    .tbl-content {
+        width: 65%;
+        font-size: 0.8rem;
+    }
+    .tbl-upload {
+        width: 20%;
+        font-size: 0.8rem;
+    }
+
+    #page-num {
+        width: 100%;
+    }
+    #page-num > ul {
+        margin: 3rem 0;
+
+        display: flex;
+        justify-content: center;
+    }
+    #page-num > ul li {
+        margin-right: 1rem;
+        font-weight: bold;
+        font-size: 0.8rem;
+        color: #355172;
+        cursor: pointer;
+    }
+
+
+}

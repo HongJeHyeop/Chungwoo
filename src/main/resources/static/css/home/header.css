@@ -117,7 +117,20 @@ header {
         width: 20%;
     }
     #header-logo-title {
+        padding: 0;
         width: 80%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    #header-logo-title > span {
+        font-size: 0.5rem;
+        line-height: 1.1rem;
+    }
+    #header-logo-title > span:nth-child(2) {
+        font-size: 0.8rem;
     }
     #header-menu-toggle {
         width: 20%;
@@ -143,8 +156,8 @@ header {
     }
     #header-list > ul > li {
         width: 100%;
+        padding: 1rem 0;
     }
-
 
     .header-detail-list {
         width: 100%;
