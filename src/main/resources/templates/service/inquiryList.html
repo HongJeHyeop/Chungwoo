@@ -25,7 +25,6 @@
     <div id="title">
         <h1>온라인 문의</h1>
         <div id="inquiry-search-box">
-
             <select id="inquiry-search-type">
                 <option value="no">게시글 번호</option>
                 <option value="contents">게시글 내용</option>
@@ -40,6 +39,12 @@
     <th:block th:replace="~{service/serviceHeader:: serviceHeader}"/>
 
     <section>
+        <div id="select-tradeType">
+            <ul>
+                <li onclick="select_trade(this, 'import')">수입</li>
+                <li onclick="select_trade(this, 'export')">수출</li>
+            </ul>
+        </div>
         <div id="inquiry-container">
             <div id="inquiry-btn-box">
                 <input type="button" value="글쓰기" onclick="location.href='/service/inquiryWrite'">

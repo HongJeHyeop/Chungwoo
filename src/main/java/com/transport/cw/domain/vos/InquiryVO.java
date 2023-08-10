@@ -27,4 +27,6 @@ public class InquiryVO {
     private LocalDateTime writeDate;
     private int processing;
     private String inquiryType;
+
+    private String tradeType;
 }

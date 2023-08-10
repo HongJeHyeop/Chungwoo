@@ -57,13 +57,14 @@ public class RepositoryController {
             @RequestParam(defaultValue = "10") int pageSize,
             @RequestParam(defaultValue = "") String searchKeyword,
             @RequestParam(defaultValue = "") String boardType,
-            @RequestParam(defaultValue = "") String searchType
+            @RequestParam(defaultValue = "") String searchType,
+            @RequestParam(defaultValue = "") String tradeType
     ) {
 
 
         log.info("자료실 목록 접속");
         log.info(boardType);
-        return boardService.find_all(new PagingDTO(nowPage, recordSize, pageSize, searchKeyword, boardType, searchType));
+        return boardService.find_all(new PagingDTO(nowPage, recordSize, pageSize, searchKeyword, boardType, searchType, tradeType));
     }
 
 

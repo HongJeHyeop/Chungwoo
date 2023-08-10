@@ -56,6 +56,9 @@ section > h2 {
     resize: none;
     font-size: 1rem;
 }
+.write-box-body > input[type=radio] {
+    margin-left: 1rem;
+}
 
 /* 작성하기 돌아가기 버튼 */
 #inquiry-write-btn-box {

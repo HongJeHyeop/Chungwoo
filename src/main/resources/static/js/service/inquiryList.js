@@ -5,15 +5,15 @@ const inquirySearchBtn = document.getElementById('inquiry-search-btn');
 find_all_inquiry();
 
 // DB에서 문의정보 불러오기
-function find_all_inquiry(nowPage, recordSize, pageSize, searchKeyword, searchTpype) {
+function find_all_inquiry(nowPage, recordSize, pageSize, searchKeyword, searchTpype, tradeType) {
     let url = '/service/findAllInquiry';
     url = nowPage === undefined || nowPage === '' ? url : url + '?nowPage=' + nowPage;
     url = recordSize === undefined || recordSize === '' ? url : url + '&recordSize=' + recordSize;
     url = pageSize === undefined || pageSize === '' ? url : url + '&pageSize=' + pageSize;
     url = searchKeyword === undefined || searchKeyword === '' ? url : url + '&keyword=' + searchKeyword; // 검색키워드
     url = searchTpype === undefined || searchTpype === '' ? url : url + '&searchType=' + searchTpype; // 검색타입
-
-
+    url = tradeType === undefined || tradeType === '' ? url : url + '&tradeType=' + tradeType; // 무역유형(수출수입)
+    console.log(url)
     fetch(url)
         .then(value => value.json())
         .then(value => {
@@ -145,4 +145,17 @@ const click_page_num = (nowPage) => {
             n.style.color = '#69A6F0';
         }
     }
+}
+
+// 수출/수입 선택
+const select_trade = (item, tradeType) => {
+    const trades = [...document.getElementById('select-tradeType').querySelectorAll('ul li')];
+
+    trades.forEach(trade => {
+        trade.style.backgroundColor = '#777';
+    })
+    item.style.backgroundColor = '#1a2636';
+    console.log(tradeType);
+    find_all_inquiry('1', '', '', '', '', tradeType);
+
 }

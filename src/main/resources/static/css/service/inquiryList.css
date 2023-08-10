@@ -3,7 +3,7 @@ section{
     width: 1200px;
 }
 #inquiry-container {
-    padding: 10rem 0 5rem 0;
+    padding: 3rem 0 5rem 0;
     /*background-color: yellow;*/
 }
 
@@ -79,6 +79,40 @@ section{
 #inquiry-search-box input[type=button]:active {
     width: 3.8rem;
     height: 2.3rem;
+}
+/* 수입 수출 선택 */
+#select-tradeType {
+    margin-top: 2rem;
+}
+#select-tradeType ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#select-tradeType ul li{
+    margin: 3rem;
+    width: 10rem;
+    height: 3rem;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    background-color: #777;
+    border-radius: 30px;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#select-tradeType ul li:first-child{
+    background-color: #1a2636;
+}
+#select-tradeType ul li:hover{
+    background-color: #1a2636;
+}
+#select-tradeType ul li:active{
+    width: 9.9rem;
+    height: 2.9rem;
 }
 
 /* 문의 내역 */

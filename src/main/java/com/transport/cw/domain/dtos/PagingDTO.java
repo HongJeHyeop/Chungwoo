@@ -21,17 +21,20 @@ public class PagingDTO {
     private String boardType;
     // 검색 유형
     private String searchType;
+    // 무역유형
+    private String tradeType;
 
     // 페이지네이션 클래스
     private Pagination pagination;
 
 
-    public PagingDTO(int nowPage, int recordSize, int pageSize, String keyword, String boardType, String searchType) {
+    public PagingDTO(int nowPage, int recordSize, int pageSize, String keyword, String boardType, String searchType, String tradeType) {
         this.nowPage = nowPage;
         this.recordSize = recordSize;
         this.pageSize = pageSize;
         this.keyword = keyword;
         this.boardType = boardType;
         this.searchType = searchType;
+        this.tradeType = tradeType;
     }
 }
