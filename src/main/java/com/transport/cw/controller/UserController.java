@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -54,8 +55,7 @@ public class UserController {
     @PostMapping("/register")
     public String register_user(
             @Validated UserVO userVO,
-            BindingResult bindingResult,
-            HttpSession session
+            BindingResult bindingResult
     ) {
         log.info(">>>>>> register_user <<<<<<<<");
         log.info("받아온 userVO >>>>> " + userVO);
@@ -73,9 +73,11 @@ public class UserController {
         return userService.duplicate_check(id);
     }
 
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("/userList")
     public void user_list() {}
 
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("/userManagement")
     public void user_management() {
         log.info("유저관리페이지");
@@ -83,6 +85,7 @@ public class UserController {
 
     // 전체 회원 리스트
     @ResponseBody
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("/allList")
     public List<UserVO> get_all_user() {
         return userService.get_all_user();
@@ -90,6 +93,7 @@ public class UserController {
 
 
     // 회원가입요청 리스트
+    @PreAuthorize("isAuthenticated()")
     @ResponseBody
     @GetMapping("/list")
     public List<UserVO> user_management(@AuthenticationPrincipal UserDetails userDetails) {
@@ -98,6 +102,7 @@ public class UserController {
     }
 
     // 회원가입 승인
+    @PreAuthorize("isAuthenticated()")
     @ResponseBody
     @PutMapping("/approval")
     public boolean approval_register(
@@ -108,6 +113,7 @@ public class UserController {
     }
 
     // 회원가입 거절 (회원가입 요청 리스트에서 삭제)
+    @PreAuthorize("isAuthenticated()")
     @ResponseBody
     @DeleteMapping("/refusal")
     public boolean register_refusal(

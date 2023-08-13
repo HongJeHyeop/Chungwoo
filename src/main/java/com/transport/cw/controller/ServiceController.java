@@ -7,6 +7,7 @@ import com.transport.cw.paging.PagingResponse;
 import com.transport.cw.service.InquiryService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -107,6 +108,7 @@ public class ServiceController {
     }
 
     // 문의 접수하기
+    @PreAuthorize("isAuthenticated()")
     @ResponseBody
     @PutMapping("/updateProcess")
     public boolean update_process(@RequestBody InquiryVO inquiryVO) {

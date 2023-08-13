@@ -35,7 +35,11 @@ public class CustomSecurityConfig{
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         log.info(" ============== filterChain 실행 =============== ");
         http.formLogin().loginPage("/user/login");
-        http.logout().logoutUrl("/user/logout").invalidateHttpSession(true).deleteCookies("JSESSIONID").logoutSuccessUrl("/");
+        http.authorizeRequests()
+                .antMatchers("/community/repository/*")
+                .authenticated()
+                .anyRequest().permitAll();
+        http.logout().logoutUrl("/user/logout").invalidateHttpSession(true).logoutSuccessUrl("/");
         http.exceptionHandling().accessDeniedPage("/error/accessDenied");
         http.csrf();
 

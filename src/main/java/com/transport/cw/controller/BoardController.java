@@ -13,6 +13,7 @@ import org.springframework.http.CacheControl;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -59,6 +60,7 @@ public class BoardController {
     }
 
     // quill 이미지 등록
+    @PreAuthorize("isAuthenticated()")
     @ResponseBody
     @PostMapping("/quillImage")
     public ResponseEntity<String> quill_image_upload(
@@ -74,6 +76,7 @@ public class BoardController {
     }
 
     // 게시물 삭제
+    @PreAuthorize("isAuthenticated()")
     @ResponseBody
     @DeleteMapping("quillDelete")
     public void quill_imges_delete(@RequestBody BoardDTO boardDTO) {

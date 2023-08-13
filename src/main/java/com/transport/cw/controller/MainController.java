@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.annotation.security.PermitAll;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
@@ -34,6 +35,7 @@ public class MainController {
     private BoardService boardService;
     @Autowired
     private FileService fileService;
+
 
     @GetMapping
     public String home() {
@@ -171,6 +173,7 @@ public class MainController {
         return boardService.find_all(new PagingDTO(nowPage, recordSize, pageSize, searchKeyword, boardType, searchType, tradeType));
     }
 
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("/community/noticeWrite")
     public void notice_write(@RequestParam String no, Model model) {
         if (no == "" || no.equals(null) || no.isEmpty()) {
@@ -180,6 +183,7 @@ public class MainController {
         }
     }
 
+    @PreAuthorize("isAuthenticated()")
     @ResponseBody
     @GetMapping("/community/notice/update/write/{no}")
     public BoardVO update_notice_write(@PathVariable String no, @RequestParam String boardType) {
@@ -187,6 +191,7 @@ public class MainController {
     }
 
 
+    @PreAuthorize("isAuthenticated()")
     @PostMapping("/community/insert")
     public String insert_board(
             BoardDTO boardDTO,
@@ -203,6 +208,7 @@ public class MainController {
     }
 
 
+    @PreAuthorize("isAuthenticated()")
     @PostMapping("/community/notice/update")
     public String update_notice(
             BoardDTO boardDTO,
@@ -240,6 +246,7 @@ public class MainController {
         return "redirect:/community/notice";
     }
 
+    @PreAuthorize("isAuthenticated()")
     @ResponseBody
     @DeleteMapping("/community/notice/delete")
     public boolean delete_notice(@RequestBody BoardDTO boardDTO) {
