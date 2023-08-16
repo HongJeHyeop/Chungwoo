@@ -52,9 +52,9 @@ public class CustomSecurityConfig{
         return new BCryptPasswordEncoder();
     }
 
-//    @Bean
-//    public WebSecurityCustomizer webSecurityCustomizer() {
-//        log.info(" ============= webSecurityCustomizer에 의해 정적 리소스 관리 중 ============== ");
-//        return web -> web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
-//    }
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        log.info(" ============= webSecurityCustomizer에 의해 정적 리소스 관리 중 ============== ");
+        return web -> web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
+    }
 }
