@@ -9,13 +9,13 @@ import java.util.List;
 
 @Data
 @ToString
-public class PagingResponse {
+public class PagingResponse<T> {
 
-    private List<BoardVO> boardVOS = new ArrayList<>();
+    private List<T> vos = new ArrayList<>();
     private Pagination pagination;
 
-    public PagingResponse(List<BoardVO> boardVOS, Pagination pagination) {
-        this.boardVOS.addAll(boardVOS);
+    public PagingResponse(List<T> vos, Pagination pagination) {
+        this.vos.addAll(vos);
         this.pagination = pagination;
     }
 }

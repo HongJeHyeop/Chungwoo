@@ -2,13 +2,11 @@ package com.transport.cw.controller;
 
 import com.transport.cw.domain.dtos.PagingDTO;
 import com.transport.cw.domain.vos.InquiryVO;
-import com.transport.cw.paging.InquiryPagingResponse;
 import com.transport.cw.paging.PagingResponse;
 import com.transport.cw.service.InquiryService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +33,7 @@ public class ServiceController {
     // 온라인 문의 목록 불러오기
     @GetMapping("/findAllInquiry")
     @ResponseBody
-    public InquiryPagingResponse get_all_notice(
+    public PagingResponse<InquiryVO> get_all_notice(
             @RequestParam(defaultValue = "1") int nowPage,
             @RequestParam(defaultValue = "10") int recordSize,
             @RequestParam(defaultValue = "10") int pageSize,

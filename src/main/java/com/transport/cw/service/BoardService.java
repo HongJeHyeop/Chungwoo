@@ -58,7 +58,7 @@ public class BoardService {
     }
 
     /*** 페이징 ***/
-    public PagingResponse find_all(PagingDTO pagingDTO) {
+    public PagingResponse<BoardVO> find_all(PagingDTO pagingDTO) {
 
         int count = boardMapper.count(pagingDTO);
         log.info(count);
@@ -70,7 +70,7 @@ public class BoardService {
         pagingDTO.setPagination(pagination);
         List<BoardVO> boardVOS = boardMapper.find_all(pagingDTO);
 
-        return new PagingResponse(boardVOS, pagination);
+        return new PagingResponse<BoardVO>(boardVOS, pagination);
     }
 
     ;

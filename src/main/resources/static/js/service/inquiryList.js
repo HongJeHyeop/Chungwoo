@@ -18,7 +18,7 @@ function find_all_inquiry(nowPage, recordSize, pageSize, searchKeyword, searchTp
         .then(value => value.json())
         .then(value => {
             // 리스트 생성
-            create_inquiry_list(value.inquiryVOS);
+            create_inquiry_list(value.vos);
             // 페이지네이션 생성
             create_page_num(value.pagination);
             // 클릭이벤트

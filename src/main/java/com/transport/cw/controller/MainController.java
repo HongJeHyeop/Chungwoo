@@ -166,7 +166,7 @@ public class MainController {
 
     @ResponseBody
     @GetMapping("/community/notice/list")
-    public PagingResponse get_all_notice(
+    public PagingResponse<BoardVO> get_all_notice(
             @RequestParam(defaultValue = "1") int nowPage,
             @RequestParam(defaultValue = "10") int recordSize,
             @RequestParam(defaultValue = "10") int pageSize,

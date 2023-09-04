@@ -37,7 +37,7 @@ function find_all_notice(nowPage, recordSize, pageSize, searchKeyword, boardType
         .then(value => value.json())
         .then(value => {
             // 게시글 목록
-            create_repository_list(value.boardVOS)
+            create_repository_list(value.vos)
             // 페이지네이션
             create_page_num(value.pagination)
             // 페이지 클릭 이벤트 (색상변경)

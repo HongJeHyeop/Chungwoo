@@ -1,10 +1,8 @@
 package com.transport.cw.service;
 
 import com.transport.cw.domain.dtos.PagingDTO;
-import com.transport.cw.domain.vos.BoardVO;
 import com.transport.cw.domain.vos.InquiryVO;
 import com.transport.cw.mappers.InquiryMapper;
-import com.transport.cw.paging.InquiryPagingResponse;
 import com.transport.cw.paging.Pagination;
 import com.transport.cw.paging.PagingResponse;
 import lombok.extern.log4j.Log4j2;
@@ -21,19 +19,19 @@ public class InquiryService {
     @Autowired
     private InquiryMapper inquiryMapper;
 
-    public InquiryPagingResponse find_all_inquiry(PagingDTO pagingDTO) {
+    public PagingResponse<InquiryVO> find_all_inquiry(PagingDTO pagingDTO) {
 
         int count = inquiryMapper.count(pagingDTO);
         log.info(count);
         if (count < 1) {
-            return new InquiryPagingResponse(Collections.emptyList(), null);
+            return new PagingResponse(Collections.emptyList(), null);
         }
 
         Pagination pagination = new Pagination(count, pagingDTO);
         pagingDTO.setPagination(pagination);
         List<InquiryVO> inquiryVOS = inquiryMapper.find_all_inquiry(pagingDTO);
 
-        return new InquiryPagingResponse(inquiryVOS, pagination);
+        return new PagingResponse<InquiryVO>(inquiryVOS, pagination);
     }
 
     public List<InquiryVO> simple_main_inquiry(){
