@@ -40,3 +40,15 @@ section {
     font-size: 2rem;
     text-shadow: 2px 2px 3px black;
 }
+
+@media only screen and (max-width: 768px) {
+    /*** 내용 ***/
+    #body-wrapper {
+        width: 100%;
+        padding-top: 5rem;
+    }
+    #container {
+        width: 100%;
+    }
+
+}

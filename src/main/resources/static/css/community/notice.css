@@ -174,15 +174,15 @@
     .tbl-title {
         width: 15%;
         height: 3rem;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
     .tbl-content {
         width: 65%;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
     .tbl-upload {
         width: 20%;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 
     #page-num {
